@@ -38,7 +38,7 @@ export const registerAccount = (req: Request, res: Response) => {
             start: 0,
             start_remain: 0
         },
-        tutorial_step: 110,
+        tutorial_step: 110, // alows you to change state of tutorialWorkspace
         user_id: 1
     };
 
