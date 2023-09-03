@@ -17,7 +17,7 @@ app.use(
       winston.format.printf((info) => {
         if (info.meta && info.meta.req && info.meta.res) {
           const { req, res, responseTime } = info.meta;
-          return `Request: ${req.method} ${req.url} | Response: ${res.statusCode} ${responseTime}ms`;
+          return `Request: ${JSON.stringify(req)} | Response: ${res.statusCode} ${responseTime}ms`;
         }
         return info.message; // fallback to default message if req and res aren't available
       })

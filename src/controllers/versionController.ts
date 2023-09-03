@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { encryptAndSend } from "../services/crypto/encryptionHelpers";
-import { IP } from "../config";
+import { IP } from "../ipconfig";
 
 export const getVersionData = (req: Request, res: Response) => {
   const version = {
@@ -13,5 +13,5 @@ export const getVersionData = (req: Request, res: Response) => {
     REMOVEDnew_maintenance_env: "maintenance_env"
   };
   
-  encryptAndSend(version, res);
+  res.status(200).header('Content-Type', 'application/json').send(version);
 };
