@@ -33,7 +33,7 @@
     "clean": "rimraf dist",
     "build": "yarn clean && tsc",
     "dev": "ts-node index.ts",
-    "start": "node -- --openssl-legacy-provider dist/index.js",
+    "start": "node --openssl-legacy-provider dist/index.js",
     "start:dev": "nodemon  --openssl-legacy-provider ./src/index.ts"
   },
   "engines": {

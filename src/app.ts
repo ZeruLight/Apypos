@@ -6,6 +6,32 @@ import winston from "winston";
 
 const app = express();
 
+// Middleware to capture raw data from 'application/octet-stream' content type
+app.use((req, res, next) => {
+  if (req.is("application/octet-stream")) {
+    console.log('Detected application/octet-stream content type');
+
+    let data = [];
+
+    req.on("data", (chunk) => {
+      data.push(chunk);
+    });
+
+    req.on("end", () => {
+      req.rawBody = Buffer.concat(data);
+      console.log('Captured raw data:', req.rawBody.toString("hex"));
+      next();
+    });
+
+    req.on("error", (err) => {
+      console.error("Error processing raw request:", err);
+      next(err); 
+    });
+  } else {
+    next();
+  }
+});
+
 // Middleware configurations
 app.use(express.json());
 
@@ -17,12 +43,18 @@ app.use(
       winston.format.printf((info) => {
         if (info.meta && info.meta.req && info.meta.res) {
           const { req, res, responseTime } = info.meta;
-          return `Request: ${JSON.stringify(req)} | Response: ${res.statusCode} ${responseTime}ms`;
+          let log = `Request: ${JSON.stringify(req)} | Response: ${
+            res.statusCode
+          } ${responseTime}ms`;
+          if (req.rawBody) {
+            log += ` | Raw Body: ${req.rawBody.toString("hex")}`;
+          }
+          return log;
         }
-        return info.message; // fallback to default message if req and res aren't available
+        return info.message; 
       })
     ),
-    meta: true, // this is important to ensure the req and res objects are available
+    meta: true, 
     expressFormat: true,
     colorize: true,
   })
