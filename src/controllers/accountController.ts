@@ -88,3 +88,17 @@ export const loginAccount = (req: Request, res: Response) => {
 
     encryptAndSend(version, res);
 };
+
+export const migrationReady = (req: Request, res: Response) => {
+    const data = {
+        flags: [],
+      };
+      encryptAndSend(data, res);
+};
+
+export const migrationAuth = (req: Request, res: Response) => {
+    const data = {
+        flags: [],
+      };
+      encryptAndSend(data, res);
+};
