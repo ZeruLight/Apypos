@@ -17,6 +17,8 @@ import capLinkRouter from './api/capLink.router';
 import eventRouter from './api/event.router';
 import shopRouter from './api/shop.router';
 import nyankanRouter from './api/nyanken.router';
+import checkRouter from './api/checkRouter';
+import resRouter from './api/resRouter';
 
 const router = Router();
 
@@ -24,6 +26,7 @@ const router = Router();
 router.use('/api/maintenance', maintenanceRouter);
 router.use('/maintenance_env', maintenanceEnvRouter)
 router.use('/api/account', accountRouter)
+router.use('/api/check', checkRouter);
 router.use('/api/quest', questRouter);
 router.use('/api/box', boxRouter);
 router.use('/api/event', eventRouter);
@@ -43,5 +46,8 @@ router.use('', versionRouter);
 
 // For web
 router.use('/web', webRouter);
+
+router.use('/res', resRouter);
+
 
 export default router;

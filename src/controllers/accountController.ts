@@ -38,7 +38,7 @@ export const registerAccount = (req: Request, res: Response) => {
             start: 0,
             start_remain: 0
         },
-        tutorial_step: 1,
+        tutorial_step: 110,
         user_id: 1
     };
 
@@ -48,7 +48,7 @@ export const registerAccount = (req: Request, res: Response) => {
 export const loginAccount = (req: Request, res: Response) => {
     const version = {
         game_id: "1",
-        is_review: 0,
+        is_review: 1,
         login_id: "1",
         stretch_effect_info: {
             exchange_present: 0,
@@ -82,7 +82,7 @@ export const loginAccount = (req: Request, res: Response) => {
             start: 0,
             start_remain: 0
         },
-        tutorial_step: 1,
+        tutorial_step: 0,
         user_id: 1
     };
 
