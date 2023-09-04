@@ -3,6 +3,7 @@ node_modules
 .DS_STORE
 dist/
 config
+config.ts
 .vscode/
 package-lock.json
 data

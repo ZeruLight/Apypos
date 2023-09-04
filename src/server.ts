@@ -1,6 +1,6 @@
 import app from './app';
+import { PORT } from './config';
 
-const PORT = 80;
 app.listen(PORT, () => {
     console.log(`Server started on http://localhost:${PORT}`);
 });

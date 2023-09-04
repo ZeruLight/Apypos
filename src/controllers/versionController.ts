@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { encryptAndSend } from "../services/crypto/encryptionHelpers";
-import { IP } from "../ipconfig";
+import { IP } from "../config";
 
 export const getVersionData = (req: Request, res: Response) => {
+  //TODO: seperate out IP into resourceIP etc for code splitting microservices?
   const version = {
     res: `http://${IP}/res`,
     api: `http://${IP}/api`,

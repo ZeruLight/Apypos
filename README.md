@@ -1,13 +1,13 @@
-# Project Name
-
+# Project (Undecided) Boromir/Flame/Argo
 This repository contains the source code for a private server for the game Monster Hunter Explore.
 
+## Why the Name?
 The server is called Boromir, after the Guild Executive from MHXR, but the name was randomly chosen by the developer as they had not played the game when it was live.
 
 ## Prerequisites
 
 * Node.js and npm
-    * Using NVM
+    * Using NVM [Download NVM here](https://github.com/nvm-sh/nvm/releases/)
         ```bash
         nvm install [version_number]
         ```
@@ -43,7 +43,9 @@ The server is called Boromir, after the Guild Executive from MHXR, but the name 
     ```bash
     yarn install
     ```
-    
+    ```bash
+    yarn run install:clean
+    ```
 
 3. Configuration:
 
@@ -63,8 +65,13 @@ After setting up, you can run the project using:
   ```bash
     yarn start
   ```
+Alternatively you can run it in dev mode which enables nodemon for automatic file refresh
 
-Your server should start, and you should be able to access it on `http://localhost:3000` or whatever port you've configured.
+  ```bash
+    yarn run start:dev
+  ```
+
+Your server should start, and you should be able to access it on `http://localhost:80` or whatever port you've configured.
 
 ## Logging
 
