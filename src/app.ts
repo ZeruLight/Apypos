@@ -18,10 +18,8 @@ app.use((req, res, next) => {
 
     req.on("end", () => {
       const rawBody = Buffer.concat(data);
-      // req.body = decryptAndParse(rawBody);
-      console.log("Raw body:", rawBody);
       const decryptedBody = decryptAndParse(rawBody);
-      console.log("Decrypted body:", decryptedBody);
+      req.body = decryptedBody;
       next();
     });
 

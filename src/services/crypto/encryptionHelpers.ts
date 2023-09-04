@@ -10,5 +10,6 @@ export function encryptAndSend(data: object, res: Response) {
 
 export function decryptAndParse(data: Buffer) {
     const decryptedData = encryptionService.decrypt(data);
-    return decryptedData;
+    const parsedData = JSON.parse(decryptedData);
+    return parsedData;
 }
