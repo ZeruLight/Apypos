@@ -14,13 +14,15 @@ import { encryptAndSend } from "../services/crypto/encryptionHelpers";
 
 export const getTutorialFlag = (req: Request, res: Response) => {
   const data = {
-    flags: [110,210,310,1010,2010,3010,4010,5010,0xFFF],
+    flags: [],
   };
   encryptAndSend(data, res);
 };
 export const stepUP = (req: Request, res: Response) => {
   const data = {
-    tutorial_step: 210, 
+    tutorial_step: 2010, 
   };
+  console.log(`TutorialStepUp: ${data.tutorial_step}`)
+
   encryptAndSend(data, res);
 };

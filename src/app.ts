@@ -18,9 +18,10 @@ app.use((req, res, next) => {
     });
 
     req.on("end", () => {
-      req.rawBody = Buffer.concat(data);
-      console.log('Captured raw data:', req.rawBody.toString("hex"));
+      req.body = Buffer.concat(data);
+      console.log('Captured raw data:', req.body.toString("hex"));
       next();
+
     });
 
     req.on("error", (err) => {
@@ -43,11 +44,12 @@ app.use(
       winston.format.printf((info) => {
         if (info.meta && info.meta.req && info.meta.res) {
           const { req, res, responseTime } = info.meta;
-          let log = `Request: ${JSON.stringify(req)} | Response: ${
+          let log = "---------------------------------\n"
+          log += `Request: ${JSON.stringify(req)} | Response: ${
             res.statusCode
-          } ${responseTime}ms`;
-          if (req.rawBody) {
-            log += ` | Raw Body: ${req.rawBody.toString("hex")}`;
+          } ${responseTime}ms\n`;
+          if (req.body) {
+            log += ` | Raw Body: ${req.body.toString("hex")}`;
           }
           return log;
         }

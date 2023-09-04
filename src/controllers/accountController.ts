@@ -38,9 +38,10 @@ export const registerAccount = (req: Request, res: Response) => {
             start: 0,
             start_remain: 0
         },
-        tutorial_step: 110, // alows you to change state of tutorialWorkspace
+        tutorial_step: 0xFFFF, // alows you to change state of tutorialWorkspace
         user_id: 1
     };
+    console.log(`TutorialStepUp: ${version.tutorial_step}`)
 
     encryptAndSend(version, res);
 };
@@ -85,20 +86,8 @@ export const loginAccount = (req: Request, res: Response) => {
         tutorial_step: 0,
         user_id: 1
     };
+    console.log(`TutorialStepUp: ${version.tutorial_step}`)
 
     encryptAndSend(version, res);
 };
 
-export const migrationReady = (req: Request, res: Response) => {
-    const data = {
-        flags: [],
-      };
-      encryptAndSend(data, res);
-};
-
-export const migrationAuth = (req: Request, res: Response) => {
-    const data = {
-        flags: [],
-      };
-      encryptAndSend(data, res);
-};

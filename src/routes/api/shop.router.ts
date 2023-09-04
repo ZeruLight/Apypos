@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import * as shopController from '../../controllers/shopController';
+import * as notImplemented from '../../controllers/notImplementedController';
 
 const shopRouter = Router();
 
-shopRouter.post('/info', shopController.info);
+shopRouter.post('/info', notImplemented.blankResponseEncrypted);
 
 export default shopRouter;

@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import * as questController from '../../controllers/questController';
+import * as notImplemented from '../../controllers/notImplementedController';
 
 const questRouter = Router();
 
@@ -10,8 +11,8 @@ questRouter.post('/progress', questController.questProgress);
 questRouter.post('/forest/progress', questController.questForestProgress);
 questRouter.post('/forest/end', questController.questForestEnd);
 questRouter.post('/island/map/all', questController.islandMapAll);
-questRouter.post('/event/list/all', questController.eventListAll);
-questRouter.post('/event/ticket/free', questController.eventTicketFree);
-questRouter.post('/eternal/all', questController.eternalAll);
+questRouter.post('/event/list/all', notImplemented.blankResponseEncrypted);
+questRouter.post('/event/ticket/free', notImplemented.blankResponseEncrypted);
+questRouter.post('/eternal/all', notImplemented.blankResponseEncrypted);
 
 export default questRouter;

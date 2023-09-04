@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import * as nyankenController from '../../controllers/nyankenController';
+import * as notImplemented from '../../controllers/notImplementedController';
 
 const nyankanRouter = Router();
 
-nyankanRouter.post('/progress', nyankenController.progress);
+nyankanRouter.post('/progress', notImplemented.blankResponseEncrypted);
 
 export default nyankanRouter;

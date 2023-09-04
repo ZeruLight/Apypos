@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import * as capLinkController from '../../controllers/capLinkController';
+import * as notImplemented from '../../controllers/notImplementedController';
 
 const capLinkRouter = Router();
 
-capLinkRouter.post('/push_register', capLinkController.pushRegister);
+capLinkRouter.post('/push_register', notImplemented.blankResponseEncrypted);
 
 export default capLinkRouter;

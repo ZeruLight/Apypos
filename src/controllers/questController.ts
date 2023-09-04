@@ -67,23 +67,3 @@ export const islandMapAll = (req: Request, res: Response) => {
   encryptAndSend(data, res);
 };
 
-export const eventListAll = (req: Request, res: Response) => {
-  const data = {
-    flags: [],
-  };
-  encryptAndSend(data, res);
-};
-
-export const eventTicketFree = (req: Request, res: Response) => {
-  const data = {
-    flags: [],
-  };
-  encryptAndSend(data, res);
-};
-
-export const eternalAll = (req: Request, res: Response) => {
-  const data = {
-    flags: [],
-  };
-  encryptAndSend(data, res);
-};

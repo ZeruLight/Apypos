@@ -7,6 +7,8 @@ import bannerRouter from './api/banner.router';
 import welcomeRouter from './api/welcome.router';
 import versionRouter from './api/version.router';
 import webRouter from './web.router';
+import guildRouter from './api/guild.router';
+
 import maintenanceEnvRouter from './maintenanceEnv.router';
 import tutorialRouter from './api/tutorial.router';
 import boxRouter from './api/box.router';
@@ -31,6 +33,8 @@ router.use('/api/quest', questRouter);
 router.use('/api/box', boxRouter);
 router.use('/api/event', eventRouter);
 router.use('/api/user', userRouter);
+router.use('/api/guild', guildRouter);
+
 router.use('/api/activity', activityRouter);
 router.use('/api/notice', noticeRouter);
 router.use('/api/caplink', capLinkRouter);
