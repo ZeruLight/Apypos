@@ -3,14 +3,13 @@ import routes from "./routes";
 import expressWinston from "express-winston";
 import { logger } from "./logger";
 import winston from "winston";
+import { decryptAndParse } from "./services/crypto/encryptionHelpers";
 
 const app = express();
 
 // Middleware to capture raw data from 'application/octet-stream' content type
 app.use((req, res, next) => {
   if (req.is("application/octet-stream")) {
-    console.log('Detected application/octet-stream content type');
-
     let data = [];
 
     req.on("data", (chunk) => {
@@ -18,15 +17,17 @@ app.use((req, res, next) => {
     });
 
     req.on("end", () => {
-      req.body = Buffer.concat(data);
-      console.log('Captured raw data:', req.body.toString("hex"));
+      const rawBody = Buffer.concat(data);
+      // req.body = decryptAndParse(rawBody);
+      console.log("Raw body:", rawBody);
+      const decryptedBody = decryptAndParse(rawBody);
+      console.log("Decrypted body:", decryptedBody);
       next();
-
     });
 
     req.on("error", (err) => {
       console.error("Error processing raw request:", err);
-      next(err); 
+      next(err);
     });
   } else {
     next();
@@ -44,7 +45,7 @@ app.use(
       winston.format.printf((info) => {
         if (info.meta && info.meta.req && info.meta.res) {
           const { req, res, responseTime } = info.meta;
-          let log = "---------------------------------\n"
+          let log = "---------------------------------\n";
           log += `Request: ${JSON.stringify(req)} | Response: ${
             res.statusCode
           } ${responseTime}ms\n`;
@@ -53,10 +54,10 @@ app.use(
           }
           return log;
         }
-        return info.message; 
+        return info.message;
       })
     ),
-    meta: true, 
+    meta: true,
     expressFormat: true,
     colorize: true,
   })
