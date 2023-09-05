@@ -3,11 +3,13 @@ import { encryptAndSend } from "../services/crypto/encryptionHelpers";
 import { IP } from "../config";
 
 export const getMaintenanceEnvSchedule = (req: Request, res: Response) => {
+  console.log(req.body)
+
   const data = {
     session_id: "1",
     block_seq: "0",
     app_ver: "09.03.06",
-    res_ver: "282",
+    res_ver: "v0282",
     error_code: "200",
     now_time: 1,
     relogin_time: 0,
@@ -20,10 +22,12 @@ export const getMaintenanceEnvSchedule = (req: Request, res: Response) => {
 };
 
 export const checkMaintenance = (req: Request, res: Response) => {
+  console.log(req.body)
+
   const data = {
     is_maintenance: 0,
     title_banner: {
-      banner_id: "01",
+      banner_id: "02",
       timeLeft: "0",
       type: "type",
       url: `http://${IP}/bannerurl`,
@@ -34,16 +38,18 @@ export const checkMaintenance = (req: Request, res: Response) => {
 };
 
 export const getTitleImage = (req: Request, res: Response) => {
+  console.log(req.body)
+
   const data = {
     title_banner: {
-      banner_id: "1",
+      banner_id: "",
       timeLeft: 200,
-      type: "TypeA",
-      url: "https://example.com/banner",
+      type: "0",
+      url: "http://"+IP+"/banner.png",
     },
     title_image: {
-      mst_title_image_id: 1,
-      mst_title_logo_id: 1,
+      mst_title_image_id: 12,
+      mst_title_logo_id: 12,
     },
   };
   encryptAndSend(data, res);

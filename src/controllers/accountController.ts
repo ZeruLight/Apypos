@@ -2,6 +2,8 @@ import { Request, Response } from 'express';
 import { encryptAndSend } from '../services/crypto/encryptionHelpers';
 
 export const registerAccount = (req: Request, res: Response) => {
+    console.log(req.body)
+
     const version = {
         game_id: "1",
         is_review: 0,
@@ -12,7 +14,7 @@ export const registerAccount = (req: Request, res: Response) => {
             free_auto_infinity: 0,
             increase_add: 0,
             increase_inf: 0,
-            mst_event_info_id: 0
+            mst_event_info_id: 1
         },
         time_info: {
             end: 0,
@@ -38,7 +40,7 @@ export const registerAccount = (req: Request, res: Response) => {
             start: 0,
             start_remain: 0
         },
-        tutorial_step: 0xFFFF, // alows you to change state of tutorialWorkspace
+        tutorial_step: 110,
         user_id: 1
     };
     console.log(`TutorialStepUp: ${version.tutorial_step}`)
@@ -47,6 +49,8 @@ export const registerAccount = (req: Request, res: Response) => {
 };
 
 export const loginAccount = (req: Request, res: Response) => {
+    console.log(req.body)
+
     const version = {
         game_id: "1",
         is_review: 1,
@@ -57,7 +61,7 @@ export const loginAccount = (req: Request, res: Response) => {
             free_auto_infinity: 0,
             increase_add: 0,
             increase_inf: 0,
-            mst_event_info_id: 0
+            mst_event_info_id: 1
         },
         time_info: {
             end: 0,
@@ -83,7 +87,7 @@ export const loginAccount = (req: Request, res: Response) => {
             start: 0,
             start_remain: 0
         },
-        tutorial_step: 0,
+        tutorial_step: 110,
         user_id: 1
     };
     console.log(`TutorialStepUp: ${version.tutorial_step}`)

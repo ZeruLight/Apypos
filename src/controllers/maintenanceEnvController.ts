@@ -3,9 +3,11 @@ import { encryptAndSend } from "../services/crypto/encryptionHelpers";
 import { IP } from "../config";
 
 export const getMaintenanceEnvSchedule = (req: Request, res: Response) => {
+  console.log(req.body)
+
   const data = {
     session_id: "1",
-    block_seq: "0",
+    block_seq: 10,
     app_ver: "09.03.06",
     res_ver: "282",
     error_code: "200",

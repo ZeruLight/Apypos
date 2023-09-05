@@ -20,7 +20,6 @@ import eventRouter from './api/event.router';
 import shopRouter from './api/shop.router';
 import nyankanRouter from './api/nyanken.router';
 import checkRouter from './api/checkRouter';
-import resRouter from './api/resRouter';
 
 const router = Router();
 
@@ -51,7 +50,6 @@ router.use('', versionRouter);
 // For web
 router.use('/web', webRouter);
 
-router.use('/res', resRouter);
 
 
 export default router;

@@ -34,6 +34,7 @@ app.use((req, res, next) => {
 
 // Middleware configurations
 app.use(express.json());
+app.use(express.static('public'));
 
 app.use(
   expressWinston.logger({
