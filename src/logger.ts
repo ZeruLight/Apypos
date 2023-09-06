@@ -1,15 +1,15 @@
-import winston from 'winston';
+import winston from "winston";
 
 export const logger = winston.createLogger({
-  level: 'info',
+  level: "info",
   format: winston.format.combine(
     winston.format.timestamp(),
-    winston.format.json()
+    winston.format.json(),
   ),
-  defaultMeta: { service: 'mhxr-server' },
+  defaultMeta: { service: "mhxr-server" },
   transports: [
     new winston.transports.Console({
-      format: winston.format.simple()
-    })
-  ]
+      format: winston.format.simple(),
+    }),
+  ],
 });

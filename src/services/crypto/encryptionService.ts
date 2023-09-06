@@ -11,7 +11,7 @@ export class EncryptionService {
     const cipher = crypto.createCipheriv(
       "BF-ECB",
       Buffer.from(this.keyHex, "hex"),
-      null
+      null,
     );
     let crypted = cipher.update(data, "utf8", "hex");
     crypted += cipher.final("hex");
@@ -22,7 +22,7 @@ export class EncryptionService {
     const decipher = crypto.createDecipheriv(
       "bf-ecb",
       Buffer.from(this.keyHex, "hex"),
-      null
+      null,
     );
 
     // Disable auto padding for the decipher object

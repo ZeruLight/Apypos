@@ -7,6 +7,10 @@ import { decryptAndParse } from "./services/crypto/encryptionHelpers";
 
 const app = express();
 
+// Middleware configurations
+app.use(express.json());
+app.use(express.static("public"));
+
 // Middleware to capture raw data from 'application/octet-stream' content type
 app.use((req, res, next) => {
   if (req.is("application/octet-stream")) {
@@ -20,6 +24,10 @@ app.use((req, res, next) => {
       const rawBody = Buffer.concat(data);
       const decryptedBody = decryptAndParse(rawBody);
       req.body = decryptedBody;
+
+      // Log directly here for debugging
+      console.log("Decrypted Body:", req.body);
+
       next();
     });
 
@@ -32,10 +40,6 @@ app.use((req, res, next) => {
   }
 });
 
-// Middleware configurations
-app.use(express.json());
-app.use(express.static('public'));
-
 app.use(
   expressWinston.logger({
     transports: [new winston.transports.Console()],
@@ -43,23 +47,25 @@ app.use(
       winston.format.colorize(),
       winston.format.printf((info) => {
         if (info.meta && info.meta.req && info.meta.res) {
-          const { req, res, responseTime } = info.meta;
+          const { req, res } = info.meta;
           let log = "---------------------------------\n";
-          log += `Request: ${JSON.stringify(req)} | Response: ${
-            res.statusCode
-          } ${responseTime}ms\n`;
-          if (req.body) {
-            log += ` | Raw Body: ${req.body.toString("hex")}`;
-          }
+          log += `Request: ${JSON.stringify(req)} | Response: ${JSON.stringify(
+            res,
+          )}\n`;
           return log;
         }
         return info.message;
-      })
+      }),
     ),
     meta: true,
     expressFormat: true,
     colorize: true,
-  })
+    dynamicMeta: (req, res) => {
+      return {
+        body: req.body,
+      };
+    },
+  }),
 );
 
 // Setup routes
@@ -71,9 +77,9 @@ app.use(
     transports: logger.transports,
     format: winston.format.combine(
       winston.format.colorize(),
-      winston.format.json()
+      winston.format.json(),
     ),
-  })
+  }),
 );
 
 export default app;

@@ -1,8 +1,8 @@
-import { Router } from 'express';
-import * as notImplemented from '../../controllers/notImplementedController';
+import { Router } from "express";
+import * as notImplemented from "../../controllers/notImplementedController";
 
 const activityRouter = Router();
 
-activityRouter.post('/get', notImplemented.blankResponseEncrypted);
+activityRouter.post("/get", notImplemented.blankResponseEncrypted);
 
 export default activityRouter;

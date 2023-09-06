@@ -10,22 +10,19 @@ import { encryptAndSend } from "../services/crypto/encryptionHelpers";
 // 3010 = isStandardDL
 // 4010 = isIslandQuestPlay
 // 5010 = isIslandQuestEnd
-// 0xFFFF = isTutorialEnd 
+// 0xFFFF = isTutorialEnd
 
 export const getTutorialFlag = (req: Request, res: Response) => {
-  console.log(req.body)
   const data = {
     flags: [],
   };
   encryptAndSend(data, res);
 };
 export const stepUP = (req: Request, res: Response) => {
-  console.log(req.body)
-
   const data = {
-    tutorial_step: 310, 
+    tutorial_step: 310,
   };
-  console.log(`TutorialStepUp: ${data.tutorial_step}`)
+  console.log(`TutorialStepUp: ${data.tutorial_step}`);
 
   encryptAndSend(data, res);
 };

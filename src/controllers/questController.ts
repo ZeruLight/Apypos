@@ -2,8 +2,6 @@ import { Request, Response } from "express";
 import { encryptAndSend } from "../services/crypto/encryptionHelpers";
 
 export const questProgress = (req: Request, res: Response) => {
-  console.log(req.body)
-
   const data = {
     continue_num: 3,
     is_16multi: 0,
@@ -17,8 +15,6 @@ export const questProgress = (req: Request, res: Response) => {
 };
 
 export const questForestProgress = (req: Request, res: Response) => {
-  console.log(req.body)
-
   const data = {
     instance_id: 1,
     mst_event_info_id: 1,
@@ -32,8 +28,6 @@ export const questForestProgress = (req: Request, res: Response) => {
 };
 
 export const questForestEnd = (req: Request, res: Response) => {
-  console.log(req.body)
-
   const data = {
     boost_point_magnification: 0,
     boost_type: 0,
@@ -54,8 +48,6 @@ export const questForestEnd = (req: Request, res: Response) => {
 };
 
 export const islandMapAll = (req: Request, res: Response) => {
-  console.log(req.body)
-
   const data = {
     boost_point_magnification: 0,
     boost_type: 0,
@@ -74,4 +66,3 @@ export const islandMapAll = (req: Request, res: Response) => {
   };
   encryptAndSend(data, res);
 };
-
