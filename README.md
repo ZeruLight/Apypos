@@ -1,4 +1,4 @@
-# Project (Undecided) Boromir/Flame/Argo
+# Project Boromir
 This repository contains the source code for a private server for the game Monster Hunter Explore.
 
 ## Why the Name?
