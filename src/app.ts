@@ -9,7 +9,6 @@ const app = express();
 
 // Middleware configurations
 app.use(express.json());
-app.use(express.static("public"));
 
 // Middleware to capture raw data from 'application/octet-stream' content type
 app.use((req, res, next) => {
@@ -70,6 +69,8 @@ app.use(
 
 // Setup routes
 app.use("/", routes);
+app.use(express.static("public"));
+
 
 // Error logger middleware
 app.use(
