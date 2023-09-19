@@ -12,6 +12,7 @@ app.use(express.json());
 
 // Middleware to capture raw data from 'application/octet-stream' content type
 app.use((req, res, next) => {
+  console.log(req.url)
   if (req.is("application/octet-stream")) {
     let data = [];
 
@@ -47,6 +48,7 @@ app.use(
       winston.format.printf((info) => {
         if (info.meta && info.meta.req && info.meta.res) {
           const { req, res } = info.meta;
+          
           let log = "---------------------------------\n";
           log += `Request: ${JSON.stringify(req)} | Response: ${JSON.stringify(
             res,
@@ -70,7 +72,6 @@ app.use(
 // Setup routes
 app.use("/", routes);
 app.use(express.static("public"));
-
 
 // Error logger middleware
 app.use(

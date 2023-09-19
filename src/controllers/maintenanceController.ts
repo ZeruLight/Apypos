@@ -23,12 +23,12 @@ export const checkMaintenance = (req: Request, res: Response) => {
   const data = {
     is_maintenance: 0,
     title_banner: {
-      banner_id: "02",
-      timeLeft: "0",
-      type: "type",
-      url: `http://${IP}/bannerurl`,
+      banner_id: "0",
+      timeLeft: 0,
+      type: 0,
+      url: "",
     },
-    web_url: `http://${IP}/weburl`,
+    web_url: "",
   };
   encryptAndSend(data, res);
 };
@@ -36,14 +36,14 @@ export const checkMaintenance = (req: Request, res: Response) => {
 export const getTitleImage = (req: Request, res: Response) => {
   const data = {
     title_banner: {
-      banner_id: "",
+      banner_id: "0",
       timeLeft: 200,
-      type: "0",
+      type: "",
       url: "http://" + IP + "/banner.png",
     },
     title_image: {
-      mst_title_image_id: 12,
-      mst_title_logo_id: 12,
+      mst_title_image_id: 1,//0 Forbidden Ground //1 normal
+      mst_title_logo_id: 0, //0 Forbidden Ground //1 normal
     },
   };
   encryptAndSend(data, res);
