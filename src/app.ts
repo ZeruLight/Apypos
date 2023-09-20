@@ -71,7 +71,7 @@ app.use(
 
 // Setup routes
 app.use("/", routes);
-app.use(express.static("public"));
+app.use(express.static("src\\public"));
 
 // Error logger middleware
 app.use(

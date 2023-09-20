@@ -12,7 +12,7 @@ export const registerAccount = (req: Request, res: Response) => {
       free_auto_infinity: 0,
       increase_add: 0,
       increase_inf: 0,
-      mst_event_info_id: 1,
+      mst_event_info_id: 0,
     },
     time_info: {
       end: 0,
@@ -38,7 +38,7 @@ export const registerAccount = (req: Request, res: Response) => {
       start: 0,
       start_remain: 0,
     },
-    tutorial_step: 110,
+    tutorial_step: 110, //Steps into Character Create
     user_id: 1,
   };
   console.log(`TutorialStepUp: ${version.tutorial_step}`);
