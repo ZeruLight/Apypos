@@ -29,14 +29,14 @@ export function makeDownloadList(type) {
             const fileData = fs.readFileSync(filePath);
             const fileSize = fs.statSync(filePath).size;
 
-            const crc = crcjam(fileData);
+            const jam = crcjam(fileData).toString(16);
 
             let parsedPath = filePath.replace(/\\/g, '/');
             parsedPath = parsedPath.replace("src/public/res/download/android", "")
             parsedPath = parsedPath.replace("/v0282", "")
 
 
-            data.push({ filePath: parsedPath, crc: crc.toString(16), fileSize });
+            data.push({ filePath: parsedPath, crc: jam, fileSize });
 
         });
         let response = '';
@@ -46,6 +46,8 @@ export function makeDownloadList(type) {
                 response += '\n';
             }
         });
+        console.log(response)
+
         fs.writeFile(folderPath + type + "/download.list", response, (err) => {
             if (err) {
                 console.error('Error creating the file:', err);

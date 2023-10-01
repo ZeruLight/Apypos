@@ -12,3 +12,7 @@ yarn-error.log
 yalc.lock
 yarn.lock
 src/ipconfig.ts
+/src/public/res/download/android/openingDL
+/src/public/res/download/android/trainingDL
+/src/public/res/download/android/tutorialDL
+/src/public/res/download/android/v0282

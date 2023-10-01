@@ -43,7 +43,7 @@ export const getTitleImage = (req: Request, res: Response) => {
     },
     title_image: {
       mst_title_image_id: 1,//0 Forbidden Ground //1 normal
-      mst_title_logo_id: 0, //0 Forbidden Ground //1 normal
+      mst_title_logo_id: 1, //0 Forbidden Ground //1 normal
     },
   };
   encryptAndSend(data, res);
