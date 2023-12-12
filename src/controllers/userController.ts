@@ -3,37 +3,86 @@ import { encryptAndSend } from "../services/crypto/encryptionHelpers";
 
 export const get = (req: Request, res: Response) => {
   const data = {
-    payment_model_info: {},
-    face: {},
-    man: [],
-    woman: [],
+    payment_model_info: {
+      face: {
+        man: [],
+        woman: []
+      }
+    },
     user_info: {
       capacity_eqp_set: 1,
       caplink_id: "",
       comment: "",
-      equip_sets: [
-        {
-          arm: {},
-          body: {},
-          head: {},
-          partner_equip_sets: [
-            // {
-            //   "arm": {},
-            //   "body": {},
-            //   "head": {},
-            //   "weapon": {},
-            //   "secret_weapon": {},
-            //   "talisman": {},
-            //   "waist": {},
-            //   "mst_partner_id": 0
-            // }
-            // More partner_equip_sets if present
-          ],
+      equip_sets: [{
+        arm: {
+          created: 1701921942,
+          equipment_id: "AD_ARM006",
+          level: 1,
+          mst_equipment_id: 3325982510,
+          potential: 1,
+          skill_level: 1
         },
-        // More equip_sets if present
+        body: {
+          created: 1701921942,
+          equipment_id: "AD_BODY006",
+          level: 1,
+          mst_equipment_id: 1801022340,
+          potential: 1,
+          skill_level: 1
+        },
+        leg: {
+          created: 1701921942,
+          equipment_id: "AD_LEG006",
+          level: 1,
+          mst_equipment_id: 3353202438,
+          potential: 1,
+          skill_level: 1
+        },
+        head: {
+          created: 1701921942,
+          equipment_id: "AD_HEAD006",
+          level: 1,
+          mst_equipment_id: 69277598,
+          potential: 1,
+          skill_level: 1
+        },
+        index: 1,
+        partner_equip_sets: [],
+        secret_weapon: {
+          created: 1701921942,
+          equipment_id: "WD_SWORD000",
+          level: 1,
+          mst_equipment_id: 10112309,
+          potential: 1,
+          skill_level: 1
+        },
+        talisman: {
+          created: 1701921942,
+          equipment_id: "OD_OMA689",
+          level: 1,
+          mst_equipment_id: 3229325580,
+          potential: 1,
+          skill_level: 1
+        },
+        waist: {
+          created: 1701921942,
+          equipment_id: "AD_WST006",
+          level: 1,
+          mst_equipment_id: 62957325,
+          potential: 1,
+          skill_level: 1
+        },
+        weapon: {
+          created: 1701921942,
+          equipment_id: "WD_SWORD001",
+          level: 1,
+          mst_equipment_id: 2006810019,
+          potential: 1,
+          skill_level: 1
+        }}
       ],
     },
-    game_id: "1",
+    game_id: "",
     model_info: {
       face: 1,
       gender: 1,
@@ -63,33 +112,45 @@ export const get = (req: Request, res: Response) => {
         mst_otomo_id: 1,
       },
     },
+    parameter: {
+      attack:1,
+      defence: 1,
+      hp: 1,
+      rank:1,
+      sp: 1
+    },
+    selected_equip_set_index: 1,
+    selected_partner: {
+      main_partner_id: "507850012",
+      quest_partner_id:"507850012"
+    },
     social_equip: {
       social_arm: {
-        equipment_id: "",
-        mst_equipment_id: 1,
+        equipment_id: "AD_ARM006",
+        mst_equipment_id: 3325982510,
       },
       social_body: {
-        equipment_id: "",
-        mst_equipment_id: 1,
+        equipment_id: "AD_BODY006",
+        mst_equipment_id: 1801022340,
       },
       social_head: {
-        equipment_id: "",
-        mst_equipment_id: 1,
+        equipment_id: "AD_HEAD006",
+        mst_equipment_id: 69277598,
       },
       social_leg: {
-        equipment_id: "",
-        mst_equipment_id: 1,
+        equipment_id: "AD_LEG006",
+        mst_equipment_id: 3353202438,
       },
       social_waist: {
-        equipment_id: "",
-        mst_equipment_id: 1,
+        equipment_id: "AD_WST006",
+        mst_equipment_id: 62957325,
       },
     },
     title: {
-      mst_title_id: 1,
+      mst_title_id: 0,
     },
-    use_social_equip: 1,
-    user_id: "1",
+    use_social_equip: 0,
+    user_id: "",
     subskill: [],
   };
   encryptAndSend(data, res);
@@ -98,14 +159,14 @@ export const get = (req: Request, res: Response) => {
 export const modelCreate = (req: Request, res: Response) => {
   const data = {
     model_info: {
-      face: 0,
-      gender: 0,
-      hair: 0,
-      hair_color: 0,
-      inner: 0,
-      skin: 0,
+      face: 1,
+      gender: 1,
+      hair: 1,
+      hair_color: 1,
+      inner: 1,
+      skin: 1,
     },
-    tutorial_step: 210, // activate video
+    tutorial_step: 210, // 210 activate video
   };
   console.log(`TutorialStep : ${data.tutorial_step}`);
 
@@ -120,143 +181,21 @@ export const otomoteamGet = (req: Request, res: Response) => {
 
 export const rename = (req: Request, res: Response) => {
   const data = {
-    name: "tests",
+    name: req.body.name,
   };
   encryptAndSend(data, res);
 };
-//TODO: Confirm struct
 export const equipSetGet = (req: Request, res: Response) => {
   const data = {
     capacity_eqp_set: 30,
     equip_sets: [
-      // {
-      //   "arm": {
-      //     "created": 1,
-      //     "equipment_id": "1",
-      //     "level": 1,
-      //     "mst_equipment_id": 1,
-      //     "potential": 1,
-      //     "skill_level": 1
-      //   },
-      //   "body": {
-      //     "created": 1,
-      //     "equipment_id": "1",
-      //     "level": 1,
-      //     "mst_equipment_id": 1,
-      //     "potential": 1,
-      //     "skill_level": 1
-      //   },
-      //   "head": {
-      //     "created": 1,
-      //     "equipment_id": "1",
-      //     "level": 1,
-      //     "mst_equipment_id": 1,
-      //     "potential": 1,
-      //     "skill_level": 1
-      //   },
-      //   "index": 1,
-      //   "partner_equip_sets": [
-      //     // {
-      //     //   "arm": {
-      //     //     "created": 1,
-      //     //     "equipment_id": "1",
-      //     //     "level": 1,
-      //     //     "mst_equipment_id": 1,
-      //     //     "potential": 1,
-      //     //     "skill_level": 1
-      //     //   },
-      //     //   "body": {
-      //     //     "created": 1,
-      //     //     "equipment_id": "1",
-      //     //     "level": 1,
-      //     //     "mst_equipment_id": 1,
-      //     //     "potential": 1,
-      //     //     "skill_level": 1
-      //     //   },
-      //     //   "head": {
-      //     //     "created": 1,
-      //     //     "equipment_id": "1",
-      //     //     "level": 1,
-      //     //     "mst_equipment_id": 1,
-      //     //     "potential": 1,
-      //     //     "skill_level": 1
-      //     //   },
-      //     //   "index": 1,
-      //     //   "secret_weapon": {
-      //     //     "created": 1,
-      //     //     "equipment_id": "1",
-      //     //     "level": 1,
-      //     //     "mst_equipment_id": 1,
-      //     //     "potential": 1,
-      //     //     "skill_level": 1
-      //     //   },
-      //     //   "talisman": {
-      //     //     "created": 1,
-      //     //     "equipment_id": "1",
-      //     //     "level": 1,
-      //     //     "mst_equipment_id": 1,
-      //     //     "potential": 1,
-      //     //     "skill_level": 1
-      //     //   },
-      //     //   "waist": {
-      //     //     "created": 1,
-      //     //     "equipment_id": "1",
-      //     //     "level": 1,
-      //     //     "mst_equipment_id": 1,
-      //     //     "potential": 1,
-      //     //     "skill_level": 1
-      //     //   },
-      //     //   "weapon": {
-      //     //     "created": 1,
-      //     //     "equipment_id": "1",
-      //     //     "level": 1,
-      //     //     "mst_equipment_id": 1,
-      //     //     "potential": 1,
-      //     //     "skill_level": 1
-      //     //   }
-      //     // },
-      //     // Add more partner_equip_sets if needed...
-      //   ],
-      //   "secret_weapon": {
-      //     "created": 1,
-      //     "equipment_id": "1",
-      //     "level": 1,
-      //     "mst_equipment_id": 1,
-      //     "potential": 1,
-      //     "skill_level": 1
-      //   },
-      //   "talisman": {
-      //     "created": 1,
-      //     "equipment_id": "1",
-      //     "level": 1,
-      //     "mst_equipment_id": 1,
-      //     "potential": 1,
-      //     "skill_level": 1
-      //   },
-      //   "waist": {
-      //     "created": 1,
-      //     "equipment_id": "1",
-      //     "level": 1,
-      //     "mst_equipment_id": 1,
-      //     "potential": 1,
-      //     "skill_level": 1
-      //   },
-      //   "weapon": {
-      //     "created": 1,
-      //     "equipment_id": "1",
-      //     "level": 1,
-      //     "mst_equipment_id": 1,
-      //     "potential": 1,
-      //     "skill_level": 1
-      //   }
-      // },
-      // // Add more equip_sets if needed...
     ],
   };
   encryptAndSend(data, res);
 };
 
 export const equipSetSocialGet = (req: Request, res: Response) => {
-  const data = {};
+  const data = {social_equip_sets:[]
+  };
   encryptAndSend(data, res);
 };

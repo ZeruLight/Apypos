@@ -4,13 +4,6 @@ import { IP } from "../config";
 
 export const getMaintenanceEnvSchedule = (req: Request, res: Response) => {
   const data = {
-    session_id: "1",
-    block_seq: "0",
-    app_ver: "09.03.06",
-    res_ver: "v0282",
-    error_code: "200",
-    now_time: 1,
-    relogin_time: 0,
     start: 0,
     end: 0,
     url: `http://${IP}/schedule/url`,
@@ -24,11 +17,11 @@ export const checkMaintenance = (req: Request, res: Response) => {
     is_maintenance: 0,
     title_banner: {
       banner_id: "0",
-      timeLeft: 0,
+      timeLeft: 2000,
       type: 0,
-      url: "",
+      url: "http://" + IP + "/test",
     },
-    web_url: "",
+    web_url: "http://" + IP + "/test1",
   };
   encryptAndSend(data, res);
 };
@@ -36,14 +29,14 @@ export const checkMaintenance = (req: Request, res: Response) => {
 export const getTitleImage = (req: Request, res: Response) => {
   const data = {
     title_banner: {
-      banner_id: "0",
-      timeLeft: 200,
-      type: "",
-      url: "http://" + IP + "/banner.png",
+      banner_id: "7008",
+      timeLeft: 2000,
+      type: "test",
+      url: "/" + IP + "/test2",
     },
     title_image: {
-      mst_title_image_id: 1,//0 Forbidden Ground //1 normal
-      mst_title_logo_id: 1, //0 Forbidden Ground //1 normal
+      mst_title_image_id: 0,//0 Forbidden Ground //1 normal
+      mst_title_logo_id: 0, //0 Forbidden Ground //1 normal
     },
   };
   encryptAndSend(data, res);
