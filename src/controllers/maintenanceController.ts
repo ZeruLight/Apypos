@@ -16,7 +16,7 @@ export const checkMaintenance = (req: Request, res: Response) => {
   const data = {
     is_maintenance: 0,
     title_banner: {
-      banner_id: "0",
+      banner_id: "7008",
       timeLeft: 2000,
       type: 0,
       url: "http://" + IP + "/test",
@@ -31,7 +31,7 @@ export const getTitleImage = (req: Request, res: Response) => {
     title_banner: {
       banner_id: "7008",
       timeLeft: 2000,
-      type: "test",
+      type: 1,
       url: "/" + IP + "/test2",
     },
     title_image: {

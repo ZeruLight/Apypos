@@ -373,7 +373,7 @@ export const get = (req: Request, res: Response) => {
           exp: 0,
           exp_max: 1000,
           level: 0,
-          level_cap_teir: 1,
+          level_cap_tier: 1,
           level_max: 100,
           mst_partner_id: 507850012,
           partner_id: "PT_CHAR_ID_001"
