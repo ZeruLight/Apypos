@@ -1,5 +1,6 @@
 # Project Boromir
 This repository contains the source code for a private server for the game Monster Hunter Explore.
+discord.gg/dnwcpxm488
 
 ## Why the Name?
 The server is called Boromir, after the Guild Executive from MHXR, but the name was randomly chosen by the developer as they had not played the game when it was live.
