@@ -10,50 +10,51 @@ export const get = (req: Request, res: Response) => {
       }
     },
     user_info: {
-      capacity_eqp_set: 40,
+      capacity_eqp_set: 1,
       caplink_id: "caplnk",
       comment: "comment",
       equip_sets: [{
         partner_equip_sets: [
           {
-            mst_partner_id: 0x1E452D1C,
+            mst_partner_id: 1,
+
             arm: {
               created: 1701921942,
-              equipment_id: "AD_ARM006",
+              equipment_id: "AD_ARM000",
               level: 1,
-              mst_equipment_id: 3325982510,
+              mst_equipment_id: 9,
               potential: 1,
               skill_level: 1
             },
             body: {
               created: 1701921942,
-              equipment_id: "AD_BODY006",
+              equipment_id: "AD_BODY000",
               level: 1,
-              mst_equipment_id: 1801022340,
+              mst_equipment_id: 8,
               potential: 1,
               skill_level: 1
             },
             leg: {
               created: 1701921942,
-              equipment_id: "AD_LEG006",
+              equipment_id: "AD_LEG000",
               level: 1,
-              mst_equipment_id: 3353202438,
+              mst_equipment_id: 11,
               potential: 1,
               skill_level: 1
             },
             head: {
               created: 1701921942,
-              equipment_id: "AD_HEAD006",
+              equipment_id: "AD_HEAD000",
               level: 1,
-              mst_equipment_id: 69277598,
+              mst_equipment_id: 7,
               potential: 1,
               skill_level: 1
             },
             secret_weapon: {
               created: 0,
-              equipment_id: "WD_SWORD001",
+              equipment_id: "WD_SWORD000",
               level: 1,
-              mst_equipment_id: 2006810019,
+              mst_equipment_id: 13,
               potential: 1,
               skill_level: 1
             },
@@ -61,23 +62,23 @@ export const get = (req: Request, res: Response) => {
               created: 1701921942,
               equipment_id: "OD_OMA000",
               level: 1,
-              mst_equipment_id: 0x75F3D712,
+              mst_equipment_id: 12,
               potential: 1,
               skill_level: 1
             },
             waist: {
               created: 1701921942,
-              equipment_id: "AD_WST006",
+              equipment_id: "AD_WST000",
               level: 1,
-              mst_equipment_id: 62957325,
+              mst_equipment_id: 10,
               potential: 1,
               skill_level: 1
             },
             weapon: {
               created: 1701921942,
-              equipment_id: "WD_SWORD001",
+              equipment_id: "WD_SWORD000",
               level: 1,
-              mst_equipment_id: 2006810019,
+              mst_equipment_id: 13,
               potential: 1,
               skill_level: 1
             }
@@ -85,42 +86,42 @@ export const get = (req: Request, res: Response) => {
         ],
         arm: {
           created: 1701921942,
-          equipment_id: "AD_ARM006",
+          equipment_id: "AD_ARM000",
           level: 1,
-          mst_equipment_id: 3325982510,
+          mst_equipment_id: 9,
           potential: 1,
           skill_level: 1
         },
         body: {
           created: 1701921942,
-          equipment_id: "AD_BODY006",
+          equipment_id: "AD_BODY000",
           level: 1,
-          mst_equipment_id: 1801022340,
+          mst_equipment_id: 8,
           potential: 1,
           skill_level: 1
         },
         leg: {
           created: 1701921942,
-          equipment_id: "AD_LEG006",
+          equipment_id: "AD_LEG000",
           level: 1,
-          mst_equipment_id: 3353202438,
+          mst_equipment_id: 11,
           potential: 1,
           skill_level: 1
         },
         head: {
           created: 1701921942,
-          equipment_id: "AD_HEAD006",
+          equipment_id: "AD_HEAD000",
           level: 1,
-          mst_equipment_id: 69277598,
+          mst_equipment_id: 7,
           potential: 1,
           skill_level: 1
         },
-        index: 20,
+        index: 1,
         secret_weapon: {
           created: 0,
-          equipment_id: "WD_SWORD001",
+          equipment_id: "WD_SWORD000",
           level: 1,
-          mst_equipment_id: 2006810019,
+          mst_equipment_id: 13,
           potential: 1,
           skill_level: 1
         },
@@ -128,23 +129,23 @@ export const get = (req: Request, res: Response) => {
           created: 1701921942,
           equipment_id: "OD_OMA000",
           level: 1,
-          mst_equipment_id: 0x75F3D712,
+          mst_equipment_id: 12,
           potential: 1,
           skill_level: 1
         },
         waist: {
           created: 1701921942,
-          equipment_id: "AD_WST006",
+          equipment_id: "AD_WST000",
           level: 1,
-          mst_equipment_id: 62957325,
+          mst_equipment_id: 10,
           potential: 1,
           skill_level: 1
         },
         weapon: {
           created: 1701921942,
-          equipment_id: "WD_SWORD001",
+          equipment_id: "WD_SWORD000",
           level: 1,
-          mst_equipment_id: 2006810019,
+          mst_equipment_id: 13,
           potential: 1,
           skill_level: 1
         }
@@ -161,28 +162,28 @@ export const get = (req: Request, res: Response) => {
       },
       name: "test",
       otomo_team: {
-        main: {
-          attack: 1,
-          created: 1,
-          defense: 1,
-          exp: 1,
-          hp: 1,
-          level: 1,
-          mst_otomo_id: 0x0BBFB5FD,
-          otomo_id:"OT_OTOMO_CHAR_ID_000",
-          subskil:[]
-        },
-        sub: {
-          attack: 1,
-          created: 1,
-          defense: 1,
-          exp: 1,
-          hp: 1,
-          level: 1,
-          mst_otomo_id: 0x0BBFB5FD,
-          otomo_id:"OT_OTOMO_CHAR_ID_000",
-          subskil:[]
-        },
+        // main: {
+        //   attack: 1,
+        //   created: 1,
+        //   defense: 1,
+        //   exp: 1,
+        //   hp: 1,
+        //   level: 1,
+        //   mst_otomo_id: 0,
+        //   otomo_id:"",
+        //   subskil:[]
+        // },
+        // sub: {
+        //   attack: 1,
+        //   created: 1,
+        //   defense: 1,
+        //   exp: 1,
+        //   hp: 1,
+        //   level: 1,
+        //   mst_otomo_id: ,
+        //   otomo_id:"",
+        //   subskil:[]
+        // },
       },
       parameter: {
         attack: 1,
@@ -191,37 +192,37 @@ export const get = (req: Request, res: Response) => {
         rank: 1,
         sp: 1
       },
-      selected_equip_set_index: 20,
+      selected_equip_set_index: 1,
       selected_partner: {
-        main_partner_id: "PT_CHAR_ID_001",
-        quest_partner_id: "PT_CHAR_ID_001"
+        main_partner_id: "",
+        quest_partner_id: ""
       },
       social_equip: {
         social_arm: {
-          equipment_id: "AD_ARM006",
-          mst_equipment_id: 3325982510,
+          equipment_id: "AD_ARM000",
+          mst_equipment_id: 9,
         },
         social_body: {
-          equipment_id: "AD_BODY006",
-          mst_equipment_id: 1801022340,
+          equipment_id: "AD_BODY000",
+          mst_equipment_id: 8,
         },
         social_head: {
-          equipment_id: "AD_HEAD006",
-          mst_equipment_id: 69277598,
+          equipment_id: "AD_HEAD000",
+          mst_equipment_id: 7,
         },
         social_leg: {
-          equipment_id: "AD_LEG006",
-          mst_equipment_id: 3353202438,
+          equipment_id: "AD_LEG000",
+          mst_equipment_id: 11,
         },
         social_waist: {
-          equipment_id: "AD_WST006",
-          mst_equipment_id: 62957325,
+          equipment_id: "AD_WST000",
+          mst_equipment_id: 10,
         },
       },
       title: {
-        mst_title_id: 1,
+        mst_title_id: 0,
       },
-      use_social_equip: 1,
+      use_social_equip: -1,
       user_id: "userID",
     }
     
@@ -273,50 +274,50 @@ export const equipSetSocialGet = (req: Request, res: Response) => {
       {
         gunner: {
           social_arm: {
-            equipment_id: "AD_ARM006",
-            mst_equipment_id: 3325982510,
+            equipment_id: "AD_ARM000",
+            mst_equipment_id: 9,
           },
           social_body: {
-            equipment_id: "AD_BODY006",
-            mst_equipment_id: 1801022340,
+            equipment_id: "AD_BODY000",
+            mst_equipment_id: 8,
           },
           social_head: {
-            equipment_id: "AD_HEAD006",
-            mst_equipment_id: 69277598,
+            equipment_id: "AD_HEAD000",
+            mst_equipment_id: 7,
           },
           social_leg: {
-            equipment_id: "AD_LEG006",
-            mst_equipment_id: 3353202438,
+            equipment_id: "AD_LEG000",
+            mst_equipment_id: 11,
           },
           social_waist: {
-            equipment_id: "AD_WST006",
-            mst_equipment_id: 62957325,
+            equipment_id: "AD_WST000",
+            mst_equipment_id: 10,
           },
         },
-        is_used: 1,
+        is_used: 0,
         knight: {
           social_arm: {
-            equipment_id: "AD_ARM006",
-            mst_equipment_id: 3325982510,
+            equipment_id: "AD_ARM000",
+            mst_equipment_id: 9,
           },
           social_body: {
-            equipment_id: "AD_BODY006",
-            mst_equipment_id: 1801022340,
+            equipment_id: "AD_BODY000",
+            mst_equipment_id: 8,
           },
           social_head: {
-            equipment_id: "AD_HEAD006",
-            mst_equipment_id: 69277598,
+            equipment_id: "AD_HEAD000",
+            mst_equipment_id: 7,
           },
           social_leg: {
-            equipment_id: "AD_LEG006",
-            mst_equipment_id: 3353202438,
+            equipment_id: "AD_LEG000",
+            mst_equipment_id: 11,
           },
           social_waist: {
-            equipment_id: "AD_WST006",
-            mst_equipment_id: 62957325,
+            equipment_id: "AD_WST000",
+            mst_equipment_id: 10,
           },
         },
-        mst_partner_id: 0x1E452D1C
+        mst_partner_id: 0
       }
       // Additional sets if there are more
     ]

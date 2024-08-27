@@ -12,7 +12,7 @@ export function encryptAndSend(data: object, res: Response) {
     app_ver:"09.03.06",
     res_ver:282,
     banner_ver:0,
-    session_id:"",
+    session_id:"session",
     block_seq:0,
     one_day_time:0,
     now_time:Date.now(),

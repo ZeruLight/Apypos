@@ -3,7 +3,7 @@ import { encryptAndSend } from "../services/crypto/encryptionHelpers";
 
 export const questProgress = (req: Request, res: Response) => {
   const data = {
-    continue_num: 3,
+    continue_num: 0,
     is_16multi: 0,
     is_multi_play: 0,
     is_progress: 0,
@@ -16,11 +16,11 @@ export const questProgress = (req: Request, res: Response) => {
 
 export const questForestProgress = (req: Request, res: Response) => {
   const data = {
-    instance_id: 1,
-    mst_event_info_id: 1,
+    instance_id: 0,
+    mst_event_info_id: 0,
     playing_node_info: {
-      mst_forest_node_id: 1,
-      mst_forest_quest_id: 1,
+      mst_forest_node_id: 0,
+      mst_forest_quest_id: 0,
     },
     progress: 0,
   };

@@ -4,10 +4,10 @@ import { IP } from "../config";
 
 export const getMaintenanceEnvSchedule = (req: Request, res: Response) => {
   const data = {
-    start: 0,
-    end: 0,
-    url: `http://${IP}/schedule/url`,
-    master_list: [{ login_id: "1" }, { login_id: "2" }],
+    start: 1724717135,
+    end: 1824717135,
+    url: `schedule/url`,
+    master_list: [{ login_id: "" }, ],
   };
   encryptAndSend(data, res);
 };
