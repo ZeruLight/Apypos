@@ -1,8 +1,8 @@
 import { Router } from "express";
-import * as notImplemented from "../../controllers/notImplementedController";
+import * as noticeController from "../../controllers/noticeController";
 
 const noticeRouter = Router();
 
-noticeRouter.post("/get", notImplemented.blankResponseEncrypted);
+noticeRouter.post("/get", noticeController.get);
 
 export default noticeRouter;

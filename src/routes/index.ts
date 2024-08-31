@@ -19,6 +19,9 @@ import eventRouter from "./api/event.router";
 import shopRouter from "./api/shop.router";
 import nyankanRouter from "./api/nyanken.router";
 import checkRouter from "./api/checkRouter";
+import bannerRouter from "./api/banner.router";
+import ticketRouter from "./api/ticket.router";
+import popupRouter from "./api/popup.router";
 
 const router = Router();
 
@@ -39,6 +42,10 @@ router.use("/api/nyanken", nyankanRouter);
 router.use("/api/dictionary", dictionaryRouter);
 router.use("/api/welcome", welcomeRouter);
 router.use("/api/tutorial", tutorialRouter);
+router.use("/api/banner",bannerRouter)
+router.use("/api/ticket",ticketRouter)
+router.use("/api/popup",popupRouter)
+
 
 // For version json
 router.use("", versionRouter);

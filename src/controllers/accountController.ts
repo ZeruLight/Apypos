@@ -3,7 +3,7 @@ import { encryptAndSend } from "../services/crypto/encryptionHelpers";
 
 export const registerAccount = (req: Request, res: Response) => {
   const version = {
-    game_id: "game_id_on_reg",
+    game_id: "83R552F3",
     is_review: 0,
     login_id: "login_id_on_reg", // Will be used in request bodies going forward....
     stretch_effect_info: {
@@ -55,13 +55,13 @@ export const loginAccount = (req: Request, res: Response) => {
   const login = {
     auto_course_remain_time: 0,
     event_login_bonus_info: {
-      banner_path: "",
-      day: 0,
-      disp_name: "",
-      end: "",
+      banner_path: "asev_00010",
+      day: 1,
+      disp_name: "event_login_bonus_info",
+      end: "2025/12/30 00:05:00",
       login_bonus_reward_list: [
         {
-          idx: 0,
+          idx: 1,
           item_list: {
             collections: [
               { mst_collection_id: 0 }
@@ -75,7 +75,7 @@ export const loginAccount = (req: Request, res: Response) => {
                 endAwakeCount: 0,
                 endAwakeRemain: 0,
                 end_remain: 0,
-                equipment_id: 0,
+                equipment_id: "",
                 evolve_start_time: 0,
                 favorite: 0,
                 is_awake: 0,
@@ -103,7 +103,7 @@ export const loginAccount = (req: Request, res: Response) => {
                     endAwakeCount: 0,
                     endAwakeRemain: 0,
                     end_remain: 0,
-                    equipment_id: 0,
+                    equipment_id: "",
                     evolve_start_time: 0,
                     favorite: 0,
                     is_awake: 0,
@@ -137,10 +137,10 @@ export const loginAccount = (req: Request, res: Response) => {
               }],
               hr: 0,
               mlv: {
-                atk: 0,
-                def: 0,
-                hp: 0,
-                sp: 0
+                atk: 1,
+                def: 1,
+                hp: 1,
+                sp: 1
               }
 
             },
@@ -148,7 +148,7 @@ export const loginAccount = (req: Request, res: Response) => {
               created: 0,
               exp: 0,
               mst_otomo_id: 0,
-              otomo_id: 0,
+              otomo_id: "",
               subskill: [
                 0
               ]
@@ -184,15 +184,15 @@ export const loginAccount = (req: Request, res: Response) => {
               }
             ],
             zenny: 0,
-            pickup: 0
+            pickup: 1
 
           }
         }
       ],
-      message: 0,
-      start: 0,
+      message: "login",
+      start: "1899/12/30 00:05:00",
     },
-    game_id: "",
+    game_id: "83R552F3",
     gender: 0,
     is_review: 0,
     login_bonus_info: {
@@ -204,24 +204,23 @@ export const loginAccount = (req: Request, res: Response) => {
           ],
           equipments: [
             {
-              auto_potential_composite: 0,
-              awaked: 0,
-              created: 0,
-              elv: 0,
-              endAwakeCount: 0,
-              endAwakeRemain: 0,
-              end_remain: 0,
-              equipment_id: 0,
-              evolve_start_time: 0,
-              favorite: 0,
-              is_awake: 0,
-              is_complete_auto_potential_composite: 0,
-              mst_equipment_id: 0,
-              potential: 0,
-              slv: 0,
-              start_remain: 0
-
-            }
+                    auto_potential_composite: 0,
+                    awaked: 0,
+                    created: 0,
+                    elv: 0,
+                    endAwakeCount: 0,
+                    endAwakeRemain: 0,
+                    end_remain: 0,
+                    equipment_id: "",
+                    evolve_start_time: 0,
+                    favorite: 0,
+                    is_awake: 0,
+                    is_complete_auto_potential_composite: 0,
+                    mst_equipment_id: 0,
+                    potential: 0,
+                    slv: 0,
+                    start_remain: 0
+                  }
           ],
           growth_items: [{
             amount: 0,
@@ -239,7 +238,7 @@ export const loginAccount = (req: Request, res: Response) => {
                   endAwakeCount: 0,
                   endAwakeRemain: 0,
                   end_remain: 0,
-                  equipment_id: 0,
+                  equipment_id: "",
                   evolve_start_time: 0,
                   favorite: 0,
                   is_awake: 0,
@@ -273,10 +272,10 @@ export const loginAccount = (req: Request, res: Response) => {
             }],
             hr: 0,
             mlv: {
-              atk: 0,
-              def: 0,
-              hp: 0,
-              sp: 0
+              atk: 1,
+              def: 1,
+              hp: 1,
+              sp: 1
             }
 
           },
@@ -284,7 +283,7 @@ export const loginAccount = (req: Request, res: Response) => {
             created: 0,
             exp: 0,
             mst_otomo_id: 0,
-            otomo_id: 0,
+            otomo_id: "",
             subskill: [
               0
             ]
@@ -338,7 +337,7 @@ export const loginAccount = (req: Request, res: Response) => {
               endAwakeCount: 0,
               endAwakeRemain: 0,
               end_remain: 0,
-              equipment_id: 0,
+              equipment_id: "",
               evolve_start_time: 0,
               favorite: 0,
               is_awake: 0,
@@ -347,7 +346,6 @@ export const loginAccount = (req: Request, res: Response) => {
               potential: 0,
               slv: 0,
               start_remain: 0
-
             }
           ],
           growth_items: [{
@@ -400,10 +398,10 @@ export const loginAccount = (req: Request, res: Response) => {
             }],
             hr: 0,
             mlv: {
-              atk: 0,
-              def: 0,
-              hp: 0,
-              sp: 0
+              atk: 1,
+              def: 1,
+              hp: 1,
+              sp: 1
             }
 
           },
@@ -411,7 +409,7 @@ export const loginAccount = (req: Request, res: Response) => {
             created: 0,
             exp: 0,
             mst_otomo_id: 0,
-            otomo_id: 0,
+            otomo_id: "",
             subskill: [
               0
             ]
@@ -463,24 +461,23 @@ export const loginAccount = (req: Request, res: Response) => {
           ],
           equipments: [
             {
-              auto_potential_composite: 0,
-              awaked: 0,
-              created: 0,
-              elv: 0,
-              endAwakeCount: 0,
-              endAwakeRemain: 0,
-              end_remain: 0,
-              equipment_id: 0,
-              evolve_start_time: 0,
-              favorite: 0,
-              is_awake: 0,
-              is_complete_auto_potential_composite: 0,
-              mst_equipment_id: 0,
-              potential: 0,
-              slv: 0,
-              start_remain: 0
-
-            }
+                    auto_potential_composite: 0,
+                    awaked: 0,
+                    created: 0,
+                    elv: 0,
+                    endAwakeCount: 0,
+                    endAwakeRemain: 0,
+                    end_remain: 0,
+                    equipment_id: "",
+                    evolve_start_time: 0,
+                    favorite: 0,
+                    is_awake: 0,
+                    is_complete_auto_potential_composite: 0,
+                    mst_equipment_id: 0,
+                    potential: 0,
+                    slv: 0,
+                    start_remain: 0
+                  }
           ],
           growth_items: [{
             amount: 0,
@@ -498,7 +495,7 @@ export const loginAccount = (req: Request, res: Response) => {
                   endAwakeCount: 0,
                   endAwakeRemain: 0,
                   end_remain: 0,
-                  equipment_id: 0,
+                  equipment_id: "",
                   evolve_start_time: 0,
                   favorite: 0,
                   is_awake: 0,
@@ -532,10 +529,10 @@ export const loginAccount = (req: Request, res: Response) => {
             }],
             hr: 0,
             mlv: {
-              atk: 0,
-              def: 0,
-              hp: 0,
-              sp: 0
+              atk: 1,
+              def: 1,
+              hp: 1,
+              sp: 1
             }
 
           },
@@ -543,7 +540,7 @@ export const loginAccount = (req: Request, res: Response) => {
             created: 0,
             exp: 0,
             mst_otomo_id: 0,
-            otomo_id: 0,
+            otomo_id: "",
             subskill: [
               0
             ]
@@ -587,9 +584,9 @@ export const loginAccount = (req: Request, res: Response) => {
     },
     now_sale_premium_login_bonus_id:0,
     popup_info:[{
-      id:0,
-      url:""
-    }],
+      id:1,
+      url:"/popup1"
+    },],
     premium_login_bonus_info:{
       banner_path:"",
       day:0,
@@ -605,24 +602,23 @@ export const loginAccount = (req: Request, res: Response) => {
           ],
           equipments: [
             {
-              auto_potential_composite: 0,
-              awaked: 0,
-              created: 0,
-              elv: 0,
-              endAwakeCount: 0,
-              endAwakeRemain: 0,
-              end_remain: 0,
-              equipment_id: 0,
-              evolve_start_time: 0,
-              favorite: 0,
-              is_awake: 0,
-              is_complete_auto_potential_composite: 0,
-              mst_equipment_id: 0,
-              potential: 0,
-              slv: 0,
-              start_remain: 0
-
-            }
+                    auto_potential_composite: 0,
+                    awaked: 0,
+                    created: 0,
+                    elv: 0,
+                    endAwakeCount: 0,
+                    endAwakeRemain: 0,
+                    end_remain: 0,
+                    equipment_id: "",
+                    evolve_start_time: 0,
+                    favorite: 0,
+                    is_awake: 0,
+                    is_complete_auto_potential_composite: 0,
+                    mst_equipment_id: 0,
+                    potential: 0,
+                    slv: 0,
+                    start_remain: 0
+                  }
           ],
           growth_items: [{
             amount: 0,
@@ -640,7 +636,7 @@ export const loginAccount = (req: Request, res: Response) => {
                   endAwakeCount: 0,
                   endAwakeRemain: 0,
                   end_remain: 0,
-                  equipment_id: 0,
+                  equipment_id: "",
                   evolve_start_time: 0,
                   favorite: 0,
                   is_awake: 0,
@@ -674,10 +670,10 @@ export const loginAccount = (req: Request, res: Response) => {
             }],
             hr: 0,
             mlv: {
-              atk: 0,
-              def: 0,
-              hp: 0,
-              sp: 0
+              atk: 1,
+              def: 1,
+              hp: 1,
+              sp: 1
             }
 
           },
@@ -685,7 +681,7 @@ export const loginAccount = (req: Request, res: Response) => {
             created: 0,
             exp: 0,
             mst_otomo_id: 0,
-            otomo_id: 0,
+            otomo_id: "",
             subskill: [
               0
             ]
@@ -726,13 +722,13 @@ export const loginAccount = (req: Request, res: Response) => {
         }
       }],
       message:"",
-      start:0,
+      start:"",
       term:0
     },
-    reserve_room_id:0,
+    reserve_room_id:"test",
     return_login_bonus_info:{
       day:0,
-      end:0,
+      end:"",
       login_bonus_reward_list:[
         {
           idx: 0,
@@ -749,7 +745,7 @@ export const loginAccount = (req: Request, res: Response) => {
                 endAwakeCount: 0,
                 endAwakeRemain: 0,
                 end_remain: 0,
-                equipment_id: 0,
+                equipment_id: "",
                 evolve_start_time: 0,
                 favorite: 0,
                 is_awake: 0,
@@ -777,7 +773,7 @@ export const loginAccount = (req: Request, res: Response) => {
                     endAwakeCount: 0,
                     endAwakeRemain: 0,
                     end_remain: 0,
-                    equipment_id: 0,
+                    equipment_id: "",
                     evolve_start_time: 0,
                     favorite: 0,
                     is_awake: 0,
@@ -786,6 +782,7 @@ export const loginAccount = (req: Request, res: Response) => {
                     potential: 0,
                     slv: 0,
                     start_remain: 0
+    
                   }
                 ]
               }
@@ -811,10 +808,10 @@ export const loginAccount = (req: Request, res: Response) => {
               }],
               hr: 0,
               mlv: {
-                atk: 0,
-                def: 0,
-                hp: 0,
-                sp: 0
+                atk: 1,
+                def: 1,
+                hp: 1,
+                sp: 1
               }
 
             },
@@ -822,7 +819,7 @@ export const loginAccount = (req: Request, res: Response) => {
               created: 0,
               exp: 0,
               mst_otomo_id: 0,
-              otomo_id: 0,
+              otomo_id: "",
               subskill: [
                 0
               ]
@@ -863,14 +860,14 @@ export const loginAccount = (req: Request, res: Response) => {
           }
         }
       ],
-      start:0,
+      start:"",
 
     },
     specific_popup_info:[{
-      display_time:0,
-      id:0,
-      title:"",
-      url:"",
+      display_time:20,
+      id:1,
+      title:"Test",
+      url:"/test",
     }],
     stretch_effect_info: {
       exchange_present: 0,
@@ -906,8 +903,8 @@ export const loginAccount = (req: Request, res: Response) => {
         start_remain: 0,
       },
     },
-    tutorial_step: 110,
-    user_id: "qwqe",
+    tutorial_step: 2010, //HACK 310 (On start up this should be 110)
+    user_id: "user_id",
   }
 
 
