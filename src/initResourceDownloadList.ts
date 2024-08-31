@@ -3,7 +3,7 @@ import * as path from 'path';
 import crcjam from 'crc/crcjam';
 
 
-const folderPath = 'src/public/res/download/android/';
+const folderPath = 'src/public/res/download/';
 
 function walkDir(dir: string, fileCallback: (filePath: string) => void) {
     fs.readdirSync(dir).forEach((item) => {
@@ -19,12 +19,12 @@ function walkDir(dir: string, fileCallback: (filePath: string) => void) {
     });
 }
 
-export function makeDownloadList(type) {
-    if (!fs.existsSync(folderPath + type + "/download.list")) {
+export function makeDownloadList(type:string, os: string) {
+    if (!fs.existsSync(folderPath + os + "/" + type + "/download.list")) {
 
         const data: { filePath: string; crc: string; fileSize: number }[] = [];
 
-        walkDir(folderPath + type, (filePath) => {
+        walkDir(folderPath + os + "/" + type, (filePath) => {
             console.log('Processing File:', filePath);
             const fileData = fs.readFileSync(filePath);
             const fileSize = fs.statSync(filePath).size;
@@ -32,7 +32,7 @@ export function makeDownloadList(type) {
             const jam = crcjam(fileData).toString(16);
 
             let parsedPath = filePath.replace(/\\/g, '/');
-            parsedPath = parsedPath.replace("src/public/res/download/android", "")
+            parsedPath = parsedPath.replace("src/public/res/download/" + os, "")
             parsedPath = parsedPath.replace("/v0282", "")
 
 
@@ -48,7 +48,7 @@ export function makeDownloadList(type) {
         });
         console.log(response)
 
-        fs.writeFile(folderPath + type + "/download.list", response, (err) => {
+        fs.writeFile(folderPath + os + "/" + type + "/download.list", response, (err) => {
             if (err) {
                 console.error('Error creating the file:', err);
             } else {
@@ -56,6 +56,6 @@ export function makeDownloadList(type) {
             }
         });
     } else {
-        console.log(folderPath + type + "/download.list" + " Already exists")
+        console.log(folderPath + os + "/" + type + "/download.list" + " Already exists")
     }
 }

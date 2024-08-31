@@ -8,7 +8,7 @@ accountRouter.post("/regist", accountController.registerAccount);
 accountRouter.post("/login", accountController.loginAccount);
 
 // Data migration, top right corner on the main screen
-accountRouter.post("/migration/ready", notImplemented.blankResponseEncrypted);
-accountRouter.post("/migration/auth", notImplemented.blankResponseEncrypted);
+// accountRouter.post("/migration/ready", notImplemented.blankResponseEncrypted);
+// accountRouter.post("/migration/auth", notImplemented.blankResponseEncrypted);
 
 export default accountRouter;

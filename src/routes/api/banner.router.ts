@@ -3,6 +3,6 @@ import * as bannerController from "../../controllers/bannerController";
 
 const bannerRouter = Router();
 
-bannerRouter.post("/dllist/get", bannerController.getBannerDllist);
+bannerRouter.post("/dllist/get", bannerController.getDlList);
 
 export default bannerRouter;
