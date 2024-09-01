@@ -1,4 +1,4 @@
-import { Response } from "express";
+import { Response,Request } from "express";
 import { EncryptionService } from "./encryptionService";
 
 const encryptionService = new EncryptionService();
@@ -20,9 +20,8 @@ const relogin_time = reloginHour * 3600 + reloginMinute * 60 + reloginSecond;
 
 // Define one_day_time (e.g., 1 hour)
 const one_day_time = 1 * 3600; // 1 hour in seconds
-export function encryptAndSend(data: object, res: Response) {
-  
-  const encryptedData = encryptionService.encrypt(JSON.stringify({...data, error_code:200,
+export function encryptAndSend(data: object, res: Response,req: Request) {
+  const responseData = {...data, error_code:200,
     error_category:0,
     error_detail:"",
     app_ver_android:"09.03.06",
@@ -30,11 +29,12 @@ export function encryptAndSend(data: object, res: Response) {
     app_ver:"09.03.06",
     res_ver:282, //controlls banner version url /download/android/v0282/stdDL/download.list Official Value: 282 
     banner_ver:111, //if set to 0 /api/banner/dllist/get is not called if you increment it to 1 it will be called then not called again untill incremented to 2 (Possible incremental update?) Official Value: 91
-    session_id:"session",
+    session_id:req.body.session_id?req.body.session_id:"session_id",
     block_seq:0, //Possibly need to increment this for cycling encryption. (Client ignores if 0)
     one_day_time:one_day_time,
     now_time:now_time,
-    relogin_time:relogin_time}));
+    relogin_time:relogin_time}
+  const encryptedData = encryptionService.encrypt(JSON.stringify(responseData));
   res
     .status(200)
     .header("Content-Type", "application/octet-stream")

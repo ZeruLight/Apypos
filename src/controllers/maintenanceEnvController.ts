@@ -9,5 +9,5 @@ export const getMaintenanceEnvSchedule = (req: Request, res: Response) => {
     url: `schedule/url`,
     master_list: [{ login_id: "" }, ],
   };
-  encryptAndSend(data, res);
+  encryptAndSend(data, res,req);
 };

@@ -5,5 +5,5 @@ export const record = (req: Request, res: Response) => {
   const data = {
    
   };
-  encryptAndSend(data, res);
+  encryptAndSend(data, res,req);
 };

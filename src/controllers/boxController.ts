@@ -209,7 +209,7 @@ export const get = (req: Request, res: Response) => {
       zeny: 100
     }
   };
-  encryptAndSend(data, res);
+  encryptAndSend(data, res,req);
 };
 export const storageInfo = (req: Request, res: Response) => {
   const data = {
@@ -227,7 +227,7 @@ export const storageInfo = (req: Request, res: Response) => {
       storage_num:0
     }
   };
-  encryptAndSend(data, res);
+  encryptAndSend(data, res,req);
 };
 export const stampGet = (req: Request, res: Response) => {
   const data = {
@@ -238,7 +238,7 @@ export const stampGet = (req: Request, res: Response) => {
       }
     ]
   };
-  encryptAndSend(data, res);
+  encryptAndSend(data, res,req);
 };
 export const stampHoldGet = (req: Request, res: Response) => {
   const data = {
@@ -246,7 +246,7 @@ export const stampHoldGet = (req: Request, res: Response) => {
       //numbers
     ]
   };
-  encryptAndSend(data, res);
+  encryptAndSend(data, res,req);
 };
 export const stampShopList = (req: Request, res: Response) => {
   const data = {
@@ -261,7 +261,7 @@ export const stampShopList = (req: Request, res: Response) => {
       }
     ]
   };
-  encryptAndSend(data, res);
+  encryptAndSend(data, res,req);
 };
 export const paymentLimitGet= (req: Request, res: Response) => {
   const data = {
@@ -286,5 +286,5 @@ export const paymentLimitGet= (req: Request, res: Response) => {
       }
     ]
   };
-  encryptAndSend(data, res);
+  encryptAndSend(data, res,req);
 };

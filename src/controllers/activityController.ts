@@ -6,5 +6,5 @@ export const activityGet = (req: Request, res: Response) => {
     limit:0,
     user_id:"user_id"
   };
-  encryptAndSend(data, res);
+  encryptAndSend(data, res,req);
 };

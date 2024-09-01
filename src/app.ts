@@ -4,8 +4,12 @@ import expressWinston from "express-winston";
 import { logger } from "./logger";
 import winston from "winston";
 import { decryptAndParse } from "./services/crypto/encryptionHelpers";
-
 const app = express();
+import mongoose from 'mongoose'
+import { DB_ADDRESS,DB_NAME } from "./config";
+mongoose.connect(DB_ADDRESS,{dbName:DB_NAME}).then(() => console.log('Connected to MongoDB...')).catch((err) => console.error("Coudn't Start Server: Couldn't connect to MongoDB....", err));
+
+
 
 // Middleware configurations
 app.use(express.json());

@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import { encryptAndSend } from "../services/crypto/encryptionHelpers";
 
 
 
@@ -590,6 +589,7 @@ export const getWebContent = (req: Request, res: Response) => {
                                                 <div class="text-left margin-m" style="font-size: 25px;">
                                                     <!-- react-text: 37 -->
     <p class="path" id="path"></p>
+    
     <h1>Web View Function</h1>
     <ul>
         <li>mhxr://menu/multi</li>

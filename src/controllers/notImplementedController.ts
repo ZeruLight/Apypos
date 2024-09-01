@@ -6,7 +6,7 @@ export const blankResponseEncrypted = (req: Request, res: Response) => {
   console.warn(
     "Using blank response to go forward this could have unintended side effects",
   );
-  encryptAndSend(data, res);
+  encryptAndSend(data, res,req);
 };
 export const blankResponse = (req: Request, res: Response) => {
   const data = {};

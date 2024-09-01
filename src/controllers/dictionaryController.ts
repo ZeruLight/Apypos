@@ -2592,6 +2592,6 @@ export const getEquipment = (req: Request, res: Response) => {
 
     ],//Extracted from Cache
   };
-  encryptAndSend(data, res);
+  encryptAndSend(data, res,req);
 };
 

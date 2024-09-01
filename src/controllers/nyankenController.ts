@@ -16,7 +16,7 @@ export const progress = (req: Request, res: Response) => {
     rare_flag:0,
     return_time:0
   };
-  encryptAndSend(data, res);
+  encryptAndSend(data, res,req);
 };
 
 export const historyGet = (req: Request, res: Response) => {
@@ -34,5 +34,5 @@ export const historyGet = (req: Request, res: Response) => {
     rare_flag:0,
     return_time:0
   };
-  encryptAndSend(data, res);
+  encryptAndSend(data, res,req);
 };

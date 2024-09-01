@@ -7,6 +7,9 @@
     "sourceMap": true,
     "outDir": "dist"
   },
+  
   "lib": ["es2015"],
-  "include": ["src/**/*.ts", "src/typings.d.ts"]
+  "include": ["src/**/*.ts", "src/typings.d.ts"],
+  "files": ["src/types/index.ts"]
+
 }

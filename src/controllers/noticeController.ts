@@ -5,5 +5,5 @@ export const get = (req: Request, res: Response) => {
   const data = {
     os_type:3
   };
-  encryptAndSend(data, res);
+  encryptAndSend(data, res,req);
 };

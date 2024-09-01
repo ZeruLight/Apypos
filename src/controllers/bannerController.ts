@@ -23,5 +23,5 @@ export const getDlList = (req: Request, res: Response) => {
 
     ]
   };
-  encryptAndSend(data, res);
+  encryptAndSend(data, res,req);
 };

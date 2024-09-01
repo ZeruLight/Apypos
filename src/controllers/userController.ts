@@ -1,7 +1,51 @@
 import { Request, Response } from "express";
 import { encryptAndSend } from "../services/crypto/encryptionHelpers";
+import User from "../model/user";
 
-export const get = (req: Request, res: Response) => {
+export const rename = async (req: Request, res: Response) => {
+  const name = req.body.name
+  const filter = { current_session: req.body.session_id };
+  const update = { character_name: name };
+  const doc = await User.findOneAndUpdate(filter, update,{
+    new:true
+  });
+
+
+
+  // Set name in db
+  // Send request back
+  const data = {
+    name: doc.character_name,
+  };
+  encryptAndSend(data,res,req);
+};
+
+export const modelCreate = async (req: Request, res: Response) => {
+
+  const model_info = req.body.model_info
+  const tutorial_step = 210
+  const filter = { current_session: req.body.session_id };
+  const update = { model_info: model_info, tutorial_step:tutorial_step };
+  const doc = await User.findOneAndUpdate(filter, update,{
+    new:true
+  });
+
+  const responseData = {
+    model_info: doc.model_info,
+    tutorial_step: doc.tutorial_step, // 210 activate video
+  };
+  console.log(`TutorialStep : ${responseData.tutorial_step}`);
+
+  encryptAndSend(responseData,res,req);
+};
+
+export const get = async(req: Request, res: Response) => {
+
+  const filter = { current_session: req.body.session_id };
+
+  const doc = await User.findOne(filter);
+ 
+
   const data = {
     payment_model_info: {
       face: {
@@ -151,14 +195,7 @@ export const get = (req: Request, res: Response) => {
       }
       ],
       game_id: "83R552F3",
-      model_info: {
-        face: 1,
-        gender: 1,
-        hair: 1,
-        hair_color: 1,
-        inner: 1,
-        skin: 1,
-      },
+      model_info:  doc.model_info,
       name: "username",
       otomo_team: {
         main: {
@@ -169,8 +206,8 @@ export const get = (req: Request, res: Response) => {
           hp: 1,
           level: 1,
           mst_otomo_id: 2092467563,
-          otomo_id:"OT_OTOMO_CHAR_ID_001",
-          subskil:[]
+          otomo_id: "OT_OTOMO_CHAR_ID_001",
+          subskil: []
         },
         sub: {
           attack: 1,
@@ -179,9 +216,9 @@ export const get = (req: Request, res: Response) => {
           exp: 1,
           hp: 1,
           level: 1,
-          mst_otomo_id:2461459527 ,
-          otomo_id:"OT_OTOMO_CHAR_ID_003",
-          subskil:[]
+          mst_otomo_id: 2461459527,
+          otomo_id: "OT_OTOMO_CHAR_ID_003",
+          subskil: []
         },
       },
       parameter: {
@@ -224,27 +261,12 @@ export const get = (req: Request, res: Response) => {
       use_social_equip: -1,
       user_id: "user_id",
     }
-    
+
   };
-  encryptAndSend(data, res);
+  encryptAndSend(data,res,req);
 };
 
-export const modelCreate = (req: Request, res: Response) => {
-  const data = {
-    model_info: {
-      face: 1,
-      gender: 1,
-      hair: 1,
-      hair_color: 1,
-      inner: 1,
-      skin: 1,
-    },
-    tutorial_step: 210, // 210 activate video
-  };
-  console.log(`TutorialStep : ${data.tutorial_step}`);
 
-  encryptAndSend(data, res);
-};
 
 export const modelSet = (req: Request, res: Response) => {
   const data = {
@@ -258,28 +280,24 @@ export const modelSet = (req: Request, res: Response) => {
     },
   };
 
-  encryptAndSend(data, res);
+  encryptAndSend(data,res,req);
 };
 
 export const otomoteamGet = (req: Request, res: Response) => {
   const data = {
-    capacity:1,
-    otomo_team:[
-      {index:1,
-        otomo_ids:["OT_OTOMO_CHAR_ID_001"]
+    capacity: 1,
+    otomo_team: [
+      {
+        index: 1,
+        otomo_ids: ["OT_OTOMO_CHAR_ID_001"]
       }
     ],
-    selected_index:1
+    selected_index: 1
   };
-  encryptAndSend(data, res);
+  encryptAndSend(data,res,req);
 };
 
-export const rename = (req: Request, res: Response) => {
-  const data = {
-    name: req.body.name,
-  };
-  encryptAndSend(data, res);
-};
+
 export const equipSetGet = (req: Request, res: Response) => {
   const data = {
     capacity_eqp_set: 1,
@@ -420,9 +438,9 @@ export const equipSetGet = (req: Request, res: Response) => {
       }
     }
     ],
-    selected_equip_set_index:1
+    selected_equip_set_index: 1
   };
-  encryptAndSend(data, res);
+  encryptAndSend(data,res,req);
 };
 
 export const equipSetSocialGet = (req: Request, res: Response) => {
@@ -480,39 +498,39 @@ export const equipSetSocialGet = (req: Request, res: Response) => {
     ]
   }
     ;
-  encryptAndSend(data, res);
+  encryptAndSend(data,res,req);
 };
 export const navigationAll = (req: Request, res: Response) => {
   const data = {
-    navigations:[{
-      close_at:0,
-      end_at:0,
-      explain:"",
-      is_clear:0,
-      is_reward:0,
+    navigations: [{
+      close_at: 0,
+      end_at: 0,
+      explain: "",
+      is_clear: 0,
+      is_reward: 0,
       item_list: {
         collections: [
           { mst_collection_id: 0 }
         ],
         equipments: [
           {
-                  auto_potential_composite: 0,
-                  awaked: 0,
-                  created: 0,
-                  elv: 0,
-                  endAwakeCount: 0,
-                  endAwakeRemain: 0,
-                  end_remain: 0,
-                  equipment_id: "",
-                  evolve_start_time: 0,
-                  favorite: 0,
-                  is_awake: 0,
-                  is_complete_auto_potential_composite: 0,
-                  mst_equipment_id: 0,
-                  potential: 0,
-                  slv: 0,
-                  start_remain: 0
-                }
+            auto_potential_composite: 0,
+            awaked: 0,
+            created: 0,
+            elv: 0,
+            endAwakeCount: 0,
+            endAwakeRemain: 0,
+            end_remain: 0,
+            equipment_id: "",
+            evolve_start_time: 0,
+            favorite: 0,
+            is_awake: 0,
+            is_complete_auto_potential_composite: 0,
+            mst_equipment_id: 0,
+            potential: 0,
+            slv: 0,
+            start_remain: 0
+          }
         ],
         growth_items: [{
           amount: 0,
@@ -612,13 +630,13 @@ export const navigationAll = (req: Request, res: Response) => {
         ],
         zenny: 0,
       },
-      limited_flag:0,
-      mst_navigation_id:0,
-      name:"",
-      progress:0,
-      progress_max:0,
-      start_at:0
+      limited_flag: 0,
+      mst_navigation_id: 0,
+      name: "",
+      progress: 0,
+      progress_max: 0,
+      start_at: 0
     }]
   };
-  encryptAndSend(data, res);
+  encryptAndSend(data,res,req);
 };

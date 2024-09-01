@@ -13,7 +13,7 @@ export const checkMaintenance = (req: Request, res: Response) => {
     },
     web_url: "maintenance",  // would become "/web/maintenance?login_id=login_id_on_reg&sec_id=pmRMLkbHtuxw&device_id=2" triggered when is_maintenance is 1
   };
-  encryptAndSend(data, res);
+  encryptAndSend(data, res,req);
 };
 
 export const getTitleImage = (req: Request, res: Response) => {
@@ -29,5 +29,5 @@ export const getTitleImage = (req: Request, res: Response) => {
       mst_title_logo_id: 1, //0 Forbidden Ground //1 normal
     },
   };
-  encryptAndSend(data, res);
+  encryptAndSend(data, res,req);
 };

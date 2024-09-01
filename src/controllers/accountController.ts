@@ -1,53 +1,75 @@
 import { Request, Response } from "express";
+
 import { encryptAndSend } from "../services/crypto/encryptionHelpers";
+import User from "../model/user";
 
-export const registerAccount = (req: Request, res: Response) => {
-  const version = {
+export const registerAccount = async (req: Request, res: Response) => {
+
+
+  const uu_id = req.body.uu_id
+  const secret_id = req.body.secret_id
+  //TODO: Generate random login,user and game ids
+  const newUser = new User({
+    uu_id: uu_id,
+    secret_id: secret_id, 
+    login_id: "login_id_on_reg",
+    user_id: "user_id_on_reg",
     game_id: "83R552F3",
-    is_review: 0,
-    login_id: "login_id_on_reg", // Will be used in request bodies going forward....
-    stretch_effect_info: {
-      exchange_present: 1,
-      free_auto_add: 2,
-      free_auto_infinity: 3,
-      increase_add: 4,
-      increase_inf: 5,
-      mst_event_info_id: 1,
-      time_info: {
-        exchange_present: {
-          end: 1,
-          end_remain: 456,
-          start: 0,
-          start_remain: 789
-        },
-        free_auto_add: {
-          end: 1,
-          end_remain: 101,
-          start: 0,
-          start_remain: 112
-        },
-        free_auto_infinity: {
-          end: 0,
-          end_remain: 113,
-          start: 1,
-          start_remain: 114
-        },
-        increase_add: {
-          end: 1,
-          end_remain: 115,
-          start: 0,
-          start_remain: 116
-        }
-      }
-    },
+    current_session: "session_id",
     tutorial_step: 110,
-    user_id: "user_id_on_reg"
-  };
+  });
 
+  await newUser.save();
+  
 
-  console.log(`TutorialStepUp: ${version.tutorial_step}`);
-
-  encryptAndSend(version, res);
+    const responseData = {
+      game_id: newUser.game_id,
+      is_review: 0,
+      login_id: newUser.login_id,
+  
+      stretch_effect_info: {
+        exchange_present: 1,
+        free_auto_add: 2,
+        free_auto_infinity: 3,
+        increase_add: 4,
+        increase_inf: 5,
+        mst_event_info_id: 1,
+        time_info: {
+          exchange_present: {
+            end: 1,
+            end_remain: 456,
+            start: 0,
+            start_remain: 789
+          },
+          free_auto_add: {
+            end: 1,
+            end_remain: 101,
+            start: 0,
+            start_remain: 112
+          },
+          free_auto_infinity: {
+            end: 0,
+            end_remain: 113,
+            start: 1,
+            start_remain: 114
+          },
+          increase_add: {
+            end: 1,
+            end_remain: 115,
+            start: 0,
+            start_remain: 116
+          }
+        }
+      },
+      tutorial_step: newUser.tutorial_step,
+      user_id: newUser.user_id
+    };
+  
+  
+    console.log(`TutorialStepUp: ${responseData.tutorial_step}`);
+  
+    encryptAndSend(responseData, res,req);
+ 
 };
 
 export const loginAccount = (req: Request, res: Response) => {
@@ -204,23 +226,23 @@ export const loginAccount = (req: Request, res: Response) => {
           ],
           equipments: [
             {
-                    auto_potential_composite: 0,
-                    awaked: 0,
-                    created: 0,
-                    elv: 0,
-                    endAwakeCount: 0,
-                    endAwakeRemain: 0,
-                    end_remain: 0,
-                    equipment_id: "",
-                    evolve_start_time: 0,
-                    favorite: 0,
-                    is_awake: 0,
-                    is_complete_auto_potential_composite: 0,
-                    mst_equipment_id: 0,
-                    potential: 0,
-                    slv: 0,
-                    start_remain: 0
-                  }
+              auto_potential_composite: 0,
+              awaked: 0,
+              created: 0,
+              elv: 0,
+              endAwakeCount: 0,
+              endAwakeRemain: 0,
+              end_remain: 0,
+              equipment_id: "",
+              evolve_start_time: 0,
+              favorite: 0,
+              is_awake: 0,
+              is_complete_auto_potential_composite: 0,
+              mst_equipment_id: 0,
+              potential: 0,
+              slv: 0,
+              start_remain: 0
+            }
           ],
           growth_items: [{
             amount: 0,
@@ -450,10 +472,10 @@ export const loginAccount = (req: Request, res: Response) => {
         }
       }
     },
-    monthly_login_bonus_info:{
-      day:0,
-      end:0,
-      login_bonus_reward_list:[ {
+    monthly_login_bonus_info: {
+      day: 0,
+      end: 0,
+      login_bonus_reward_list: [{
         idx: 0,
         item_list: {
           collections: [
@@ -461,164 +483,23 @@ export const loginAccount = (req: Request, res: Response) => {
           ],
           equipments: [
             {
-                    auto_potential_composite: 0,
-                    awaked: 0,
-                    created: 0,
-                    elv: 0,
-                    endAwakeCount: 0,
-                    endAwakeRemain: 0,
-                    end_remain: 0,
-                    equipment_id: "",
-                    evolve_start_time: 0,
-                    favorite: 0,
-                    is_awake: 0,
-                    is_complete_auto_potential_composite: 0,
-                    mst_equipment_id: 0,
-                    potential: 0,
-                    slv: 0,
-                    start_remain: 0
-                  }
-          ],
-          growth_items: [{
-            amount: 0,
-            mst_growth_item_id: 0
-          }],
-          katamaris: [
-            {
-              mst_katamari_type_id: 0,
-              equipments: [
-                {
-                  auto_potential_composite: 0,
-                  awaked: 0,
-                  created: 0,
-                  elv: 0,
-                  endAwakeCount: 0,
-                  endAwakeRemain: 0,
-                  end_remain: 0,
-                  equipment_id: "",
-                  evolve_start_time: 0,
-                  favorite: 0,
-                  is_awake: 0,
-                  is_complete_auto_potential_composite: 0,
-                  mst_equipment_id: 0,
-                  potential: 0,
-                  slv: 0,
-                  start_remain: 0
-                }
-              ]
+              auto_potential_composite: 0,
+              awaked: 0,
+              created: 0,
+              elv: 0,
+              endAwakeCount: 0,
+              endAwakeRemain: 0,
+              end_remain: 0,
+              equipment_id: "",
+              evolve_start_time: 0,
+              favorite: 0,
+              is_awake: 0,
+              is_complete_auto_potential_composite: 0,
+              mst_equipment_id: 0,
+              potential: 0,
+              slv: 0,
+              start_remain: 0
             }
-          ],
-          limiteds: [{
-            amount: 0,
-            mst_limited_id: 0
-          }
-          ],
-          matatabis: [{
-            amount: 0,
-            mst_matatabi_id: 0
-          }],
-          materials: [{
-            amount: 0,
-            mst_material_id: 0
-          }],
-          monument: {
-            augite: [{
-              amount: 0,
-              mst_augite_id: 0,
-              mst_monument_type_id: 0
-            }],
-            hr: 0,
-            mlv: {
-              atk: 1,
-              def: 1,
-              hp: 1,
-              sp: 1
-            }
-
-          },
-          otomos: [{
-            created: 0,
-            exp: 0,
-            mst_otomo_id: 0,
-            otomo_id: "",
-            subskill: [
-              0
-            ]
-          }],
-          payments: [
-            {
-              amount: 0,
-              mst_payment_id: 0
-            }
-          ],
-          pcoins: [
-            {
-              amount: 0,
-              mst_pcoin_id: 0
-            }
-          ],
-          points: [
-            {
-              amount: 0,
-              mst_event_point_id: 0
-            }
-          ],
-          powers: [
-            {
-              amount: 0,
-              mst_power_id: 0
-            }
-          ],
-          stamp_sets: [
-            {
-              amount: 0,
-              mst_stamp_set_id: 0
-            }
-          ],
-          zenny: 0,
-          pickup: 0
-
-        }
-      }],      
-      start: 0,
-    },
-    now_sale_premium_login_bonus_id:0,
-    popup_info:[{
-      id:1,
-      url:"/popup1"
-    },],
-    premium_login_bonus_info:{
-      banner_path:"",
-      day:0,
-      disp_name:"",
-      end:0,
-      latest_end_unix:0,
-      latest_mst_logbo_premium_id:0,
-      login_bonus_reward_list:[{
-        idx: 0,
-        item_list: {
-          collections: [
-            { mst_collection_id: 0 }
-          ],
-          equipments: [
-            {
-                    auto_potential_composite: 0,
-                    awaked: 0,
-                    created: 0,
-                    elv: 0,
-                    endAwakeCount: 0,
-                    endAwakeRemain: 0,
-                    end_remain: 0,
-                    equipment_id: "",
-                    evolve_start_time: 0,
-                    favorite: 0,
-                    is_awake: 0,
-                    is_complete_auto_potential_composite: 0,
-                    mst_equipment_id: 0,
-                    potential: 0,
-                    slv: 0,
-                    start_remain: 0
-                  }
           ],
           growth_items: [{
             amount: 0,
@@ -721,15 +602,156 @@ export const loginAccount = (req: Request, res: Response) => {
 
         }
       }],
-      message:"",
-      start:"",
-      term:0
+      start: 0,
     },
-    reserve_room_id:"test",
-    return_login_bonus_info:{
-      day:0,
-      end:"",
-      login_bonus_reward_list:[
+    now_sale_premium_login_bonus_id: 0,
+    popup_info: [{
+      id: 1,
+      url: "/popup1"
+    },],
+    premium_login_bonus_info: {
+      banner_path: "",
+      day: 0,
+      disp_name: "",
+      end: 0,
+      latest_end_unix: 0,
+      latest_mst_logbo_premium_id: 0,
+      login_bonus_reward_list: [{
+        idx: 0,
+        item_list: {
+          collections: [
+            { mst_collection_id: 0 }
+          ],
+          equipments: [
+            {
+              auto_potential_composite: 0,
+              awaked: 0,
+              created: 0,
+              elv: 0,
+              endAwakeCount: 0,
+              endAwakeRemain: 0,
+              end_remain: 0,
+              equipment_id: "",
+              evolve_start_time: 0,
+              favorite: 0,
+              is_awake: 0,
+              is_complete_auto_potential_composite: 0,
+              mst_equipment_id: 0,
+              potential: 0,
+              slv: 0,
+              start_remain: 0
+            }
+          ],
+          growth_items: [{
+            amount: 0,
+            mst_growth_item_id: 0
+          }],
+          katamaris: [
+            {
+              mst_katamari_type_id: 0,
+              equipments: [
+                {
+                  auto_potential_composite: 0,
+                  awaked: 0,
+                  created: 0,
+                  elv: 0,
+                  endAwakeCount: 0,
+                  endAwakeRemain: 0,
+                  end_remain: 0,
+                  equipment_id: "",
+                  evolve_start_time: 0,
+                  favorite: 0,
+                  is_awake: 0,
+                  is_complete_auto_potential_composite: 0,
+                  mst_equipment_id: 0,
+                  potential: 0,
+                  slv: 0,
+                  start_remain: 0
+                }
+              ]
+            }
+          ],
+          limiteds: [{
+            amount: 0,
+            mst_limited_id: 0
+          }
+          ],
+          matatabis: [{
+            amount: 0,
+            mst_matatabi_id: 0
+          }],
+          materials: [{
+            amount: 0,
+            mst_material_id: 0
+          }],
+          monument: {
+            augite: [{
+              amount: 0,
+              mst_augite_id: 0,
+              mst_monument_type_id: 0
+            }],
+            hr: 0,
+            mlv: {
+              atk: 1,
+              def: 1,
+              hp: 1,
+              sp: 1
+            }
+
+          },
+          otomos: [{
+            created: 0,
+            exp: 0,
+            mst_otomo_id: 0,
+            otomo_id: "",
+            subskill: [
+              0
+            ]
+          }],
+          payments: [
+            {
+              amount: 0,
+              mst_payment_id: 0
+            }
+          ],
+          pcoins: [
+            {
+              amount: 0,
+              mst_pcoin_id: 0
+            }
+          ],
+          points: [
+            {
+              amount: 0,
+              mst_event_point_id: 0
+            }
+          ],
+          powers: [
+            {
+              amount: 0,
+              mst_power_id: 0
+            }
+          ],
+          stamp_sets: [
+            {
+              amount: 0,
+              mst_stamp_set_id: 0
+            }
+          ],
+          zenny: 0,
+          pickup: 0
+
+        }
+      }],
+      message: "",
+      start: "",
+      term: 0
+    },
+    reserve_room_id: "test",
+    return_login_bonus_info: {
+      day: 0,
+      end: "",
+      login_bonus_reward_list: [
         {
           idx: 0,
           item_list: {
@@ -782,7 +804,7 @@ export const loginAccount = (req: Request, res: Response) => {
                     potential: 0,
                     slv: 0,
                     start_remain: 0
-    
+
                   }
                 ]
               }
@@ -860,14 +882,14 @@ export const loginAccount = (req: Request, res: Response) => {
           }
         }
       ],
-      start:"",
+      start: "",
 
     },
-    specific_popup_info:[{
-      display_time:20,
-      id:1,
-      title:"Test",
-      url:"/test",
+    specific_popup_info: [{
+      display_time: 20,
+      id: 1,
+      title: "Test",
+      url: "/test",
     }],
     stretch_effect_info: {
       exchange_present: 0,
@@ -878,7 +900,7 @@ export const loginAccount = (req: Request, res: Response) => {
       mst_event_info_id: 1,
     },
     time_info: {
-      exchange_present:{
+      exchange_present: {
         end: 0,
         end_remain: 0,
         start: 0,
@@ -910,5 +932,5 @@ export const loginAccount = (req: Request, res: Response) => {
 
   console.log(`TutorialStepUp: ${login.tutorial_step}`);
 
-  encryptAndSend(login, res);
+  encryptAndSend(login, res,req);
 };

@@ -5,5 +5,5 @@ export const nothing = (req: Request, res: Response) => {
   const data = {
     game_id: "83R552F3", //sServer::setupCheckAppVer(cMHiJessicaAPIResponseBase *)	.text	0000000001909B20	
   };
-  encryptAndSend(data, res);
+  encryptAndSend(data, res,req);
 };

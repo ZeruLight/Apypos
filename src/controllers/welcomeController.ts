@@ -5,5 +5,5 @@ export const getSafetyFlag = (req: Request, res: Response) => {
   const data = {
     flag: 201,
   };
-  encryptAndSend(data, res);
+  encryptAndSend(data, res,req);
 };
