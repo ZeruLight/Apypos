@@ -11,7 +11,7 @@ export const registerAccount = async (req: Request, res: Response) => {
   //TODO: Generate random login,user and game ids
   const newUser = new User({
     uu_id: uu_id,
-    secret_id: secret_id, 
+    secret_id: secret_id,
     login_id: "login_id_on_reg",
     user_id: "user_id_on_reg",
     game_id: "83R552F3",
@@ -20,59 +20,63 @@ export const registerAccount = async (req: Request, res: Response) => {
   });
 
   await newUser.save();
-  
 
-    const responseData = {
-      game_id: newUser.game_id,
-      is_review: 0,
-      login_id: newUser.login_id,
-  
-      stretch_effect_info: {
-        exchange_present: 1,
-        free_auto_add: 2,
-        free_auto_infinity: 3,
-        increase_add: 4,
-        increase_inf: 5,
-        mst_event_info_id: 1,
-        time_info: {
-          exchange_present: {
-            end: 1,
-            end_remain: 456,
-            start: 0,
-            start_remain: 789
-          },
-          free_auto_add: {
-            end: 1,
-            end_remain: 101,
-            start: 0,
-            start_remain: 112
-          },
-          free_auto_infinity: {
-            end: 0,
-            end_remain: 113,
-            start: 1,
-            start_remain: 114
-          },
-          increase_add: {
-            end: 1,
-            end_remain: 115,
-            start: 0,
-            start_remain: 116
-          }
+
+  const responseData = {
+    game_id: newUser.game_id,
+    is_review: 0,
+    login_id: newUser.login_id,
+
+    stretch_effect_info: {
+      exchange_present: 1,
+      free_auto_add: 2,
+      free_auto_infinity: 3,
+      increase_add: 4,
+      increase_inf: 5,
+      mst_event_info_id: 1,
+      time_info: {
+        exchange_present: {
+          end: 1,
+          end_remain: 456,
+          start: 0,
+          start_remain: 789
+        },
+        free_auto_add: {
+          end: 1,
+          end_remain: 101,
+          start: 0,
+          start_remain: 112
+        },
+        free_auto_infinity: {
+          end: 0,
+          end_remain: 113,
+          start: 1,
+          start_remain: 114
+        },
+        increase_add: {
+          end: 1,
+          end_remain: 115,
+          start: 0,
+          start_remain: 116
         }
-      },
-      tutorial_step: newUser.tutorial_step,
-      user_id: newUser.user_id
-    };
-  
-  
-    console.log(`TutorialStepUp: ${responseData.tutorial_step}`);
-  
-    encryptAndSend(responseData, res,req);
- 
+      }
+    },
+    tutorial_step: newUser.tutorial_step,
+    user_id: newUser.user_id
+  };
+
+
+  console.log(`TutorialStepUp: ${responseData.tutorial_step}`);
+
+  encryptAndSend(responseData, res, req);
+
 };
 
-export const loginAccount = (req: Request, res: Response) => {
+export const loginAccount = async (req: Request, res: Response) => {
+  const filter = { current_session: req.body.session_id };
+
+  const doc = await User.findOne(filter);
+
   //LOGIN IS MASSIVE REDO THIS NEEDS typing using the ::setup()
   const login = {
     auto_course_remain_time: 0,
@@ -214,8 +218,8 @@ export const loginAccount = (req: Request, res: Response) => {
       message: "login",
       start: "1899/12/30 00:05:00",
     },
-    game_id: "83R552F3",
-    gender: 0,
+    game_id: doc.game_id,
+    gender: doc.model_info.gender,
     is_review: 0,
     login_bonus_info: {
       day: 0,
@@ -885,12 +889,14 @@ export const loginAccount = (req: Request, res: Response) => {
       start: "",
 
     },
-    specific_popup_info: [{
-      display_time: 20,
+    specific_popup_info: [
+      {
+      display_time: 1,
       id: 1,
       title: "Test",
       url: "/test",
-    }],
+    }
+  ],
     stretch_effect_info: {
       exchange_present: 0,
       free_auto_add: 0,
@@ -925,12 +931,12 @@ export const loginAccount = (req: Request, res: Response) => {
         start_remain: 0,
       },
     },
-    tutorial_step: 2010, //HACK 310 (On start up this should be 110)
-    user_id: "user_id",
+    tutorial_step: doc.tutorial_step, //HACK 310 (On start up this should be 110)
+    user_id: doc.user_id,
   }
 
 
   console.log(`TutorialStepUp: ${login.tutorial_step}`);
 
-  encryptAndSend(login, res,req);
+  encryptAndSend(login, res, req);
 };

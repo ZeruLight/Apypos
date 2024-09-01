@@ -18,7 +18,7 @@ import User from "../model/user";
 // To fudge set login to 310 then every time this is called increment up 
 //310 -> 1010 -> 2010
 
-export const getTutorialFlag = async(req: Request, res: Response) => {
+export const getTutorialFlag = async (req: Request, res: Response) => {
   const filter = { current_session: req.body.session_id };
   let doc = await User.findOne(filter);
   const data = {
@@ -27,11 +27,11 @@ export const getTutorialFlag = async(req: Request, res: Response) => {
   encryptAndSend(data, res, req);
 };
 
-export const TutorialFlagSet = async(req: Request, res: Response) => {
+export const TutorialFlagSet = async (req: Request, res: Response) => {
   const filter = { current_session: req.body.session_id };
   let doc = await User.findOne(filter);
   let newFlags = doc.tutorial_flags;
-  req.body.flags.forEach((flag)=>{
+  req.body.flags.forEach((flag) => {
     newFlags.push(flag)
   })
 
@@ -51,8 +51,11 @@ export const TutorialFlagSet = async(req: Request, res: Response) => {
 export const stepUP = async (req: Request, res: Response) => {
   const filter = { current_session: req.body.session_id };
   let doc = await User.findOne(filter);
-  let update = { tutorial_step: 210 };
+  let update = { tutorial_step: doc.tutorial_step };
   switch (doc.tutorial_step) {
+    case 110:
+      update = { tutorial_step: 210 };
+      break;
     case 210:
       update = { tutorial_step: 310 };
       break;
@@ -62,6 +65,19 @@ export const stepUP = async (req: Request, res: Response) => {
     case 1010:
       update = { tutorial_step: 2010 };
       break;
+    case 2010:
+      update = { tutorial_step: 3010 };
+      break;
+    case 3010:
+      update = { tutorial_step: 4010 };
+      break;
+    case 4010:
+      update = { tutorial_step: 5010 };
+      break;
+    case 5010:
+      update = { tutorial_step: 0xFFFF };
+      break;
+
   }
 
 
@@ -70,9 +86,9 @@ export const stepUP = async (req: Request, res: Response) => {
   });
 
   const data = {
-    tutorial_step: update.tutorial_step, // Need a controller than memorises what was last
+    tutorial_step: update.tutorial_step,
   };
-  console.log(`TutorialStepUp: ${data.tutorial_step}`);
+  console.log(` TutorialStepUp: Old: ${doc.tutorial_step} New: ${data.tutorial_step}`);
 
   encryptAndSend(data, res, req);
 };

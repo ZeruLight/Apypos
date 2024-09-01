@@ -12,8 +12,11 @@ userRouter.post("/navigation/all", userController.navigationAll);
 userRouter.post("/rename", userController.rename);
 userRouter.post("/model/create", userController.modelCreate);
 userRouter.post("/model/set", userController.modelSet);
+userRouter.post("/title/all", userController.titleAll);
+userRouter.post("/title/set", userController.titleSet);
+userRouter.post("/comment/set", userController.commentSet);
 
-// userRouter.post("/achievement/news", notImplemented.blankResponseEncrypted);
-// userRouter.post("/navigation/news", notImplemented.blankResponseEncrypted);
+userRouter.post("/achievement/news", notImplemented.blankResponseEncrypted);
+userRouter.post("/navigation/news", notImplemented.blankResponseEncrypted);
 
 export default userRouter;

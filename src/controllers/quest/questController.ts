@@ -32,26 +32,26 @@ export const islandMapAll = (req: Request, res: Response) => {
             exploration_note: {
               note_contents: [{
                 mst_note_content_id: 2030304811,
-                state: 0
+                state: 1
               }],
-              progress: 0,
+              progress: 1,
             },
             gingira_node_id: 2278830943,
             mst_part_id: 3815380063,
             node_list: [{
               day_quest_list: [
-                { clear_time: 252, is_collection_quest: 0, is_key_quest: 0, mst_quest_id: 3104897802, quest_subtargets: [{ mst_subtarget_id: 1002, state: 0 }], state: 0 }
+                { clear_time: 252, is_collection_quest: 0, is_key_quest: 0, mst_quest_id: 3104897802, quest_subtargets: [{ mst_subtarget_id: 1002, state: 1 }], state: 1 }
               ],
               is_node_collection: 0,
               mst_node_id: 517825253,
               mst_story_id: 3332266232,
               night_quest_list: [
-                { clear_time: 252, is_collection_quest: 0, is_key_quest: 0, mst_quest_id: 3104897802, quest_subtargets: [{ mst_subtarget_id: 1002, state: 0 }], state: 0 }
+                { clear_time: 252, is_collection_quest: 0, is_key_quest: 0, mst_quest_id: 3104897802, quest_subtargets: [{ mst_subtarget_id: 1002, state: 1 }], state: 1 }
               ],
               object_list: [{ mst_object_id: 3104897802, state: 0 }],
               raid_info: [{ end_remain: 252, mst_node_id: 517825253, start_remain: 252 }],
               silver_bonus: 0,
-              state: 0
+              state: 1
 
             }]
           }

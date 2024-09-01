@@ -4,22 +4,32 @@ import { EncryptionService } from "./encryptionService";
 const encryptionService = new EncryptionService();
 // All time implementation should move to its own Service.... This is all WIP
 // Get the current time
-const currentTime = new Date();
+// Given epoch time
+const epochTime = Date.now();
+const TestepochTime = 1601285121; //Source https://web.archive.org/web/20200928092521/https://hunters.mh-xr.jp/special/top/check#expand
 
-// Compute seconds since midnight (now_time)
-const midnight = new Date(currentTime);
-midnight.setHours(0, 0, 0, 0); // Set the time to midnight
-const now_time = Math.floor((Number(currentTime) - Number(midnight)) / 1000);
+// Convert epoch time to a JavaScript Date object (UTC)
+const dateTime = new Date(epochTime * 1000);
 
-// Define relogin_time (e.g., 10:34:38 AM)
-// This is just an example; you can modify the relogin hour, minute, and second.
-const reloginHour = 10;
-const reloginMinute = 34;
-const reloginSecond = 38;
-const relogin_time = reloginHour * 3600 + reloginMinute * 60 + reloginSecond;
+// Calculate the custom "one_day_time" of 3600 seconds (1 hour)
+const one_day_time = 3600;
 
-// Define one_day_time (e.g., 1 hour)
-const one_day_time = 1 * 3600; // 1 hour in seconds
+// Calculate the current time (now) in seconds since the start of this custom "day"
+const totalSecondsToday = (dateTime.getUTCHours() * 3600) + (dateTime.getUTCMinutes() * 60) + dateTime.getUTCSeconds();
+
+// Calculate "now_time" based on the custom "one_day_time"
+// Assuming "now_time" is the number of seconds past within the current hour of the day
+const now_time = totalSecondsToday % one_day_time;
+
+// Calculate "relogin_time"
+// This might be the time until the next occurrence of this custom "day"
+const relogin_time = one_day_time - now_time;
+
+// Output the values
+console.log("one_day_time:", one_day_time);
+console.log("now_time:", now_time);
+console.log("relogin_time:", relogin_time);
+
 export function encryptAndSend(data: object, res: Response,req: Request) {
   const responseData = {...data, error_code:200,
     error_category:0,

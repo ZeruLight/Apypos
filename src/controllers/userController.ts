@@ -6,8 +6,8 @@ export const rename = async (req: Request, res: Response) => {
   const name = req.body.name
   const filter = { current_session: req.body.session_id };
   const update = { character_name: name };
-  const doc = await User.findOneAndUpdate(filter, update,{
-    new:true
+  const doc = await User.findOneAndUpdate(filter, update, {
+    new: true
   });
 
 
@@ -17,7 +17,7 @@ export const rename = async (req: Request, res: Response) => {
   const data = {
     name: doc.character_name,
   };
-  encryptAndSend(data,res,req);
+  encryptAndSend(data, res, req);
 };
 
 export const modelCreate = async (req: Request, res: Response) => {
@@ -25,9 +25,9 @@ export const modelCreate = async (req: Request, res: Response) => {
   const model_info = req.body.model_info
   const tutorial_step = 210
   const filter = { current_session: req.body.session_id };
-  const update = { model_info: model_info, tutorial_step:tutorial_step };
-  const doc = await User.findOneAndUpdate(filter, update,{
-    new:true
+  const update = { model_info: model_info, tutorial_step: tutorial_step };
+  const doc = await User.findOneAndUpdate(filter, update, {
+    new: true
   });
 
   const responseData = {
@@ -36,15 +36,15 @@ export const modelCreate = async (req: Request, res: Response) => {
   };
   console.log(`TutorialStep : ${responseData.tutorial_step}`);
 
-  encryptAndSend(responseData,res,req);
+  encryptAndSend(responseData, res, req);
 };
 
-export const get = async(req: Request, res: Response) => {
+export const get = async (req: Request, res: Response) => {
 
   const filter = { current_session: req.body.session_id };
 
   const doc = await User.findOne(filter);
- 
+
 
   const data = {
     payment_model_info: {
@@ -195,7 +195,7 @@ export const get = async(req: Request, res: Response) => {
       }
       ],
       game_id: "83R552F3",
-      model_info:  doc.model_info,
+      model_info: doc.model_info,
       name: "username",
       otomo_team: {
         main: {
@@ -263,24 +263,32 @@ export const get = async(req: Request, res: Response) => {
     }
 
   };
-  encryptAndSend(data,res,req);
+  encryptAndSend(data, res, req);
 };
 
 
 
-export const modelSet = (req: Request, res: Response) => {
+export const modelSet = async(req: Request, res: Response) => {
+  const filter = { current_session: req.body.session_id };
+  const update = { model_info: req.body.model_info };
+  const doc = await User.findOneAndUpdate(filter, update, {
+    new: true
+  });
   const data = {
-    model_info: {
-      face: 1,
-      gender: 1,
-      hair: 1,
-      hair_color: 1,
-      inner: 1,
-      skin: 1,
-    },
+    model_info: doc.model_info,
   };
 
-  encryptAndSend(data,res,req);
+  encryptAndSend(data, res, req);
+};
+
+
+export const commentSet = async(req: Request, res: Response) => {
+ 
+  const data = {
+    comment: req.body.comment,
+  };
+
+  encryptAndSend(data, res, req);
 };
 
 export const otomoteamGet = (req: Request, res: Response) => {
@@ -294,7 +302,7 @@ export const otomoteamGet = (req: Request, res: Response) => {
     ],
     selected_index: 1
   };
-  encryptAndSend(data,res,req);
+  encryptAndSend(data, res, req);
 };
 
 
@@ -440,7 +448,7 @@ export const equipSetGet = (req: Request, res: Response) => {
     ],
     selected_equip_set_index: 1
   };
-  encryptAndSend(data,res,req);
+  encryptAndSend(data, res, req);
 };
 
 export const equipSetSocialGet = (req: Request, res: Response) => {
@@ -498,7 +506,7 @@ export const equipSetSocialGet = (req: Request, res: Response) => {
     ]
   }
     ;
-  encryptAndSend(data,res,req);
+  encryptAndSend(data, res, req);
 };
 export const navigationAll = (req: Request, res: Response) => {
   const data = {
@@ -638,5 +646,254 @@ export const navigationAll = (req: Request, res: Response) => {
       start_at: 0
     }]
   };
-  encryptAndSend(data,res,req);
+  encryptAndSend(data, res, req);
+};
+
+export const titleAll = (req: Request, res: Response) => {
+  const data = {
+    new_titles: [ 
+      //Makes pop up on enter
+      // {
+      //   is_clear: 0,
+      //   mst_title_id: 0,
+      //   progress: 0,
+      //   progress_max: 20
+      // }
+    ],
+    server_time: Date.now(),
+    titles: [
+      
+      {
+        is_clear: 1,
+        mst_title_id: 2,
+        progress: 0,
+        progress_max: 20
+      },
+      {
+        is_clear: 1,
+        mst_title_id: 3,
+        progress: 0,
+        progress_max: 20
+      }
+    ]
+  };
+  encryptAndSend(data, res, req);
+};
+
+export const titleSet = async(req: Request, res: Response) => {
+  const filter = { current_session: req.body.session_id };
+
+  const doc = await User.findOne(filter);
+
+  const data = {
+    user_info: {
+      capacity_eqp_set: 1,
+      caplink_id: "caplnk",
+      comment: "This is my comment",
+      equip_sets: [{
+        index: 1,
+        partner_equip_sets: [
+          // {
+          //   mst_partner_id: 1,
+          //   arm: {
+          //     created: 1701921942,
+          //     equipment_id: "AD_ARM006",
+          //     level: 1,
+          //     mst_equipment_id: 3,
+          //     potential: 1,
+          //     skill_level: 1
+          //   },
+          //   body: {
+          //     created: 1701921942,
+          //     equipment_id: "AD_BODY006",
+          //     level: 1,
+          //     mst_equipment_id: 4,
+          //     potential: 1,
+          //     skill_level: 1
+          //   },
+          //   leg: {
+          //     created: 1701921942,
+          //     equipment_id: "AD_LEG006",
+          //     level: 1,
+          //     mst_equipment_id: 1,
+          //     potential: 1,
+          //     skill_level: 1
+          //   },
+          //   head: {
+          //     created: 1701921942,
+          //     equipment_id: "AD_HEAD006",
+          //     level: 1,
+          //     mst_equipment_id: 5,
+          //     potential: 1,
+          //     skill_level: 1
+          //   },
+          //   secret_weapon: {
+          //     created: 0,
+          //     equipment_id: "WD_SWORD001",
+          //     level: 1,
+          //     mst_equipment_id: 6,
+          //     potential: 1,
+          //     skill_level: 1
+          //   },
+          //   talisman: {
+          //     created: 1701921942,
+          //     equipment_id: "",
+          //     level: 1,
+          //     mst_equipment_id: 0,
+          //     potential: 1,
+          //     skill_level: 1
+          //   },
+          //   waist: {
+          //     created: 1701921942,
+          //     equipment_id: "AD_WST006",
+          //     level: 1,
+          //     mst_equipment_id: 2,
+          //     potential: 1,
+          //     skill_level: 1
+          //   },
+          //   weapon: {
+          //     created: 1701921942,
+          //     equipment_id: "WD_SWORD001",
+          //     level: 1,
+          //     mst_equipment_id: 6,
+          //     potential: 1,
+          //     skill_level: 1
+          //   }
+          // }
+        ],
+        arm: {
+          created: 1701921942,
+          equipment_id: "AD_ARM006",
+          level: 1,
+          mst_equipment_id: 3325982510,
+          potential: 1,
+          skill_level: 1
+        },
+        body: {
+          created: 1701921942,
+          equipment_id: "AD_BODY006",
+          level: 1,
+          mst_equipment_id: 1801022340,
+          potential: 1,
+          skill_level: 1
+        },
+        leg: {
+          created: 1701921942,
+          equipment_id: "AD_LEG006",
+          level: 1,
+          mst_equipment_id: 3353202438,
+          potential: 1,
+          skill_level: 1
+        },
+        head: {
+          created: 1701921942,
+          equipment_id: "AD_HEAD006",
+          level: 1,
+          mst_equipment_id: 69277598,
+          potential: 1,
+          skill_level: 1
+        },
+        secret_weapon: {
+          created: 0,
+          equipment_id: "WD_SWORD001",
+          level: 1,
+          mst_equipment_id: 2006810019,
+          potential: 1,
+          skill_level: 1
+        },
+        talisman: {
+          created: 1701921942,
+          equipment_id: "",
+          level: 1,
+          mst_equipment_id: 0,
+          potential: 1,
+          skill_level: 1
+        },
+        waist: {
+          created: 1701921942,
+          equipment_id: "AD_WST006",
+          level: 1,
+          mst_equipment_id: 62957325,
+          potential: 1,
+          skill_level: 1
+        },
+        weapon: {
+          created: 1701921942,
+          equipment_id: "WD_SWORD001",
+          level: 1,
+          mst_equipment_id: 2006810019,
+          potential: 1,
+          skill_level: 1
+        }
+      }
+      ],
+      game_id: "83R552F3",
+      model_info: doc.model_info,
+      name: "username",
+      otomo_team: {
+        main: {
+          attack: 1,
+          created: 1,
+          defense: 1,
+          exp: 1,
+          hp: 1,
+          level: 1,
+          mst_otomo_id: 2092467563,
+          otomo_id: "OT_OTOMO_CHAR_ID_001",
+          subskil: []
+        },
+        sub: {
+          attack: 1,
+          created: 1,
+          defense: 1,
+          exp: 1,
+          hp: 1,
+          level: 1,
+          mst_otomo_id: 2461459527,
+          otomo_id: "OT_OTOMO_CHAR_ID_003",
+          subskil: []
+        },
+      },
+      parameter: {
+        attack: 1,
+        defence: 1,
+        hp: 1,
+        rank: 1,
+        sp: 1
+      },
+      selected_equip_set_index: 1,
+      selected_partner: {
+        main_partner_id: "",
+        quest_partner_id: ""
+      },
+      social_equip: {
+        social_arm: {
+          equipment_id: "AD_ARM006",
+          mst_equipment_id: 3325982510,
+        },
+        social_body: {
+          equipment_id: "AD_BODY006",
+          mst_equipment_id: 1801022340,
+        },
+        social_head: {
+          equipment_id: "AD_HEAD006",
+          mst_equipment_id: 69277598,
+        },
+        social_leg: {
+          equipment_id: "AD_LEG006",
+          mst_equipment_id: 3353202438,
+        },
+        social_waist: {
+          equipment_id: "AD_WST006",
+          mst_equipment_id: 62957325,
+        },
+      },
+      title: {
+        mst_title_id: req.body.mst_title_id,
+      },
+      use_social_equip: -1,
+      user_id: "user_id",
+    }
+  };
+  encryptAndSend(data, res, req);
 };
