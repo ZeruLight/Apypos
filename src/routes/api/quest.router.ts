@@ -11,7 +11,7 @@ questRouter.post("/progress", questController.questProgress);
 //Other
 questRouter.post("/island/map/all", questController.islandMapAll);
 questRouter.post("/event/list/all", notImplemented.blankResponseEncrypted);
-questRouter.post("/eternal/all", notImplemented.blankResponseEncrypted);
+questRouter.post("/eternal/all", questController.eternalAll);
 questRouter.post("/event/ticket/free", notImplemented.blankResponseEncrypted);
 
 
