@@ -30,7 +30,7 @@ app.use((req, res, next) => {
       req.body = decryptedBody;
 
       // Log directly here for debugging
-      console.log("Decrypted Body:", req.body);
+      console.log("Decrypted Body:", JSON.stringify(req.body, null, '\t') );
 
       next();
     });

@@ -222,11 +222,11 @@ export const get = async (req: Request, res: Response) => {
         },
       },
       parameter: {
-        attack: 1,
-        defence: 1,
-        hp: 1,
-        rank: 1,
-        sp: 1
+        attack: 100,
+        defence: 100,
+        hp: 100,
+        rank: 100,
+        sp: 100
       },
       selected_equip_set_index: 1,
       selected_partner: {
@@ -451,6 +451,15 @@ export const equipSetGet = (req: Request, res: Response) => {
   encryptAndSend(data, res, req);
 };
 
+export const equipSetSet = (req: Request, res: Response) => {
+  const data = {
+    capacity_eqp_set: 1,
+    equip_sets:req.body.equip_sets ,
+    selected_equip_set_index: req.body.selected_equip_set_index
+  };
+  encryptAndSend(data, res, req);
+};
+
 export const equipSetSocialGet = (req: Request, res: Response) => {
   const data = {
     social_equip_sets: [
@@ -511,8 +520,8 @@ export const equipSetSocialGet = (req: Request, res: Response) => {
 export const navigationAll = (req: Request, res: Response) => {
   const data = {
     navigations: [{
-      close_at: 0,
-      end_at: 0,
+      close_at: Date.now(),
+      end_at: Date.now(),
       explain: "",
       is_clear: 0,
       is_reward: 0,
@@ -640,10 +649,10 @@ export const navigationAll = (req: Request, res: Response) => {
       },
       limited_flag: 0,
       mst_navigation_id: 0,
-      name: "",
-      progress: 0,
-      progress_max: 0,
-      start_at: 0
+      name: "yesyt",
+      progress: 1,
+      progress_max: 6,
+      start_at: Date.now()
     }]
   };
   encryptAndSend(data, res, req);

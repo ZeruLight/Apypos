@@ -73,7 +73,7 @@ export const forestInfoGet = (req: Request, res: Response) => {
     event_name: "test",
     forest_item_list: [{amount:0,item_id:0,place_id:0}],
     mst_event_info_id:3454260853,
-    now_fuel:0,
+    now_fuel:1,
     open_forest_node_list:[{idx:0,
       level_infos:[{clear_reward_item_list:{
        //item_list...
@@ -83,7 +83,7 @@ export const forestInfoGet = (req: Request, res: Response) => {
       mst_forest_quest_id:3772789231,
       state:1
     }],
-    remain_fuel_full:0,
+    remain_fuel_full:2,
     }],
     
   };
@@ -98,7 +98,7 @@ export const questForestProgress = (req: Request, res: Response) => {
       mst_forest_node_id: 1122664016,
       mst_forest_quest_id: 3772789231,
     },
-    progress: 0,
+    progress: 5,
   };
   encryptAndSend(data, res,req);
 };

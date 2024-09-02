@@ -13,7 +13,6 @@ import User from "../model/user";
 // 5010 = isIslandQuestEnd
 // 0xFFFF = isTutorialEnd
 
-//2505
 
 // To fudge set login to 310 then every time this is called increment up 
 //310 -> 1010 -> 2010
