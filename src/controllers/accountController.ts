@@ -790,7 +790,7 @@ export const loginAccount = async (req: Request, res: Response) => {
     },
     specific_popup_info: [
       {
-      display_time: 1,
+      display_time: 1, //how long pop up lasts 
       id: 1,
       title: "Test",
       url: "/test",

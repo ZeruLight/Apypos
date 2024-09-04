@@ -217,7 +217,7 @@ export const storageInfo = (req: Request, res: Response) => {
       storage_details:[
         {
           max:0,
-          name:"",
+          name:"te",
           now:0,
           storage_idx:0,
 

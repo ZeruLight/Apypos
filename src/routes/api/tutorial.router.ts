@@ -7,5 +7,8 @@ tutorialRouter.post("/flag/get", tutorialController.getTutorialFlag);
 tutorialRouter.post("/flag/set", tutorialController.TutorialFlagSet);
 
 tutorialRouter.post("/step/up", tutorialController.stepUP);
+tutorialRouter.post("/nyanken/list", tutorialController.nyankenList);
+tutorialRouter.post("/nyanken/go", tutorialController.nyankenGo);
+
 
 export default tutorialRouter;

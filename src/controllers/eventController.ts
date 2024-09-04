@@ -9,3 +9,11 @@ export const infoGet = (req: Request, res: Response) => {
   };
   encryptAndSend(data, res,req);
 };
+
+export const limitedskillGet = (req: Request, res: Response) => {
+  const data = {
+    limited_skill_excl_ev_infos:[],
+    limited_skill_infos:[],
+  };
+  encryptAndSend(data, res,req);
+};

@@ -5,7 +5,8 @@ import * as shopController from "../../controllers/shopController";
 const shopRouter = Router();
 
 shopRouter.post("/info", shopController.info);
-shopRouter.post("/list", notImplemented.blankResponseEncrypted);
+shopRouter.post("/list", shopController.list);
 shopRouter.post("/karidama/info", shopController.karidamaInfo);
+shopRouter.post("/karidama/list",  shopController.karidamaList);
 
 export default shopRouter;

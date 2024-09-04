@@ -18,7 +18,7 @@ userRouter.post("/title/all", userController.titleAll);
 userRouter.post("/title/set", userController.titleSet);
 userRouter.post("/comment/set", userController.commentSet);
 
-userRouter.post("/achievement/news", notImplemented.blankResponseEncrypted);
-userRouter.post("/navigation/news", notImplemented.blankResponseEncrypted);
+userRouter.post("/achievement/news", userController.achievementNews);
+userRouter.post("/navigation/news", userController.navigationNews);
 
 export default userRouter;

@@ -26,6 +26,29 @@ export const getTutorialFlag = async (req: Request, res: Response) => {
   encryptAndSend(data, res, req);
 };
 
+export const nyankenList = async (req: Request, res: Response) => {
+  
+  const data = {
+    paidQuestDataList:[],
+    questDataList:[],
+  };
+  encryptAndSend(data, res, req);
+};
+
+export const nyankenGo = async (req: Request, res: Response) => {
+  
+  const data = {
+    currency_ammount:20,
+    discount_currency_ammount:0,
+    mst_nyanken_id:0,
+    rare_appear_time:0,
+    rare_flag:0,
+    return_time:0,
+    tutorial_step:3004 //3504
+  };
+  encryptAndSend(data, res, req);
+};
+
 export const TutorialFlagSet = async (req: Request, res: Response) => {
   const filter = { current_session: req.body.session_id };
   let doc = await User.findOne(filter);
@@ -45,7 +68,7 @@ export const TutorialFlagSet = async (req: Request, res: Response) => {
 
   encryptAndSend(data, res, req);
 };
-
+nyankenList
 
 export const stepUP = async (req: Request, res: Response) => {
   const filter = { current_session: req.body.session_id };

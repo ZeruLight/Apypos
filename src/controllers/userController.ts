@@ -199,23 +199,23 @@ export const get = async (req: Request, res: Response) => {
       name: "username",
       otomo_team: {
         main: {
-          attack: 1,
-          created: 1,
-          defense: 1,
-          exp: 1,
-          hp: 1,
-          level: 1,
+          attack: 100,
+          created: 100,
+          defense: 100,
+          exp: 100,
+          hp: 100,
+          level: 100,
           mst_otomo_id: 2092467563,
           otomo_id: "OT_OTOMO_CHAR_ID_001",
           subskil: []
         },
         sub: {
-          attack: 1,
-          created: 1,
-          defense: 1,
-          exp: 1,
-          hp: 1,
-          level: 1,
+          attack: 100,
+          created: 100,
+          defense: 100,
+          exp: 100,
+          hp: 100,
+          level: 100,
           mst_otomo_id: 2461459527,
           otomo_id: "OT_OTOMO_CHAR_ID_003",
           subskil: []
@@ -291,6 +291,26 @@ export const commentSet = async(req: Request, res: Response) => {
   encryptAndSend(data, res, req);
 };
 
+
+export const navigationNews = async(req: Request, res: Response) => {
+ 
+  const data = {
+    navigations:[]
+  };
+
+  encryptAndSend(data, res, req);
+};
+
+export const achievementNews = async(req: Request, res: Response) => {
+ 
+  const data = {
+    achievements:[],
+    apple_achievements:[],
+    google_achievements:[]
+  };
+
+  encryptAndSend(data, res, req);
+};
 export const otomoteamGet = (req: Request, res: Response) => {
   const data = {
     capacity: 1,
@@ -311,6 +331,142 @@ export const equipSetGet = (req: Request, res: Response) => {
     capacity_eqp_set: 1,
     equip_sets: [{
       index: 1,
+      partner_equip_sets: [
+        // {
+        //   mst_partner_id: 1,
+        //   arm: {
+        //     created: 1701921942,
+        //     equipment_id: "AD_ARM006",
+        //     level: 1,
+        //     mst_equipment_id: 3,
+        //     potential: 1,
+        //     skill_level: 1
+        //   },
+        //   body: {
+        //     created: 1701921942,
+        //     equipment_id: "AD_BODY006",
+        //     level: 1,
+        //     mst_equipment_id: 4,
+        //     potential: 1,
+        //     skill_level: 1
+        //   },
+        //   leg: {
+        //     created: 1701921942,
+        //     equipment_id: "AD_LEG006",
+        //     level: 1,
+        //     mst_equipment_id: 1,
+        //     potential: 1,
+        //     skill_level: 1
+        //   },
+        //   head: {
+        //     created: 1701921942,
+        //     equipment_id: "AD_HEAD006",
+        //     level: 1,
+        //     mst_equipment_id: 5,
+        //     potential: 1,
+        //     skill_level: 1
+        //   },
+        //   secret_weapon: {
+        //     created: 0,
+        //     equipment_id: "WD_SWORD001",
+        //     level: 1,
+        //     mst_equipment_id: 6,
+        //     potential: 1,
+        //     skill_level: 1
+        //   },
+        //   talisman: {
+        //     created: 1701921942,
+        //     equipment_id: "",
+        //     level: 1,
+        //     mst_equipment_id: 0,
+        //     potential: 1,
+        //     skill_level: 1
+        //   },
+        //   waist: {
+        //     created: 1701921942,
+        //     equipment_id: "AD_WST006",
+        //     level: 1,
+        //     mst_equipment_id: 2,
+        //     potential: 1,
+        //     skill_level: 1
+        //   },
+        //   weapon: {
+        //     created: 1701921942,
+        //     equipment_id: "WD_SWORD001",
+        //     level: 1,
+        //     mst_equipment_id: 6,
+        //     potential: 1,
+        //     skill_level: 1
+        //   }
+        // }
+      ],
+      arm: {
+        created: 1701921942,
+        equipment_id: "AD_ARM006",
+        level: 1,
+        mst_equipment_id: 3325982510,
+        potential: 1,
+        skill_level: 1
+      },
+      body: {
+        created: 1701921942,
+        equipment_id: "AD_BODY006",
+        level: 1,
+        mst_equipment_id: 1801022340,
+        potential: 1,
+        skill_level: 1
+      },
+      leg: {
+        created: 1701921942,
+        equipment_id: "AD_LEG006",
+        level: 1,
+        mst_equipment_id: 3353202438,
+        potential: 1,
+        skill_level: 1
+      },
+      head: {
+        created: 1701921942,
+        equipment_id: "AD_HEAD006",
+        level: 1,
+        mst_equipment_id: 69277598,
+        potential: 1,
+        skill_level: 1
+      },
+      secret_weapon: {
+        created: 0,
+        equipment_id: "WD_SWORD001",
+        level: 1,
+        mst_equipment_id: 2006810019,
+        potential: 1,
+        skill_level: 1
+      },
+      talisman: {
+        created: 1701921942,
+        equipment_id: "",
+        level: 1,
+        mst_equipment_id: 0,
+        potential: 1,
+        skill_level: 1
+      },
+      waist: {
+        created: 1701921942,
+        equipment_id: "AD_WST006",
+        level: 1,
+        mst_equipment_id: 62957325,
+        potential: 1,
+        skill_level: 1
+      },
+      weapon: {
+        created: 1701921942,
+        equipment_id: "WD_SWORD001",
+        level: 1,
+        mst_equipment_id: 2006810019,
+        potential: 1,
+        skill_level: 1
+      }
+    },
+    {
+      index: 2,
       partner_equip_sets: [
         // {
         //   mst_partner_id: 1,

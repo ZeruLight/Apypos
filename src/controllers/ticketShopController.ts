@@ -5,11 +5,11 @@ export const list = (req: Request, res: Response) => {
   const data = {
     ticket_list:[
       {
-        buy_enabled:0,
+        buy_enabled:1,
         currency_type:0,
-        mst_limited_id:0,
-        pop_text:"",
-        price:0,
+        mst_limited_id:581393666,
+        pop_text:"test",
+        price:2,
         stock:1
       }
     ]
