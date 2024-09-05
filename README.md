@@ -1,10 +1,10 @@
-# Boromir (Monster Hunter Explore Server Emulator)
+# Apypos (Monster Hunter Explore Server Emulator)
 This repository contains the source code for a server emulator for the game Monster Hunter Explore.
 
 Discord: discord.gg/dnwcpxm488
 
 ## Why the Name?
-The server is called Boromir, after the Guild Executive from MHXR, but the name was randomly chosen by the developer as they had not played the game when it was live.
+The server is called Apypos. To keep with the theme Erupe set. It was originally called Boromir, after the Guild Executive from MHXR and was randomly chosen name by the initial framework developer as they had not played the game when it was live. It was changed  because LOTR association just felt like it didnt fit MH. 
 
 ## Prerequisites
 
@@ -31,13 +31,13 @@ The server is called Boromir, after the Guild Executive from MHXR, but the name 
 1. Clone the repository (if you haven't already):
 
     ```bash
-    git clone https://github.com/mehrdavon/boromir
+    git clone https://github.com/zerulight/apypos
     ```
 
     Navigate to the project directory:
 
     ```bash
-    cd boromir
+    cd apypos
     ```
 
 2. Install the dependencies:
