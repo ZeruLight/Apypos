@@ -41,9 +41,8 @@ export const trainingStart = (req: Request, res: Response) => {
       block_list: [{
         block_idx: 1,
         block_instance_list: [
-          //{ instance_id: 0, serial_no: 1 }
-        ],
-        drop_list: [
+          { instance_id: 0, serial_no: 1 }
+        ], drop_list: [
           //   {
           //   item_list: {
           //     collections: [
@@ -89,11 +88,10 @@ export const trainingStart = (req: Request, res: Response) => {
           //   },
           //   serial_no: 0
           // }
-        ],
-        instance_id: 0,
+        ], instance_id: 0,
         is_insert: 1,
         is_raid: 0,
-        mst_block_id: 0,
+        mst_block_id: 3165901164,
         repop_list: [{ amount: 0, serial_no: 0 }]
       },
       ],
@@ -113,7 +111,7 @@ export const trainingStart = (req: Request, res: Response) => {
         }
       ],
       instance_id: 0,
-      mission_message: "s",
+      mission_message: "start",
       mst_quest_id: req.body.mst_quest_id,
       multi_leave_check_time: 0,
       point_info: {
@@ -139,9 +137,9 @@ export const trainingStart = (req: Request, res: Response) => {
 export const trainingList = (req: Request, res: Response) => {
   const data = {
     training_list: [{
-      equip_type: 1,
-      is_clear: 1,
-      mst_quest_id: 1865278504,
+      equip_type: 0,
+      is_clear: 0,
+      mst_quest_id: 3897704650,
       reward_item: {
         //4002688025
         equipments: [
@@ -164,739 +162,403 @@ export const trainingList = (req: Request, res: Response) => {
             start_remain: 0
           }
         ],
-
       },
-      reward_text: "SNS"
-    }, {
+      reward_text: "Great Sword"
+    },{
+      equip_type: 1,
+      is_clear: 0,
+      mst_quest_id: 3897704650,
+      reward_item: {
+        //4002688025
+        equipments: [
+          {
+            auto_potential_composite: 0,
+            awaked: 0,
+            created: 0,
+            elv: 0,
+            endAwakeCount: 0,
+            endAwakeRemain: 0,
+            end_remain: 0,
+            equipment_id: "WD_SWORD002",
+            evolve_start_time: 0,
+            favorite: 0,
+            is_awake: 0,
+            is_complete_auto_potential_composite: 0,
+            mst_equipment_id: 4002688025,
+            potential: 0,
+            slv: 0,
+            start_remain: 0
+          }
+        ],
+      },
+      reward_text: "Sword & Shield"
+    }, 
+    {
       equip_type: 2,
-      is_clear: 1,
+      is_clear: 0,
       mst_quest_id: 1865278504,
       reward_item: {
-        collections: [
-          { mst_collection_id: 484329504 }
-
-        ],
-        equipments: [],
-        growth_items: [],
-        katamaris: [
-
-
-        ],
-        limiteds: [
-        ],
-        matatabis: [{
-          amount: 2,
-          mst_matatabi_id: 182647086
-        }],
-        materials: [{ amount: 2, mst_material_id: 2071584948 }, { amount: 2, mst_material_id: 1921761827 }],
-        monument: {
-          augite: [],
-          hr: 0,
-          mlv: {
-            atk: 0,
-            def: 0,
-            hp: 0,
-            sp: 0
+        //4002688025
+        equipments: [
+          {
+            auto_potential_composite: 0,
+            awaked: 0,
+            created: 0,
+            elv: 0,
+            endAwakeCount: 0,
+            endAwakeRemain: 0,
+            end_remain: 0,
+            equipment_id: "WD_HAMMER002",
+            evolve_start_time: 0,
+            favorite: 0,
+            is_awake: 0,
+            is_complete_auto_potential_composite: 0,
+            mst_equipment_id: 3085808958,
+            potential: 0,
+            slv: 0,
+            start_remain: 0
           }
-
-        },
-        otomos: [],
-        payments: [
-
         ],
-        pcoins: [
-
-        ],
-        points: [
-
-        ],
-        powers: [
-
-        ],
-        stamp_sets: [
-
-        ],
-        zenny: 8,
       },
       reward_text: "Hammer"
     }, {
       equip_type: 3,
-      is_clear: 1,
-      mst_quest_id: 405460158,
+      is_clear: 0,
+      mst_quest_id: 2253275421,
       reward_item: {
-        collections: [
-          { mst_collection_id: 484329504 }
-
-        ],
-        equipments: [],
-        growth_items: [],
-        katamaris: [
-
-
-        ],
-        limiteds: [
-        ],
-        matatabis: [{
-          amount: 2,
-          mst_matatabi_id: 182647086
-        }],
-        materials: [{ amount: 2, mst_material_id: 2071584948 }, { amount: 2, mst_material_id: 1921761827 }],
-        monument: {
-          augite: [],
-          hr: 0,
-          mlv: {
-            atk: 0,
-            def: 0,
-            hp: 0,
-            sp: 0
+        //4002688025
+        equipments: [
+          {
+            auto_potential_composite: 0,
+            awaked: 0,
+            created: 0,
+            elv: 0,
+            endAwakeCount: 0,
+            endAwakeRemain: 0,
+            end_remain: 0,
+            equipment_id: "WD_LANCE002",
+            evolve_start_time: 0,
+            favorite: 0,
+            is_awake: 0,
+            is_complete_auto_potential_composite: 0,
+            mst_equipment_id: 1633791128,
+            potential: 0,
+            slv: 0,
+            start_remain: 0
           }
-
-        },
-        otomos: [],
-        payments: [
-
         ],
-        pcoins: [
-
-        ],
-        points: [
-
-        ],
-        powers: [
-
-        ],
-        stamp_sets: [
-
-        ],
-        zenny: 8,
       },
       reward_text: "Lance"
     }, {
       equip_type: 4,
-      is_clear: 1,
-      mst_quest_id: 2253275421,
+      is_clear: 0,
+      mst_quest_id: 1749033009,
       reward_item: {
-        collections: [
-          { mst_collection_id: 484329504 }
-
-        ],
-        equipments: [],
-        growth_items: [],
-        katamaris: [
-
-
-        ],
-        limiteds: [
-        ],
-        matatabis: [{
-          amount: 2,
-          mst_matatabi_id: 182647086
-        }],
-        materials: [{ amount: 2, mst_material_id: 2071584948 }, { amount: 2, mst_material_id: 1921761827 }],
-        monument: {
-          augite: [],
-          hr: 0,
-          mlv: {
-            atk: 0,
-            def: 0,
-            hp: 0,
-            sp: 0
+        //4002688025
+        equipments: [
+          {
+            auto_potential_composite: 0,
+            awaked: 0,
+            created: 0,
+            elv: 0,
+            endAwakeCount: 0,
+            endAwakeRemain: 0,
+            end_remain: 0,
+            equipment_id: "WD_HBOWGUN002",
+            evolve_start_time: 0,
+            favorite: 0,
+            is_awake: 0,
+            is_complete_auto_potential_composite: 0,
+            mst_equipment_id: 716130325,
+            potential: 0,
+            slv: 0,
+            start_remain: 0
           }
-
-        },
-        otomos: [],
-        payments: [
-
         ],
-        pcoins: [
-
-        ],
-        points: [
-
-        ],
-        powers: [
-
-        ],
-        stamp_sets: [
-
-        ],
-        zenny: 8,
       },
-      reward_text: "Gun"
+      reward_text: "Heavy Bowgun"
     },
-      // {
-      //   equip_type: 5,
-      //   is_clear: 1,
-      //   mst_quest_id: 4048122251,
-      //   reward_item: {
-      //     collections: [
-      //       { mst_collection_id: 484329504 }
 
-      //     ],
-      //     equipments: [],
-      //     growth_items: [],
-      //     katamaris: [
-
-
-      //     ],
-      //     limiteds: [
-      //     ],
-      //     matatabis: [{
-      //       amount: 2,
-      //       mst_matatabi_id: 182647086
-      //     }],
-      //     materials: [{ amount: 2, mst_material_id: 2071584948 },{ amount: 2, mst_material_id: 1921761827 }],
-      //     monument: {
-      //       augite: [],
-      //       hr: 0,
-      //       mlv: {
-      //         atk: 0,
-      //         def: 0,
-      //         hp: 0,
-      //         sp: 0
-      //       }
-
-      //     },
-      //     otomos: [],
-      //     payments: [
-
-      //     ],
-      //     pcoins: [
-
-      //     ],
-      //     points: [
-
-      //     ],
-      //     powers: [
-
-      //     ],
-      //     stamp_sets: [
-
-      //     ],
-      //     zenny: 8,
-      //   },
-      //   reward_text: "Test"
-      // }
       , {
       equip_type: 6,
-      is_clear: 1,
+      is_clear: 0,
       mst_quest_id: 1749033009,
       reward_item: {
-        collections: [
-          { mst_collection_id: 484329504 }
-
-        ],
-        equipments: [],
-        growth_items: [],
-        katamaris: [
-
-
-        ],
-        limiteds: [
-        ],
-        matatabis: [{
-          amount: 2,
-          mst_matatabi_id: 182647086
-        }],
-        materials: [{ amount: 2, mst_material_id: 2071584948 }, { amount: 2, mst_material_id: 1921761827 }],
-        monument: {
-          augite: [],
-          hr: 0,
-          mlv: {
-            atk: 0,
-            def: 0,
-            hp: 0,
-            sp: 0
+        //4002688025
+        equipments: [
+          {
+            auto_potential_composite: 0,
+            awaked: 0,
+            created: 0,
+            elv: 0,
+            endAwakeCount: 0,
+            endAwakeRemain: 0,
+            end_remain: 0,
+            equipment_id: "WD_LBOWGUN002",
+            evolve_start_time: 0,
+            favorite: 0,
+            is_awake: 0,
+            is_complete_auto_potential_composite: 0,
+            mst_equipment_id: 591718511,
+            potential: 0,
+            slv: 0,
+            start_remain: 0
           }
-
-        },
-        otomos: [],
-        payments: [
-
         ],
-        pcoins: [
-
-        ],
-        points: [
-
-        ],
-        powers: [
-
-        ],
-        stamp_sets: [
-
-        ],
-        zenny: 8,
       },
-      reward_text: "Gun"
+      reward_text: "Light Bowgun"
     }, {
       equip_type: 7,
-      is_clear: 1,
+      is_clear: 0,
       mst_quest_id: 405460158,
       reward_item: {
-        collections: [
-          { mst_collection_id: 484329504 }
-
-        ],
-        equipments: [],
-        growth_items: [],
-        katamaris: [
-
-
-        ],
-        limiteds: [
-        ],
-        matatabis: [{
-          amount: 2,
-          mst_matatabi_id: 182647086
-        }],
-        materials: [{ amount: 2, mst_material_id: 2071584948 }, { amount: 2, mst_material_id: 1921761827 }],
-        monument: {
-          augite: [],
-          hr: 0,
-          mlv: {
-            atk: 0,
-            def: 0,
-            hp: 0,
-            sp: 0
+        //4002688025
+        equipments: [
+          {
+            auto_potential_composite: 0,
+            awaked: 0,
+            created: 0,
+            elv: 0,
+            endAwakeCount: 0,
+            endAwakeRemain: 0,
+            end_remain: 0,
+            equipment_id: "WD_LSWORD2002",
+            evolve_start_time: 0,
+            favorite: 0,
+            is_awake: 0,
+            is_complete_auto_potential_composite: 0,
+            mst_equipment_id: 1289909332,
+            potential: 0,
+            slv: 0,
+            start_remain: 0
           }
-
-        },
-        otomos: [],
-        payments: [
-
         ],
-        pcoins: [
-
-        ],
-        points: [
-
-        ],
-        powers: [
-
-        ],
-        stamp_sets: [
-
-        ],
-        zenny: 8,
       },
-      reward_text: "LSWORD"
+      reward_text: "Long Sword"
     }, {
       equip_type: 8,
-      is_clear: 1,
+      is_clear: 0,
       mst_quest_id: 1749033009,
       reward_item: {
-        collections: [
-          { mst_collection_id: 484329504 }
-
-        ],
-        equipments: [],
-        growth_items: [],
-        katamaris: [
-
-
-        ],
-        limiteds: [
-        ],
-        matatabis: [{
-          amount: 2,
-          mst_matatabi_id: 182647086
-        }],
-        materials: [{ amount: 2, mst_material_id: 2071584948 }, { amount: 2, mst_material_id: 1921761827 }],
-        monument: {
-          augite: [],
-          hr: 0,
-          mlv: {
-            atk: 0,
-            def: 0,
-            hp: 0,
-            sp: 0
+        //4002688025
+        equipments: [
+          {
+            auto_potential_composite: 0,
+            awaked: 0,
+            created: 0,
+            elv: 0,
+            endAwakeCount: 0,
+            endAwakeRemain: 0,
+            end_remain: 0,
+            equipment_id: "WD_AXE002",
+            evolve_start_time: 0,
+            favorite: 0,
+            is_awake: 0,
+            is_complete_auto_potential_composite: 0,
+            mst_equipment_id: 2441984130,
+            potential: 0,
+            slv: 0,
+            start_remain: 0
           }
-
-        },
-        otomos: [],
-        payments: [
-
         ],
-        pcoins: [
-
-        ],
-        points: [
-
-        ],
-        powers: [
-
-        ],
-        stamp_sets: [
-
-        ],
-        zenny: 8,
       },
       reward_text: "Switch Axe"
     }, {
       equip_type: 9,
-      is_clear: 1,
+      is_clear: 0,
       mst_quest_id: 1749033009,
       reward_item: {
-        collections: [
-          { mst_collection_id: 484329504 }
-
-        ],
-        equipments: [],
-        growth_items: [],
-        katamaris: [
-
-
-        ],
-        limiteds: [
-        ],
-        matatabis: [{
-          amount: 2,
-          mst_matatabi_id: 182647086
-        }],
-        materials: [{ amount: 2, mst_material_id: 2071584948 }, { amount: 2, mst_material_id: 1921761827 }],
-        monument: {
-          augite: [],
-          hr: 0,
-          mlv: {
-            atk: 0,
-            def: 0,
-            hp: 0,
-            sp: 0
+        //4002688025
+        equipments: [
+          {
+            auto_potential_composite: 0,
+            awaked: 0,
+            created: 0,
+            elv: 0,
+            endAwakeCount: 0,
+            endAwakeRemain: 0,
+            end_remain: 0,
+            equipment_id: "WD_GUNLANCE002",
+            evolve_start_time: 0,
+            favorite: 0,
+            is_awake: 0,
+            is_complete_auto_potential_composite: 0,
+            mst_equipment_id: 635918702,
+            potential: 0,
+            slv: 0,
+            start_remain: 0
           }
-
-        },
-        otomos: [],
-        payments: [
-
         ],
-        pcoins: [
-
-        ],
-        points: [
-
-        ],
-        powers: [
-
-        ],
-        stamp_sets: [
-
-        ],
-        zenny: 8,
       },
       reward_text: "Gunlance"
     }, {
       equip_type: 10,
-      is_clear: 1,
+      is_clear: 0,
       mst_quest_id: 1749033009,
       reward_item: {
-        collections: [
-          { mst_collection_id: 484329504 }
-
-        ],
-        equipments: [],
-        growth_items: [],
-        katamaris: [
-
-
-        ],
-        limiteds: [
-        ],
-        matatabis: [{
-          amount: 2,
-          mst_matatabi_id: 182647086
-        }],
-        materials: [{ amount: 2, mst_material_id: 2071584948 }, { amount: 2, mst_material_id: 1921761827 }],
-        monument: {
-          augite: [],
-          hr: 0,
-          mlv: {
-            atk: 0,
-            def: 0,
-            hp: 0,
-            sp: 0
+        //4002688025
+        equipments: [
+          {
+            auto_potential_composite: 0,
+            awaked: 0,
+            created: 0,
+            elv: 0,
+            endAwakeCount: 0,
+            endAwakeRemain: 0,
+            end_remain: 0,
+            equipment_id: "WD_BOW034",
+            evolve_start_time: 0,
+            favorite: 0,
+            is_awake: 0,
+            is_complete_auto_potential_composite: 0,
+            mst_equipment_id: 4253542492,
+            potential: 0,
+            slv: 0,
+            start_remain: 0
           }
-
-        },
-        otomos: [],
-        payments: [
-
         ],
-        pcoins: [
-
-        ],
-        points: [
-
-        ],
-        powers: [
-
-        ],
-        stamp_sets: [
-
-        ],
-        zenny: 8,
       },
       reward_text: "Bow"
     }, {
       equip_type: 11,
-      is_clear: 1,
+      is_clear: 0,
       mst_quest_id: 1865278504,
       reward_item: {
-        collections: [
-          { mst_collection_id: 484329504 }
-
-        ],
-        equipments: [],
-        growth_items: [],
-        katamaris: [
-
-
-        ],
-        limiteds: [
-        ],
-        matatabis: [{
-          amount: 2,
-          mst_matatabi_id: 182647086
-        }],
-        materials: [{ amount: 2, mst_material_id: 2071584948 }, { amount: 2, mst_material_id: 1921761827 }],
-        monument: {
-          augite: [],
-          hr: 0,
-          mlv: {
-            atk: 0,
-            def: 0,
-            hp: 0,
-            sp: 0
+        //4002688025
+        equipments: [
+          {
+            auto_potential_composite: 0,
+            awaked: 0,
+            created: 0,
+            elv: 0,
+            endAwakeCount: 0,
+            endAwakeRemain: 0,
+            end_remain: 0,
+            equipment_id: "WD_WSWORD002",
+            evolve_start_time: 0,
+            favorite: 0,
+            is_awake: 0,
+            is_complete_auto_potential_composite: 0,
+            mst_equipment_id: 3554553746,
+            potential: 0,
+            slv: 0,
+            start_remain: 0
           }
-
-        },
-        otomos: [],
-        payments: [
-
         ],
-        pcoins: [
-
-        ],
-        points: [
-
-        ],
-        powers: [
-
-        ],
-        stamp_sets: [
-
-        ],
-        zenny: 8,
       },
-      reward_text: "Duel Blades"
+      reward_text: "Dual Blades"
     }, {
       equip_type: 12,
-      is_clear: 1,
+      is_clear: 0,
       mst_quest_id: 1749033009,
       reward_item: {
-        collections: [
-          { mst_collection_id: 484329504 }
-
-        ],
-        equipments: [],
-        growth_items: [],
-        katamaris: [
-
-
-        ],
-        limiteds: [
-        ],
-        matatabis: [{
-          amount: 2,
-          mst_matatabi_id: 182647086
-        }],
-        materials: [{ amount: 2, mst_material_id: 2071584948 }, { amount: 2, mst_material_id: 1921761827 }],
-        monument: {
-          augite: [],
-          hr: 0,
-          mlv: {
-            atk: 0,
-            def: 0,
-            hp: 0,
-            sp: 0
+        //4002688025
+        equipments: [
+          {
+            auto_potential_composite: 0,
+            awaked: 0,
+            created: 0,
+            elv: 0,
+            endAwakeCount: 0,
+            endAwakeRemain: 0,
+            end_remain: 0,
+            equipment_id: "WD_PIPE002",
+            evolve_start_time: 0,
+            favorite: 0,
+            is_awake: 0,
+            is_complete_auto_potential_composite: 0,
+            mst_equipment_id: 4013156781,
+            potential: 0,
+            slv: 0,
+            start_remain: 0
           }
-
-        },
-        otomos: [],
-        payments: [
-
         ],
-        pcoins: [
-
-        ],
-        points: [
-
-        ],
-        powers: [
-
-        ],
-        stamp_sets: [
-
-        ],
-        zenny: 8,
       },
       reward_text: "Hunting Horn"
     }, {
       equip_type: 13,
-      is_clear: 1,
+      is_clear: 0,
       mst_quest_id: 1749033009,
       reward_item: {
-        collections: [
-          { mst_collection_id: 484329504 }
-
-        ],
-        equipments: [],
-        growth_items: [],
-        katamaris: [
-
-
-        ],
-        limiteds: [
-        ],
-        matatabis: [{
-          amount: 2,
-          mst_matatabi_id: 182647086
-        }],
-        materials: [{ amount: 2, mst_material_id: 2071584948 }, { amount: 2, mst_material_id: 1921761827 }],
-        monument: {
-          augite: [],
-          hr: 0,
-          mlv: {
-            atk: 0,
-            def: 0,
-            hp: 0,
-            sp: 0
+        //4002688025
+        equipments: [
+          {
+            auto_potential_composite: 0,
+            awaked: 0,
+            created: 0,
+            elv: 0,
+            endAwakeCount: 0,
+            endAwakeRemain: 0,
+            end_remain: 0,
+            equipment_id: "WD_STICK002",
+            evolve_start_time: 0,
+            favorite: 0,
+            is_awake: 0,
+            is_complete_auto_potential_composite: 0,
+            mst_equipment_id: 214334461,
+            potential: 0,
+            slv: 0,
+            start_remain: 0
           }
-
-        },
-        otomos: [],
-        payments: [
-
         ],
-        pcoins: [
-
-        ],
-        points: [
-
-        ],
-        powers: [
-
-        ],
-        stamp_sets: [
-
-        ],
-        zenny: 8,
       },
-      reward_text: "Insect Glave"
+      reward_text: "Insect Glaive"
     }, {
       equip_type: 14,
-      is_clear: 1,
+      is_clear: 0,
       mst_quest_id: 1749033009,
       reward_item: {
-        collections: [
-          { mst_collection_id: 484329504 }
-
-        ],
-        equipments: [],
-        growth_items: [],
-        katamaris: [
-
-
-        ],
-        limiteds: [
-        ],
-        matatabis: [{
-          amount: 2,
-          mst_matatabi_id: 182647086
-        }],
-        materials: [{ amount: 2, mst_material_id: 2071584948 }, { amount: 2, mst_material_id: 1921761827 }],
-        monument: {
-          augite: [],
-          hr: 0,
-          mlv: {
-            atk: 0,
-            def: 0,
-            hp: 0,
-            sp: 0
+        //4002688025
+        equipments: [
+          {
+            auto_potential_composite: 0,
+            awaked: 0,
+            created: 0,
+            elv: 0,
+            endAwakeCount: 0,
+            endAwakeRemain: 0,
+            end_remain: 0,
+            equipment_id: "WD_CHAXE002",
+            evolve_start_time: 0,
+            favorite: 0,
+            is_awake: 0,
+            is_complete_auto_potential_composite: 0,
+            mst_equipment_id: 3418353569,
+            potential: 0,
+            slv: 0,
+            start_remain: 0
           }
-
-        },
-        otomos: [],
-        payments: [
-
         ],
-        pcoins: [
-
-        ],
-        points: [
-
-        ],
-        powers: [
-
-        ],
-        stamp_sets: [
-
-        ],
-        zenny: 8,
       },
-      reward_text: "Switch Axe"
+      reward_text: "Charge Blade"
     }, {
       equip_type: 15,
-      is_clear: 1,
+      is_clear: 0,
       mst_quest_id: 3897704650,
       reward_item: {
-        collections: [
-          { mst_collection_id: 484329504 }
-
-        ],
-        equipments: [],
-        growth_items: [],
-        katamaris: [
-
-
-        ],
-        limiteds: [
-        ],
-        matatabis: [{
-          amount: 2,
-          mst_matatabi_id: 182647086
-        }],
-        materials: [{ amount: 2, mst_material_id: 2071584948 }, { amount: 2, mst_material_id: 1921761827 }],
-        monument: {
-          augite: [],
-          hr: 0,
-          mlv: {
-            atk: 0,
-            def: 0,
-            hp: 0,
-            sp: 0
+        //4002688025
+        equipments: [
+          {
+            auto_potential_composite: 0,
+            awaked: 0,
+            created: 0,
+            elv: 0,
+            endAwakeCount: 0,
+            endAwakeRemain: 0,
+            end_remain: 0,
+            equipment_id: "WD_ACAXE002",
+            evolve_start_time: 0,
+            favorite: 0,
+            is_awake: 0,
+            is_complete_auto_potential_composite: 0,
+            mst_equipment_id: 2342370342,
+            potential: 0,
+            slv: 0,
+            start_remain: 0
           }
-
-        },
-        otomos: [],
-        payments: [
-
         ],
-        pcoins: [
-
-        ],
-        points: [
-
-        ],
-        powers: [
-
-        ],
-        stamp_sets: [
-
-        ],
-        zenny: 8,
       },
-      reward_text: "Axcel Axe"
+      reward_text: "Accel Axe"
     },
 
     ]
@@ -904,9 +566,3 @@ export const trainingList = (req: Request, res: Response) => {
   };
   encryptAndSend(data, res, req);
 };
-
-
-
-
-
-
