@@ -196,7 +196,7 @@ export const get = async (req: Request, res: Response) => {
       ],
       game_id: "83R552F3",
       model_info: doc.model_info,
-      name: "username",
+      name: doc.character_name,
       otomo_team: {
         main: {
           attack: 100,
@@ -259,7 +259,7 @@ export const get = async (req: Request, res: Response) => {
         mst_title_id: 0,
       },
       use_social_equip: -1,
-      user_id: "user_id",
+      user_id: doc.user_id,
     }
 
   };
@@ -994,7 +994,7 @@ export const titleSet = async(req: Request, res: Response) => {
       ],
       game_id: "83R552F3",
       model_info: doc.model_info,
-      name: "username",
+      name: doc.character_name,
       otomo_team: {
         main: {
           attack: 1,
@@ -1057,7 +1057,7 @@ export const titleSet = async(req: Request, res: Response) => {
         mst_title_id: req.body.mst_title_id,
       },
       use_social_equip: -1,
-      user_id: "user_id",
+      user_id: doc.user_id,
     }
   };
   encryptAndSend(data, res, req);
