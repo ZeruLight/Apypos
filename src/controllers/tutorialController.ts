@@ -7,9 +7,9 @@ import User from "../model/user";
 // 210 = isFirstTimeDownload
 // 310 = isFirstTimeQuest //Jagi
 // 1010 = isSecondTimeQuest  //Rathalos
-// 2010 = isTrainingDL //weapon navi??
+// 2010 = isTrainingDL //weapon training
 // 3010 = isStandardDL
-// 4010 = isIslandQuestPlay
+// 4010 = isIslandQuestPlay //Menu
 // 5010 = isIslandQuestEnd
 // 0xFFFF = isTutorialEnd
 
