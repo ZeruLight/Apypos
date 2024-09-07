@@ -6,7 +6,7 @@ import User from "../../model/user";
 
 export const equipSetGet = (req: Request, res: Response) => {
   const data = {
-    capacity_eqp_set: 1,
+    capacity_eqp_set: 5,
     equip_sets: [{
       index: 1,
       partner_equip_sets: [
@@ -287,7 +287,7 @@ export const equipSetGet = (req: Request, res: Response) => {
 
 export const equipSetSet = (req: Request, res: Response) => {
   const data = {
-    capacity_eqp_set: 1,
+    capacity_eqp_set: 5,
     equip_sets:req.body.equip_sets ,
     selected_equip_set_index: req.body.selected_equip_set_index
   };

@@ -110,7 +110,7 @@ export const loginAccount = async (req: Request, res: Response) => {
                 start_remain: 20
               }
             ],
-            zenny: 200,
+            zenny: 1000000,
             pickup: 1
 
           }

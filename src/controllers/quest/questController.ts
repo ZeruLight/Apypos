@@ -80,10 +80,93 @@ export const eternalAll = (req: Request, res: Response) => {
 
 
 export const islandMapAll = (req: Request, res: Response) => {
+
+/*
+3525753088 マラクジャ群島 Malacuja 
+----------------------------------
+Parts:
+3815380063 マラクジャ島 Malacuja Island
+|--------------------------------------
+|Nodes:
+|517825253 港町セビチェ port city of Ceviche PART00001_NODE00001
+||No Quests...
+|2278830943 アドポの丘                       PART00001_NODE00002
+||mQuestList
+|||538553008
+|||3104897802
+|||3457665948
+|||1349738047
+|||661941929
+|||3195879187
+|||3380219781
+|||1506087444
+||mSubjugationQuestList
+|||784474754
+|||1308994407
+
+|4040360905 パクペバ大裂溝前
+|1857525354 ローゼル渓流
+|431007484 トララ川のほとり
+|2159671110 ヒスコア湿地帯
+|4156475344 ピアウ海岸
+
+2053326309 ランバイ島 Lambay
+224687475
+2466308304
+3825717318
+2098102780
+
+
+1261430970 ヴォルヒール群島 Volhir
+----------------------------------
+Parts:
+168407402
+2595663099
+3987840109
+2373326216
+4201719070
+1668838564
+
+1009309740 タブラディン群島 Tabradin 
+----------------------------------
+Parts:
+343884850
+2317078929
+4246528263
+1679143101
+319979563
+2209193402
+*/
+
+const node = {
+  day_quest_list:[],
+  is_collection_node:0,
+  mst_node_id:0,
+  mst_story_id:0,
+  night_quest_list:0,
+  state:0
+}
+const part ={
+  campaign:[],
+  exploration_note:{
+    note_contents:[],
+    progress:0,
+  },
+  gingira_node_id: 3, //unk value here
+  mst_part_id: 3815380063,     
+  node_list:[],
+  object_list:[],
+  raid_info:[],
+  silver_bonus:0,
+  state:0,
+
+}
+
+
   const data = {
     ocean_list: [
       {
-        mst_ocean_id: 3525753088,
+        mst_ocean_id: 3525753088, //ocean_define.xml //only 3 ids 3525753088,1261430970,1009309740
         part_list: [
           {
             campaign: [
@@ -99,62 +182,47 @@ export const islandMapAll = (req: Request, res: Response) => {
                 //   state: 1
                 // }
               ],
-              progress: 100,
+              progress: 0,
             },
-            gingira_node_id: 1,
-            mst_part_id: 3815380063,
+            gingira_node_id: 0, //unk value here
+            mst_part_id: 3815380063,                                         
             node_list: [
               {
-                day_quest_list: [
+                day_quest_list:[
                   // { clear_time: 0, is_collection_quest: 0, is_key_quest: 0, mst_quest_id: 538553008, quest_subtargets: [{ mst_subtarget_id: 1002, state: 1 }], state: 1 },
-                  // { clear_time: 0, is_collection_quest: 0, is_key_quest: 1, mst_quest_id: 3104897802, quest_subtargets: [{ mst_subtarget_id: 1002, state: 1 }], state: 1 }
-
                 ],
-                is_node_collection: 1,
-                mst_node_id: 517825253,
-                mst_story_id: 1603733826,
-                night_quest_list: [
+                is_collection_node:0,
+                mst_node_id:517825253,
+                mst_story_id:2187760826,
+                night_quest_list:[
                   // { clear_time: 0, is_collection_quest: 0, is_key_quest: 0, mst_quest_id: 3457665948, quest_subtargets: [{ mst_subtarget_id: 1002, state: 1 }], state: 1 },
-                  // { clear_time: 0, is_collection_quest: 0, is_key_quest: 1, mst_quest_id: 1349738047, quest_subtargets: [{ mst_subtarget_id: 1002, state: 1 }], state: 1 }
-
                 ],
-                object_list: [
-                  // { mst_object_id: 3104897802, state: 1 }
-                ],
-                raid_info: [
-                  // { end_remain: 252, mst_node_id: 517825253, start_remain: 252 }
-                ],
-                silver_bonus: 3,
-                state: 1
+                state:0
 
               },
-              // {
-              //   day_quest_list: [
-              //     // { clear_time: 0, is_collection_quest: 0, is_key_quest: 0, mst_quest_id: 538553008, quest_subtargets: [{ mst_subtarget_id: 1002, state: 1 }], state: 1 },
-              //     // { clear_time: 0, is_collection_quest: 0, is_key_quest: 1, mst_quest_id: 3104897802, quest_subtargets: [{ mst_subtarget_id: 1002, state: 1 }], state: 1 }
+              {
+                day_quest_list:[
+                  // { clear_time: 0, is_collection_quest: 0, is_key_quest: 0, mst_quest_id: 538553008, quest_subtargets: [{ mst_subtarget_id: 1002, state: 1 }], state: 1 },
+                ],
+                is_collection_node:0,
+                mst_node_id:2278830943,
+                mst_story_id:0,
+                night_quest_list:[
+                  // { clear_time: 0, is_collection_quest: 0, is_key_quest: 0, mst_quest_id: 3457665948, quest_subtargets: [{ mst_subtarget_id: 1002, state: 1 }], state: 1 },
+                ],
+                state:0
 
-              //   ],
-              //   is_node_collection: 0,
-              //   mst_node_id: 2278830943,
-              //   mst_story_id: 3332266232,
-              //   night_quest_list: [
-              //     // { clear_time: 0, is_collection_quest: 0, is_key_quest: 0, mst_quest_id: 3457665948, quest_subtargets: [{ mst_subtarget_id: 1002, state: 1 }], state: 1 },
-              //     // { clear_time: 0, is_collection_quest: 0, is_key_quest: 1, mst_quest_id: 1349738047, quest_subtargets: [{ mst_subtarget_id: 1002, state: 1 }], state: 1 }
+              },
+            ],
+            object_list:[
+                // { mst_object_id: 3104897802, state: 1 }
 
-              //   ],
-              //   object_list: [
-              //     // { mst_object_id: 3104897802, state: 1 }
-              //   ],
-              //   raid_info: [
-              //     // { end_remain: 252, mst_node_id: 517825253, start_remain: 252 }
-              //   ],
-              //   silver_bonus: 0,
-              //   state: 0
-
-              // }
-
-
-            ]
+            ],
+            raid_info:[
+              // { end_remain: 252, mst_node_id: 517825253, start_remain: 252 }
+            ],
+            silver_bonus:1,
+            state:1, //Open or Closed
           }
         ]
       },

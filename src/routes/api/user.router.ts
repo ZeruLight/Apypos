@@ -25,7 +25,8 @@ userRouter.post("/model/set", userModelController.modelSet);
 //Title
 userRouter.post("/title/all", userController.titleAll);
 userRouter.post("/title/set", userController.titleSet);
-
+userRouter.post("/title/news", userController.titleNews);
 userRouter.post("/achievement/news", userController.achievementNews);
+userRouter.post("/offer/check", userController.OfferCheck);
 
 export default userRouter;

@@ -37,7 +37,7 @@ export const get = async (req: Request, res: Response) => {
       }
     },
     user_info: {
-      capacity_eqp_set: 1,
+      capacity_eqp_set: 5,
       caplink_id: "caplnk",
       comment: "This is my comment",
       equip_sets: [{
@@ -283,6 +283,31 @@ export const achievementNews = async(req: Request, res: Response) => {
 
   encryptAndSend(data, res, req);
 };
+
+export const OfferCheck = async(req: Request, res: Response) => {
+ 
+  const data = {
+    offer_products:[
+      {
+        additional_point:0,
+        additional_state:0,
+        amount:1,
+        banner:"coev_04480",
+        explain:"Explain offer...",
+        id:0,
+        is_started:1,
+        name:"Offer Name",
+        remain:0,
+        start:0,
+        state:0
+      }
+    ]
+  };
+
+  encryptAndSend(data, res, req);
+};
+
+
 export const otomoteamGet = (req: Request, res: Response) => {
   const data = {
     capacity: 1,
@@ -470,6 +495,23 @@ export const titleAll = (req: Request, res: Response) => {
   encryptAndSend(data, res, req);
 };
 
+
+export const titleNews = (req: Request, res: Response) => {
+  const data = {
+    server_time: Date.now(),
+    titles:[
+      {
+      is_clear:0,
+      is_review:0,
+      mst_title_id:0,
+      progress:1,
+      progress_max:99
+    }
+  ]
+  };
+  encryptAndSend(data, res, req);
+};
+
 export const titleSet = async(req: Request, res: Response) => {
   const filter = { current_session: req.body.session_id };
 
@@ -477,7 +519,7 @@ export const titleSet = async(req: Request, res: Response) => {
 
   const data = {
     user_info: {
-      capacity_eqp_set: 1,
+      capacity_eqp_set: 5,
       caplink_id: "caplnk",
       comment: "This is my comment",
       equip_sets: [{

@@ -5,9 +5,9 @@ export const get = (req: Request, res: Response) => {
   const data = {
     box: {
       capacity: {
-        eqp_box: 5,
-        eqp_set: 5,
-        friend_max: 5,
+        eqp_box: 100,
+        eqp_set: 100,
+        friend_max: 100,
       },
       equipments: [
         {
@@ -216,15 +216,15 @@ export const storageInfo = (req: Request, res: Response) => {
     storage_info:{
       storage_details:[
         {
-          max:0,
+          max:100,
           name:"te",
           now:0,
-          storage_idx:0,
+          storage_idx:1,
 
         }
       ],
-      storage_limit:0,
-      storage_num:0
+      storage_limit:1000,
+      storage_num:100
     }
   };
   encryptAndSend(data, res,req);
@@ -285,6 +285,13 @@ export const paymentLimitGet= (req: Request, res: Response) => {
         mst_payment_id:3016417902,
       }
     ]
+  };
+  encryptAndSend(data, res,req);
+};
+
+export const PaymentGet = (req: Request, res: Response) => {
+  const data = {
+    payments:[]
   };
   encryptAndSend(data, res,req);
 };
