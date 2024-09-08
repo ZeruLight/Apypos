@@ -219,9 +219,9 @@ Parts:
   const data = {
 
     //TODO: Write logic to see what oceans and islands are open
-    ocean_list: [
+    ocean_list: [//These can be found at ocean_define.xml //only 3 ids 3525753088,1261430970,1009309740
       {
-        mst_ocean_id: 3525753088, //ocean_define.xml //only 3 ids 3525753088,1261430970,1009309740
+        mst_ocean_id: 3525753088, //マラクジャ群島 Malacuja     
         part_list: [
           {
             campaign: [
@@ -254,7 +254,7 @@ Parts:
               progress: 0,
             },
             gingira_node_id: 0, //unk value here if you put node id in here is sparkles
-            mst_part_id: 3815380063,                                         
+            mst_part_id: 3815380063,     //マラクジャ島 Malacuja Island
             node_list: [
               {
                 day_quest_list:[
@@ -282,6 +282,46 @@ Parts:
                 state:0 //0 = ?? 1 = ?? 2 = new! 3 = Medal and Silver Crown 4 = Medal and Gold Crown 5 = Additional ! 6 = Help! 
 
               },
+              {
+                day_quest_list:[],
+                is_collection_node:0,
+                mst_node_id:4040360905, //パクペバ大裂溝前
+                mst_story_id:3332266232,
+                night_quest_list:[],
+                state:0 //0 = ?? 1 = ?? 2 = new! 3 = Medal and Silver Crown 4 = Medal and Gold Crown 5 = Additional ! 6 = Help! 
+              },
+              {
+                day_quest_list:[],
+                is_collection_node:0,
+                mst_node_id:1857525354,//ローゼル渓流
+                mst_story_id:0,
+                night_quest_list:[],
+                state:0 //0 = ?? 1 = ?? 2 = new! 3 = Medal and Silver Crown 4 = Medal and Gold Crown 5 = Additional ! 6 = Help! 
+              },
+              {
+                day_quest_list:[],
+                is_collection_node:0,
+                mst_node_id:431007484,//トララ川のほとり
+                mst_story_id:1839295424,
+                night_quest_list:[],
+                state:0 //0 = ?? 1 = ?? 2 = new! 3 = Medal and Silver Crown 4 = Medal and Gold Crown 5 = Additional ! 6 = Help! 
+              },
+              {
+                day_quest_list:[],
+                is_collection_node:0,
+                mst_node_id:2159671110,//ヒスコア湿地帯
+                mst_story_id:0,
+                night_quest_list:[],
+                state:0 //0 = ?? 1 = ?? 2 = new! 3 = Medal and Silver Crown 4 = Medal and Gold Crown 5 = Additional ! 6 = Help! 
+              },
+              {
+                day_quest_list:[],
+                is_collection_node:0,
+                mst_node_id:4156475344,//ピアウ海岸
+                mst_story_id:4104665722,
+                night_quest_list:[],
+                state:0 //0 = ?? 1 = ?? 2 = new! 3 = Medal and Silver Crown 4 = Medal and Gold Crown 5 = Additional ! 6 = Help! 
+              },
             ],
             object_list:[
                 // { mst_object_id: 3104897802, state: 1 }
@@ -295,7 +335,14 @@ Parts:
           }
         ]
       },
-
+      {
+        mst_ocean_id: 1261430970, //ヴォルヒール群島 Volhir
+        part_list: []
+      },
+      {
+        mst_ocean_id: 1009309740, //タブラディン群島 Tabradin 
+        part_list: []
+      },
     ]
   };
   encryptAndSend(data, res, req);
