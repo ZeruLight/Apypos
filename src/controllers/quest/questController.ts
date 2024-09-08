@@ -77,10 +77,86 @@ export const eternalAll = (req: Request, res: Response) => {
   encryptAndSend(data, res, req);
 };
 
+export const islandStart = (req: Request, res: Response) => {
+  const data = {
+    instance_data: {
+      block_list: [
+        {
+          block_idx: 1,
+          block_instance_list: [
+            { instance_id: 0, serial_no: 1 }
+          ],
+          drop_list: [
+            //   {
+            //    item_list: {
+            //   },
+            //   serial_no: 0
+            // }
+          ],
+          instance_id: 0,
+          is_insert: 0,
+          is_raid: 0,
+          mst_block_id: 453505848,
+          repop_list: [
+            { amount: 0, serial_no: 0 }
+          ]
+        }
+      ],
+      bomb_lot_no: [{
+        bomb_lottery: [
+          { bomb_id: 0, weight: 0 }
+        ]
+      }],
+      enable_limited_skill_id_list: [],
+      enable_partner_limited_skill_id_list: [],
+      enable_talisman: 0,
+      enable_talisman_partner: 0,
+      enemy_point_list: [
+        {
+          mst_enemy_id: 1618895799,
+          point: 0,
+        }
+      ],
+      instance_id: 0,
+      mission_message: "start",
+      mst_quest_id: req.body.mst_quest_id,
+      multi_leave_check_time: 0,
+      point_info: {
+        armor_skill_value: 0,
+        campaign_value: 0,
+        get_point: 0,
+        guild_bingo_bonus: 0,
+        guild_total_point: 0,
+        m16_get_point: 0,
+        mst_event_info_id: 2740334662,
+        mst_event_point_id: 2992123464,
+        now_point: 0,
+        total_point: 0,
+      },
+      power_up: 0,
+      select_fix_equipment_idx: 0,
+      subtargets: [{ instance_id: 0, mst_subtarget_id: 0 }]
+    }
+  };
+  encryptAndSend(data, res, req);
+};
+
+
+export const islandEnd = (req: Request, res: Response) => {
+  const data = {
+      //TODO: 
+  };
+  encryptAndSend(data, res, req);
+};
 
 
 export const islandMapAll = (req: Request, res: Response) => {
 
+
+// Use Ocean Hash to find Part Hashs.
+// Use Part Hash to find Node Hashs
+// Use Part Hash to find Drama Hashs
+// Use Drama Hash to find Story Hashs
 /*
 3525753088 マラクジャ群島 Malacuja 
 ----------------------------------
@@ -138,32 +214,11 @@ Parts:
 2209193402
 */
 
-const node = {
-  day_quest_list:[],
-  is_collection_node:0,
-  mst_node_id:0,
-  mst_story_id:0,
-  night_quest_list:0,
-  state:0
-}
-const part ={
-  campaign:[],
-  exploration_note:{
-    note_contents:[],
-    progress:0,
-  },
-  gingira_node_id: 3, //unk value here
-  mst_part_id: 3815380063,     
-  node_list:[],
-  object_list:[],
-  raid_info:[],
-  silver_bonus:0,
-  state:0,
-
-}
 
 
   const data = {
+
+    //TODO: Write logic to see what oceans and islands are open
     ocean_list: [
       {
         mst_ocean_id: 3525753088, //ocean_define.xml //only 3 ids 3525753088,1261430970,1009309740
@@ -177,14 +232,28 @@ const part ={
             ],
             exploration_note: {
               note_contents: [
-                //   {
-                //   mst_note_content_id: 2030304811,
-                //   state: 1
-                // }
+                {
+                  mst_note_content_id: 2030304811,
+                  state: 1
+                },
+                {
+                  mst_note_content_id: 3758796689,
+                  state: 1
+                }, {
+                  mst_note_content_id: 2534252295,
+                  state: 1
+                },
+                {
+                  mst_note_content_id: 157878948,
+                  state: 1
+                }, {
+                  mst_note_content_id: 2121153074,
+                  state: 1
+                }
               ],
               progress: 0,
             },
-            gingira_node_id: 0, //unk value here
+            gingira_node_id: 0, //unk value here if you put node id in here is sparkles
             mst_part_id: 3815380063,                                         
             node_list: [
               {
@@ -193,7 +262,7 @@ const part ={
                 ],
                 is_collection_node:0,
                 mst_node_id:517825253,
-                mst_story_id:2187760826,
+                mst_story_id:1603733826,
                 night_quest_list:[
                   // { clear_time: 0, is_collection_quest: 0, is_key_quest: 0, mst_quest_id: 3457665948, quest_subtargets: [{ mst_subtarget_id: 1002, state: 1 }], state: 1 },
                 ],
@@ -202,15 +271,15 @@ const part ={
               },
               {
                 day_quest_list:[
-                  // { clear_time: 0, is_collection_quest: 0, is_key_quest: 0, mst_quest_id: 538553008, quest_subtargets: [{ mst_subtarget_id: 1002, state: 1 }], state: 1 },
+                  { clear_time: 0, is_collection_quest: 0, is_key_quest: 0, mst_quest_id: 538553008, quest_subtargets: [{ mst_subtarget_id: 1002, state: 1 }], state: 1 },
                 ],
                 is_collection_node:0,
                 mst_node_id:2278830943,
                 mst_story_id:0,
                 night_quest_list:[
-                  // { clear_time: 0, is_collection_quest: 0, is_key_quest: 0, mst_quest_id: 3457665948, quest_subtargets: [{ mst_subtarget_id: 1002, state: 1 }], state: 1 },
+                  { clear_time: 0, is_collection_quest: 0, is_key_quest: 0, mst_quest_id: 3457665948, quest_subtargets: [{ mst_subtarget_id: 1002, state: 1 }], state: 1 },
                 ],
-                state:0
+                state:0 //0 = ?? 1 = ?? 2 = new! 3 = Medal and Silver Crown 4 = Medal and Gold Crown 5 = Additional ! 6 = Help! 
 
               },
             ],
@@ -221,8 +290,8 @@ const part ={
             raid_info:[
               // { end_remain: 252, mst_node_id: 517825253, start_remain: 252 }
             ],
-            silver_bonus:1,
-            state:1, //Open or Closed
+            silver_bonus:0,
+            state:1, //1= Open 0= Closed
           }
         ]
       },

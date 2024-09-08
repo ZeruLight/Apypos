@@ -27,6 +27,8 @@ userRouter.post("/title/all", userController.titleAll);
 userRouter.post("/title/set", userController.titleSet);
 userRouter.post("/title/news", userController.titleNews);
 userRouter.post("/achievement/news", userController.achievementNews);
+userRouter.post("/achievement/all", userController.achievementAll);
+
 userRouter.post("/offer/check", userController.OfferCheck);
 
 export default userRouter;

@@ -284,6 +284,22 @@ export const achievementNews = async(req: Request, res: Response) => {
   encryptAndSend(data, res, req);
 };
 
+export const achievementAll = async(req: Request, res: Response) => {
+ 
+  const data = {
+    achievements:[
+      // {is_clear:0,
+      //   is_reward:0,
+      //   mst_achievement_id:0,
+      //   progress:0,
+      //   progress_max:100
+      // }
+    ],
+  };
+
+  encryptAndSend(data, res, req);
+};
+
 export const OfferCheck = async(req: Request, res: Response) => {
  
   const data = {
@@ -333,76 +349,85 @@ export const navigationAll = (req: Request, res: Response) => {
       is_reward: 0,
       item_list: {
         collections: [
-          { mst_collection_id: 0 }
+          // { mst_collection_id: 0 }
         ],
         equipments: [
-          {
-            auto_potential_composite: 0,
-            awaked: 0,
-            created: 0,
-            elv: 0,
-            endAwakeCount: 0,
-            endAwakeRemain: 0,
-            end_remain: 0,
-            equipment_id: "",
-            evolve_start_time: 0,
-            favorite: 0,
-            is_awake: 0,
-            is_complete_auto_potential_composite: 0,
-            mst_equipment_id: 0,
-            potential: 0,
-            slv: 0,
-            start_remain: 0
-          }
+          // {
+          //   auto_potential_composite: 0,
+          //   awaked: 0,
+          //   created: 0,
+          //   elv: 0,
+          //   endAwakeCount: 0,
+          //   endAwakeRemain: 0,
+          //   end_remain: 0,
+          //   equipment_id: "",
+          //   evolve_start_time: 0,
+          //   favorite: 0,
+          //   is_awake: 0,
+          //   is_complete_auto_potential_composite: 0,
+          //   mst_equipment_id: 0,
+          //   potential: 0,
+          //   slv: 0,
+          //   start_remain: 0
+          // }
         ],
-        growth_items: [{
-          amount: 0,
-          mst_growth_item_id: 0
-        }],
+        growth_items: [
+        //   {
+        //   amount: 0,
+        //   mst_growth_item_id: 0
+        // }
+      ],
         katamaris: [
-          {
-            mst_katamari_type_id: 0,
-            equipments: [
-              {
-                auto_potential_composite: 0,
-                awaked: 0,
-                created: 0,
-                elv: 0,
-                endAwakeCount: 0,
-                endAwakeRemain: 0,
-                end_remain: 0,
-                equipment_id: "",
-                evolve_start_time: 0,
-                favorite: 0,
-                is_awake: 0,
-                is_complete_auto_potential_composite: 0,
-                mst_equipment_id: 0,
-                potential: 0,
-                slv: 0,
-                start_remain: 0
-              }
-            ]
-          }
+          // {
+          //   mst_katamari_type_id: 0,
+          //   equipments: [
+          //     {
+          //       auto_potential_composite: 0,
+          //       awaked: 0,
+          //       created: 0,
+          //       elv: 0,
+          //       endAwakeCount: 0,
+          //       endAwakeRemain: 0,
+          //       end_remain: 0,
+          //       equipment_id: "",
+          //       evolve_start_time: 0,
+          //       favorite: 0,
+          //       is_awake: 0,
+          //       is_complete_auto_potential_composite: 0,
+          //       mst_equipment_id: 0,
+          //       potential: 0,
+          //       slv: 0,
+          //       start_remain: 0
+          //     }
+          //   ]
+          // }
         ],
-        limiteds: [{
-          amount: 0,
-          mst_limited_id: 0
-        }
+        limiteds: [
+        //   {
+        //   amount: 0,
+        //   mst_limited_id: 0
+        // }
         ],
-        matatabis: [{
-          amount: 0,
-          mst_matatabi_id: 0
-        }],
-        materials: [{
-          amount: 0,
-          mst_material_id: 0
-        }],
+        matatabis: [
+        //   {
+        //   amount: 0,
+        //   mst_matatabi_id: 0
+        // }
+      ],
+        materials: [
+        //   {
+        //   amount: 0,
+        //   mst_material_id: 0
+        // }
+      ],
         monument: {
-          augite: [{
-            amount: 0,
-            mst_augite_id: 0,
-            mst_monument_type_id: 0
-          }],
+          augite: [
+          //   {
+          //   amount: 0,
+          //   mst_augite_id: 0,
+          //   mst_monument_type_id: 0
+          // }
+        ],
           hr: 0,
           mlv: {
             atk: 0,
@@ -412,44 +437,46 @@ export const navigationAll = (req: Request, res: Response) => {
           }
 
         },
-        otomos: [{
-          created: 0,
-          exp: 0,
-          mst_otomo_id: 0,
-          otomo_id: "",
-          subskill: [
-            0
-          ]
-        }],
+        otomos: [
+        //   {
+        //   created: 0,
+        //   exp: 0,
+        //   mst_otomo_id: 0,
+        //   otomo_id: "",
+        //   subskill: [
+        //     0
+        //   ]
+        // }
+      ],
         payments: [
-          {
-            amount: 0,
-            mst_payment_id: 0
-          }
+          // {
+          //   amount: 0,
+          //   mst_payment_id: 0
+          // }
         ],
         pcoins: [
-          {
-            amount: 0,
-            mst_pcoin_id: 0
-          }
+          // {
+          //   amount: 0,
+          //   mst_pcoin_id: 0
+          // }
         ],
         points: [
-          {
-            amount: 0,
-            mst_event_point_id: 0
-          }
+          // {
+          //   amount: 0,
+          //   mst_event_point_id: 0
+          // }
         ],
         powers: [
-          {
-            amount: 0,
-            mst_power_id: 0
-          }
+          // {
+          //   amount: 0,
+          //   mst_power_id: 0
+          // }
         ],
         stamp_sets: [
-          {
-            amount: 0,
-            mst_stamp_set_id: 0
-          }
+          // {
+          //   amount: 0,
+          //   mst_stamp_set_id: 0
+          // }
         ],
         zenny: 0,
       },

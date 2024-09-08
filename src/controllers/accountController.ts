@@ -379,7 +379,7 @@ export const loginAccount = async (req: Request, res: Response) => {
     },
     monthly_login_bonus_info: {
       day: 1,
-      end: "2025/12/30 00:05:00",
+      end: "2026/12/30 00:05:00",
       login_bonus_reward_list: [{
         idx: 1,
         item_list: {
@@ -443,8 +443,8 @@ export const loginAccount = async (req: Request, res: Response) => {
             mst_matatabi_id: 0
           }],
           materials: [{
-            amount: 0,
-            mst_material_id: 0
+            amount: 1,
+            mst_material_id: 2507637144
           }],
           monument: {
             augite: [{

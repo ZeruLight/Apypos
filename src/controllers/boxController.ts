@@ -137,10 +137,10 @@ export const get = (req: Request, res: Response) => {
         // ... (additional matatabi entries)
       ],
       materials: [
-        // {
-        //   amount: 10,
-        //   mst_material_id: 159
-        // },
+        {
+          amount: 10,
+          mst_material_id: 1714092880
+        },
         // ... (additional material entries)
       ],
       monument: {
@@ -217,7 +217,7 @@ export const storageInfo = (req: Request, res: Response) => {
       storage_details:[
         {
           max:100,
-          name:"te",
+          name:"storageInfo",
           now:0,
           storage_idx:1,
 
@@ -229,6 +229,24 @@ export const storageInfo = (req: Request, res: Response) => {
   };
   encryptAndSend(data, res,req);
 };
+
+export const otomoGet = (req: Request, res: Response) => {
+  const data = {
+    otomos:[]
+  };
+  encryptAndSend(data, res,req);
+};
+
+
+export const equipCapacityInfo = (req: Request, res: Response) => {
+  const data = {
+    max:10000,
+    now:0,
+    price:0
+  };
+  encryptAndSend(data, res,req);
+};
+
 export const stampGet = (req: Request, res: Response) => {
   const data = {
     stamp_sets:[
@@ -266,24 +284,24 @@ export const stampShopList = (req: Request, res: Response) => {
 export const paymentLimitGet= (req: Request, res: Response) => {
   const data = {
     payment_limits:[
-      {
-        amount:1,
-        created:1725029111,
-        limit:0,
-        mst_payment_id:1573159746,
-      },
-      {
-        amount:1,
-        created:1725029111,
-        limit:0,
-        mst_payment_id:3301823224,
-      },
-      {
-        amount:1,
-        created:1725029111,
-        limit:0,
-        mst_payment_id:3016417902,
-      }
+      // {
+      //   amount:1,
+      //   created:1725029111,
+      //   limit:0,
+      //   mst_payment_id:1573159746,
+      // },
+      // {
+      //   amount:1,
+      //   created:1725029111,
+      //   limit:0,
+      //   mst_payment_id:3301823224,
+      // },
+      // {
+      //   amount:1,
+      //   created:1725029111,
+      //   limit:0,
+      //   mst_payment_id:3016417902,
+      // }
     ]
   };
   encryptAndSend(data, res,req);

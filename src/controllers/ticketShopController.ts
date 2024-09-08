@@ -8,7 +8,7 @@ export const list = (req: Request, res: Response) => {
         buy_enabled:1,
         currency_type:0,
         mst_limited_id:581393666,
-        pop_text:"test",
+        pop_text:"pop_text",
         price:2,
         stock:1
       }

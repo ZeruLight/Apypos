@@ -13,6 +13,8 @@ questRouter.post("/island/map/all", questController.islandMapAll);
 questRouter.post("/eternal/all", questController.eternalAll);
 questRouter.post("/event/list/all", questController.eventListAll);
 questRouter.post("/event/ticket/free", questController.eventTicketFree);
+questRouter.post("/island/start", questController.islandStart);
+questRouter.post("/island/end", questController.islandEnd);
 
 
 

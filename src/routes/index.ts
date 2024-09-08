@@ -22,6 +22,8 @@ import checkRouter from "./api/checkRouter";
 import bannerRouter from "./api/banner.router";
 import ticketRouter from "./api/ticket.router";
 import popupRouter from "./api/popup.router";
+import storyRouter from "./api/story.router";
+import MultiReserveRoom from "./api/multi.router";
 
 const router = Router();
 
@@ -45,6 +47,9 @@ router.use("/api/tutorial", tutorialRouter);
 router.use("/api/banner",bannerRouter)
 router.use("/api/ticket",ticketRouter)
 router.use("/api/popup",popupRouter)
+router.use("/api/story", storyRouter);
+router.use("/api/multi", MultiReserveRoom);
+
 
 
 // For version json

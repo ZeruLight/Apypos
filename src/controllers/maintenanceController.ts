@@ -19,7 +19,7 @@ export const checkMaintenance = (req: Request, res: Response) => {
 export const getTitleImage = (req: Request, res: Response) => {
   const data = {
     title_banner: {
-      banner_id: "",
+      banner_id: "asev_00100",
       timeLeft: 0,
       type: 0,
       url: "gettitle",  

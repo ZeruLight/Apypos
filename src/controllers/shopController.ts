@@ -7,7 +7,7 @@ export const karidamaInfo = (req: Request, res: Response) => {
       {
         end_remain:1,
         mst_karidama_shop_id:1,
-        name:"test",
+        name:"karidama_shop",
         start_remain:1
       }
     ]
