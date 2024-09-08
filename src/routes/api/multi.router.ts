@@ -4,5 +4,6 @@ import * as multiReserveRoomController from "../../controllers/multiReserveRoomC
 const MultiReserveRoom = Router();
 
 MultiReserveRoom.post("/room/reserve/join", multiReserveRoomController.roomReserveJoin);
+MultiReserveRoom.post("/invite/list", multiReserveRoomController.inviteList);
 
 export default MultiReserveRoom;

@@ -27,7 +27,9 @@ questRouter.post("/training/end", questTrainingController.trainingEnd);
 questRouter.post("/forest/progress", questForestController.questForestProgress);
 questRouter.post("/forest/end", questForestController.questForestEnd);
 questRouter.post("/forest/info/get", questForestController.forestInfoGet);
-questRouter.post("/forest/restart", questForestController.forestRestart);
+
+
+questRouter.post("/katamari/content/get", notImplemented.blankResponseEncrypted);
 
 
 

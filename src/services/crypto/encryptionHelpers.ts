@@ -22,6 +22,9 @@ export function encryptAndSend(data: object, res: Response,req: Request) {
     relogin_time:timeService.getRelogTime()}
     console.log("Current Time Japan",timeService.getJapanTime())
   const encryptedData = encryptionService.encrypt(JSON.stringify(responseData));
+  console.log("now_time:",responseData.now_time)
+  console.log("relogin_time:",responseData.relogin_time)
+
   res
     .status(200)
     .header("Content-Type", "application/octet-stream")

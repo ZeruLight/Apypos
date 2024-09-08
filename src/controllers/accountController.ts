@@ -650,7 +650,7 @@ export const loginAccount = async (req: Request, res: Response) => {
       start: "2020/12/30 00:05:00",
       term: 0
     },
-    reserve_room_id: "test",
+    // reserve_room_id: "test", //triggers /multi/reserver/join on start up if within the object...
     return_login_bonus_info: {
       day: 0,
       end: "",

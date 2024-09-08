@@ -1,11 +1,13 @@
 // timeService.ts
 export class TimeService {
-    //const TestepochTime = 1601285121; //Source https://web.archive.org/web/20200928092521/https://hunters.mh-xr.jp/special/top/check#expand
+    //Source https://web.archive.org/web/20200928092521/https://hunters.mh-xr.jp/special/top/check#expand
 
     private now: Date;
-
+    private relog: number;
     constructor() {
         this.now = new Date();  // Initialize 'now' once when the class is instantiated
+
+        this.relog = Math.floor(new Date(this.now.getTime() + 24 * 60 * 60 * 1000).getTime() / 1000) % 100000
     }
     // Update the 'now' variable
     private updateNow(): void {
@@ -13,32 +15,30 @@ export class TimeService {
         this.now.getUTCHours
     }
     getCurrentTime(): number {
-        this.updateNow();  
+        this.updateNow();
         return this.now.getTime()
     }
 
     getOneDayTime(): number {
-        return 3600
+        return 3600 // base time based on config in server class. 
     }
     getTotalSecondsToday(): number {
-        this.updateNow();  
+        this.updateNow();
         return (this.now.getUTCHours() * 3600) + (this.now.getUTCMinutes() * 60) + this.now.getUTCSeconds();
     }
     getDateTime(): Date {
-        this.updateNow();  
+        this.updateNow();
         return new Date(this.now.getTime() * 1000)
     }
     getNowTime(): number {
         // Calculate "now_time" based on the custom "one_day_time"
-    // Assuming "now_time" is the number of seconds past within the current hour of the day
-        this.updateNow();  
+        // Assuming "now_time" is the number of seconds past within the current hour of the day
+        this.updateNow();
         return this.getTotalSecondsToday() % this.getOneDayTime()
     }
+
     getRelogTime(): number {
-     // Calculate "relogin_time"
-    // This might be the time until the next occurrence of this custom "day"
-        this.updateNow();  
-        return this.getOneDayTime() - this.getNowTime()
+        return this.relog
     }
     getJapanTime(): Date {
         this.updateNow();
@@ -58,5 +58,5 @@ export class TimeService {
 
 
 
-   
+
 }

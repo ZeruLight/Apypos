@@ -247,6 +247,16 @@ export const equipCapacityInfo = (req: Request, res: Response) => {
   encryptAndSend(data, res,req);
 };
 
+export const equipCapacityExpand = (req: Request, res: Response) => {
+  const data = {
+    max:10000,
+    now:0,
+    price:0
+  };
+  encryptAndSend(data, res,req);
+};
+
+
 export const stampGet = (req: Request, res: Response) => {
   const data = {
     stamp_sets:[

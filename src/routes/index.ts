@@ -24,6 +24,10 @@ import ticketRouter from "./api/ticket.router";
 import popupRouter from "./api/popup.router";
 import storyRouter from "./api/story.router";
 import MultiReserveRoom from "./api/multi.router";
+import presentRouter from "./api/present.router";
+import friendRouter from "./api/friend.router";
+import courseRouter from "./api/course.router";
+import purchaseRouter from "./api/purchase.router";
 
 const router = Router();
 
@@ -49,6 +53,10 @@ router.use("/api/ticket",ticketRouter)
 router.use("/api/popup",popupRouter)
 router.use("/api/story", storyRouter);
 router.use("/api/multi", MultiReserveRoom);
+router.use("/api/present", presentRouter);
+router.use("/api/friend", friendRouter);
+router.use("/api/course", courseRouter);
+router.use("/api/purchase", purchaseRouter);
 
 
 
