@@ -339,12 +339,22 @@ export const otomoteamGet = (req: Request, res: Response) => {
 };
 
 
+export const otomoteamSet = (req: Request, res: Response) => {
+  const data = {
+    capacity: 1,
+    otomo_team: req.body.otomo_teams,
+    selected_index: 1
+  };
+  encryptAndSend(data, res, req);
+};
+
+
 export const navigationAll = (req: Request, res: Response) => {
   const data = {
     navigations: [{
       close_at: Date.now(),
       end_at: Date.now(),
-      explain: "",
+      explain: "explain",
       is_clear: 0,
       is_reward: 0,
       item_list: {
@@ -483,7 +493,7 @@ export const navigationAll = (req: Request, res: Response) => {
       limited_flag: 0,
       mst_navigation_id: 0,
       name: "yesyt",
-      progress: 1,
+      progress: 0,
       progress_max: 6,
       start_at: Date.now()
     }]

@@ -25,6 +25,8 @@ questRouter.post("/training/end", questTrainingController.trainingEnd);
 
 // Forest
 questRouter.post("/forest/progress", questForestController.questForestProgress);
+questRouter.post("/forest/restart", questForestController.questForestRestart);
+
 questRouter.post("/forest/end", questForestController.questForestEnd);
 questRouter.post("/forest/info/get", questForestController.forestInfoGet);
 

@@ -14,7 +14,7 @@ export function encryptAndSend(data: object, res: Response,req: Request) {
     app_ver_ios:"09.03.06",
     app_ver:"09.03.06",
     res_ver:282, //controlls banner version url /download/android/v0282/stdDL/download.list Official Value: 282 
-    banner_ver:111, //if set to 0 /api/banner/dllist/get is not called if you increment it to 1 it will be called then not called again untill incremented to 2 (Possible incremental update?) Official Value: 91
+    banner_ver:91, //if set to 0 /api/banner/dllist/get is not called if you increment it to 1 it will be called then not called again untill incremented to 2 (Possible incremental update?) Official Value: 91
     session_id:req.body.session_id?req.body.session_id:"session_id",
     block_seq:0, //Possibly need to increment this for cycling encryption. (Client ignores if 0)
     one_day_time:timeService.getOneDayTime(),

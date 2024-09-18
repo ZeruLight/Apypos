@@ -4,5 +4,6 @@ import * as notImplementedController from "../../controllers/notImplementedContr
 const friendRouter = Router();
 
 friendRouter.post("/capacity/info", notImplementedController.blankResponseEncrypted);
+friendRouter.post("/listRequests", notImplementedController.blankResponseEncrypted);
 
 export default friendRouter;

@@ -29,7 +29,6 @@
     "express": "^4.18.2",
     "express-winston": "^4.2.0",
     "mongoose": "^8.6.0",
-    "server": "file:",
     "winston": "^3.10.0"
   },
   "scripts": {

@@ -145,15 +145,15 @@ export const get = (req: Request, res: Response) => {
       ],
       monument: {
         augite: [
-          // {
-          //   amount: 4,
-          //   mst_augite_id: 357,
-          //   mst_monument_type_id: 951
-          // },
+          {
+            amount: 4,
+            mst_augite_id: 218378192,
+            mst_monument_type_id: 1
+          },
           // ... (additional augite entries)
         ],
 
-        hr: 1,
+        hr: 999,
         mlv: {
           atk: 1,
           def: 1,
@@ -162,13 +162,13 @@ export const get = (req: Request, res: Response) => {
         },
       },
       otomos: [
-        // {
-        //   created: 3229325580,
-        //   exp: 1000,
-        //   mst_otomo_id: 197113341,
-        //   otomo_id: "OT_OTOMO_CHAR_ID_000",
-        //   subskill: []
-        // },
+        {
+          created: 3229325580,
+          exp: 1000,
+          mst_otomo_id: 2092467563,
+          otomo_id: "OT_OTOMO_CHAR_ID_001",
+          subskill: []
+        },
         // // ... (additional otomo entries)
       ],
       partners: [
@@ -221,6 +221,13 @@ export const storageInfo = (req: Request, res: Response) => {
           now:0,
           storage_idx:1,
 
+        },
+        {
+          max:100,
+          name:"storageInfo",
+          now:0,
+          storage_idx:2,
+
         }
       ],
       storage_limit:1000,
@@ -262,7 +269,7 @@ export const stampGet = (req: Request, res: Response) => {
     stamp_sets:[
       {
         created:0,
-        mst_stamp_set_id:0
+        mst_stamp_set_id:67667029
       }
     ]
   };
@@ -281,7 +288,7 @@ export const stampShopList = (req: Request, res: Response) => {
     stamp_shop_list:[
       {
         end:0,
-        mst_stamp_set_id:0,
+        mst_stamp_set_id:67667029,
         remain_id:0,
         start:0,
         type:0,
@@ -294,24 +301,24 @@ export const stampShopList = (req: Request, res: Response) => {
 export const paymentLimitGet= (req: Request, res: Response) => {
   const data = {
     payment_limits:[
-      // {
-      //   amount:1,
-      //   created:1725029111,
-      //   limit:0,
-      //   mst_payment_id:1573159746,
-      // },
-      // {
-      //   amount:1,
-      //   created:1725029111,
-      //   limit:0,
-      //   mst_payment_id:3301823224,
-      // },
-      // {
-      //   amount:1,
-      //   created:1725029111,
-      //   limit:0,
-      //   mst_payment_id:3016417902,
-      // }
+      {
+        amount:1,
+        created:1725029111,
+        limit:0,
+        mst_payment_id:1573159746,
+      },
+      {
+        amount:1,
+        created:1725029111,
+        limit:0,
+        mst_payment_id:3301823224,
+      },
+      {
+        amount:1,
+        created:1725029111,
+        limit:0,
+        mst_payment_id:3016417902,
+      }
     ]
   };
   encryptAndSend(data, res,req);
