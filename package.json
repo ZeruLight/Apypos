@@ -2,7 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "description": "Monster Hunter Explore Private Server",
-  "main": "index.js",
+  "main": "server.js",
   "license": "MIT",
   "devDependencies": {
     "@types/express": "^4.17.17",
@@ -35,10 +35,10 @@
     "install:clean": "cross-env rimraf node_modules/ yarn.lock && yarn install",
     "clean": "rimraf dist",
     "build": "yarn clean && tsc",
-    "dev": "ts-node index.ts",
-    "start": "node --openssl-legacy-provider dist/index.js",
+    "dev": "ts-node server.ts",
+    "start": "node --openssl-legacy-provider dist/server.js",
     "test-decrypt": "node --openssl-legacy-provider -r ts-node/register src/bin/testDecryption.ts",
-    "start:dev": "nodemon  --openssl-legacy-provider ./src/index.ts"
+    "start:dev": "nodemon  --openssl-legacy-provider ./src/server.ts"
   },
   "engines": {
     "node": ">=20.0.0"

@@ -1,7 +1,7 @@
 import express from "express";
-import routes from "./routes";
+import routes from "./routes/routes";
 import expressWinston from "express-winston";
-import { logger } from "./logger";
+import { logger } from "./middleware/logger";
 import winston from "winston";
 import { decryptAndParse } from "./services/crypto/encryptionHelpers";
 const app = express();
