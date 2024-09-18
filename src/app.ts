@@ -1,11 +1,11 @@
 import express from "express";
-import routes from "./routes";
+import routes from "./routes/routes";
 import expressWinston from "express-winston";
-import { logger } from "./logger";
+import { logger } from "./middleware/logger";
 import winston from "winston";
 import { decryptAndParse } from "./services/crypto/encryptionHelpers";
-
 const app = express();
+
 
 // Middleware configurations
 app.use(express.json());
@@ -26,7 +26,7 @@ app.use((req, res, next) => {
       req.body = decryptedBody;
 
       // Log directly here for debugging
-      console.log("Decrypted Body:", req.body);
+      console.log("Decrypted Request Body:", JSON.stringify(req.body, null, '\t') );
 
       next();
     });
