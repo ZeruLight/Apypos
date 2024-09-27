@@ -9,6 +9,7 @@ export const get = (req: Request, res: Response) => {
         eqp_set: 100,
         friend_max: 100,
       },
+      collection:[{mst_collection_id:270340758}],
       equipments: [
         {
           auto_potential_composite: 1,
@@ -147,7 +148,7 @@ export const get = (req: Request, res: Response) => {
         // },
         // ... (additional limited entries)
       ],
-      matatabis: [
+      matatabis: [{amount:1,mst_matatabi_id:2481694868}
         // {
         //   amount: 3,
         //   mst_matatabi_id: 987
@@ -159,6 +160,8 @@ export const get = (req: Request, res: Response) => {
           amount: 10,
           mst_material_id: 1714092880
         },
+        {amount:1,mst_material_id:1714092880},{amount:1,mst_material_id:288213958},{amount:1,mst_material_id:1911177763},{amount:1,mst_material_id:116224693},
+        {amount:1,mst_material_id:1726002341},{amount:1,mst_material_id:1714092880},{amount:1,mst_material_id:1642667129},{amount:1,mst_material_id:1714092880}
         // ... (additional material entries)
       ],
       monument: {
@@ -171,12 +174,12 @@ export const get = (req: Request, res: Response) => {
           // ... (additional augite entries)
         ],
 
-        hr: 999,
+        hr: 0,
         mlv: {
-          atk: 10,
-          def: 10,
-          hp: 10,
-          sp: 10
+          atk: 0,
+          def: 0,
+          hp: 0,
+          sp: 0
         },
       },
       otomos: [
@@ -187,6 +190,7 @@ export const get = (req: Request, res: Response) => {
           otomo_id: "OT_OTOMO_CHAR_ID_001",
           subskill: []
         },
+        
         // // ... (additional otomo entries)
       ],
       partners: [
@@ -203,7 +207,10 @@ export const get = (req: Request, res: Response) => {
 
         // ... (additional partner entries)
       ],
-      payments: [
+      payments: [{
+        amount:1,
+        mst_payment_id:1573159746
+      }
         // {
         //   amount: 0
         //   mst_payment_id: 0
@@ -344,7 +351,10 @@ export const paymentLimitGet= (req: Request, res: Response) => {
 
 export const PaymentGet = (req: Request, res: Response) => {
   const data = {
-    payments:[]
+    payments:[{
+      amount:1,
+      mst_payment_id:1573159746
+    }]
   };
   encryptAndSend(data, res,req);
 };

@@ -262,7 +262,23 @@ export const commentSet = async(req: Request, res: Response) => {
 export const navigationNews = async(req: Request, res: Response) => {
  
   const data = {
-    navigations:[]
+    navigations:[
+      {
+        close_at:0,
+        end_at:0,
+        explain:"explain",
+        is_clear:0,
+        is_reward:0,
+        item_list:{},
+        limited_flag:0,
+        mst_navigation_id:1,
+        name:"Achivement Name",
+        progress:0,
+        progress_max:99,
+        start_at:1
+      }
+
+    ]
   };
 
   encryptAndSend(data, res, req);
@@ -319,29 +335,7 @@ export const OfferCheck = async(req: Request, res: Response) => {
 };
 
 
-export const otomoteamGet = (req: Request, res: Response) => {
-  const data = {
-    capacity: 1,
-    otomo_team: [
-      {
-        index: 1,
-        otomo_ids: ["OT_OTOMO_CHAR_ID_001"]
-      }
-    ],
-    selected_index: 1
-  };
-  encryptAndSend(data, res, req);
-};
 
-
-export const otomoteamSet = (req: Request, res: Response) => {
-  const data = {
-    capacity: 1,
-    otomo_team: req.body.otomo_teams,
-    selected_index: 1
-  };
-  encryptAndSend(data, res, req);
-};
 
 
 export const navigationAll = (req: Request, res: Response) => {
@@ -349,7 +343,7 @@ export const navigationAll = (req: Request, res: Response) => {
     navigations: [{
       close_at: Date.now(),
       end_at: Date.now(),
-      explain: "explain",
+      explain: "Explaination! Quick brown fox.",
       is_clear: 0,
       is_reward: 0,
       item_list: {
@@ -487,7 +481,7 @@ export const navigationAll = (req: Request, res: Response) => {
       },
       limited_flag: 0,
       mst_navigation_id: 0,
-      name: "yesyt",
+      name: "Name!",
       progress: 0,
       progress_max: 6,
       start_at: Date.now()

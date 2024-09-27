@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { encryptAndSend } from "../../../services/crypto/encryptionHelpers";
+import User from "../../../model/user";
 
 export const questProgress = (req: Request, res: Response) => {
   const data = {
@@ -15,12 +16,9 @@ export const questProgress = (req: Request, res: Response) => {
 };
 
 export const questResultEnd = (req: Request, res: Response) => {
-  const data = {
-  
-  };
+  const data = {};
   encryptAndSend(data, res, req);
 };
-
 
 export const eventTicketFree = (req: Request, res: Response) => {
   const data = {
@@ -31,9 +29,34 @@ export const eventTicketFree = (req: Request, res: Response) => {
 };
 export const eventListAll = (req: Request, res: Response) => {
   const data = {
-    big_node_order_array: [],
+    big_node_order_array: [{ big_node_id: 2374006206 }],
     event_list: {
-      assault: [],
+      assault: [
+        {
+          appear_remain: 0,
+          big_node_banner_id: 7061,
+          disappear_remain: 0,
+          end_remain: 3600,
+          is_user_cleartime_ranking: 0,
+          middle_node_banner_id: 7061,
+          mst_event_node_id: 2374006206,
+          quest_list: [
+            {
+              clear_time: 0,
+              limited_amount: 0,
+              mst_limited_id: 1436577172,
+              mst_quest_id: 268132675,
+              quest_subtargets: [],
+              state: 0,
+            },
+          ],
+          recommended_flag: 1,
+          schedule_category: 1,
+          schedule_type: 1,
+          start_remain: 0,
+          state: 0,
+        },
+      ],
       m16: [],
       score: [],
       standing: [],
@@ -181,27 +204,77 @@ export const islandEnd = (req: Request, res: Response) => {
     partner_cap_list: [],
     pop_list: [],
     ranking_num: 0,
-    bingo_reward: {
-      //item_list
+    rewards: {
+      bingo_reward: {
+        //item_list
+      },
+      break_drop_reward: {
+        //item_list
+      },
+      break_reward: {
+        //item_list
+      },
+      gold_reward: {
+        //item_list
+      },
+      luck_value: 0,
+      luck_reward: {},
+      other_list_add: [],
+      pick_reward: {
+        //item_list
+      },
+      // lucky_reward: {
+      //   //item_list
+      // },
+      // multi_reward: {
+      //   //item_list
+      // },
+
+      // normal_reward: {
+      //   add_list: {
+      //     line2: {
+      //       is_open: 0,
+      //       other_list: [],
+      //       price: 0,
+      //     },
+      //     line3: {
+      //       is_open: 0,
+      //       other_list: [],
+      //       price: 0,
+      //     },
+      //   },
+      //   other_list_add: [],
+      // },
+      // pick_reward: {
+      //   //item_list
+      // },
+      // point_info: {
+      //   armor_skill_value: 0,
+      //   campaign_value: 0,
+      //   get_point: 0,
+      //   guild_bingo_bonus: 0,
+      //   guild_total_point: 0,
+      //   m16_get_point: 0,
+      //   mst_event_info_id: 0,
+      //   mst_event_point_id: 0,
+      //   now_point: 0,
+      //   total_point: 0,
+      // },
+      // raid_reward: {
+      //   //item_list
+      // },
+      // score_enemy_list: [],
+      // upper_luck_value: 0,
+      zenny: 500,
     },
-    break_drop_reward: {
-      //item_list
-    },
-    break_reward: {
-      //item_list
-    },
-    gold_reward: {},
-    luck_value: 0,
-    luck_reward: {},
-    other_list_add: [],
-    pick_reward: {
-      //item_list
-    },
+    zenny: 500,
+
+    view_collection_list: [],
   };
   encryptAndSend(data, res, req);
 };
 
-export const islandMapAll = (req: Request, res: Response) => {
+export const islandMapAll = async (req: Request, res: Response) => {
   // Use Ocean Hash to find Part Hashs.
   // Use Part Hash to find Node Hashs
   // Use Part Hash to find Drama Hashs
@@ -262,8 +335,11 @@ Parts:
 319979563
 2209193402
 */
+  const filter = { current_session: req.body.session_id };
 
-  const data = {
+  const doc = await User.findOne(filter);
+  const data = { ocean_list: doc.ocean_list };
+  const data2 = {
     //TODO: Write logic to see what oceans and islands are open
     ocean_list: [
       //These can be found at ocean_define.xml //only 3 ids 3525753088,1261430970,1009309740
@@ -400,5 +476,6 @@ Parts:
       },
     ],
   };
+
   encryptAndSend(data, res, req);
 };

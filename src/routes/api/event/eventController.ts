@@ -3,7 +3,7 @@ import { encryptAndSend } from "../../../services/crypto/encryptionHelpers";
 
 export const infoGet = (req: Request, res: Response) => {
   const data = {
-    beginner_node_id:[],
+    beginner_node_id:[833445410,443774594],
     event_info:[],
     total_event_point_info:[]
   };

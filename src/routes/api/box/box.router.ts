@@ -1,5 +1,5 @@
 import { Router } from "express";
-import * as boxController from "./boxController";
+import * as boxController from "./box.controller";
 import * as notImplemented from "../notImplementedController";
 
 const boxRouter = Router();

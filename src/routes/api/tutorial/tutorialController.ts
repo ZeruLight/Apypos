@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { encryptAndSend } from "../../../services/crypto/encryptionHelpers";
 import User from "../../../model/user";
+import { updatePartNoteState } from "../story/storyController";
 //TODO: implement all structs
 // tutorialFlags
 // 110 = is characterCreate
@@ -115,28 +116,149 @@ export const TutorialFlagSet = async (req: Request, res: Response) => {
 
 export const TutorialQuestStart = async (req: Request, res: Response) => {
   const data = {
+    // For item drops to work 
+    //block_list[1].block_instance_list needs a object with matching instance id to block_list[1].instance_id and serial_no to drop list and also pop_list
+    //
     instance_data: {
       block_list: [
         {
           block_idx: 1,
-          block_instance_list: [{ instance_id: 0, serial_no: 1 }],
+          block_instance_list: [
+            // { instance_id: 0, serial_no: 1 }
+          ],
           drop_list: [
-            //   {
-            //    item_list: {
-            //   },
-            //   serial_no: 0
-            // }
+            {
+              item_list: {
+                collections: [],
+                equipments: [],
+                growth_items: [],
+                limiteds: [],
+                matatabis: [],
+                materials: [],
+                monument: {
+                  augite: [],
+                  hr: 0,
+                  mlv: {
+                    atk: 0,
+                    def: 0,
+                    hp: 0,
+                    sp: 0,
+                  },
+                },
+                otomos: [],
+                partners: [],
+                payments: [],
+                pcoins: [],
+                points: [],
+                powers: [],
+                stamp_sets: [],
+                zenny: 100,
+              },
+              serial_no: 0,
+            },
           ],
           instance_id: 0,
           is_insert: 0,
           is_raid: 0,
-          mst_block_id: 453505848,
-          repop_list: [{ amount: 0, serial_no: 0 }],
+          mst_block_id: 35439225,
+          repop_list: [
+            // { amount: 0, serial_no: 0 }
+          ],
+        },
+        {
+          block_idx: 2,
+          block_instance_list: [
+            { instance_id: 1, serial_no: 1 }
+          ],
+          drop_list: [
+            {
+              item_list: {
+                collections: [{mst_collection_id:484329504}],
+                equipments: [],
+                growth_items: [],
+                limiteds: [],
+                matatabis: [],
+                materials: [],
+                monument: {
+                  augite: [],
+                  hr: 0,
+                  mlv: {
+                    atk: 0,
+                    def: 0,
+                    hp: 0,
+                    sp: 0,
+                  },
+                },
+                otomos: [],
+                partners: [],
+                payments: [],
+                pcoins: [],
+                points: [],
+                powers: [],
+                stamp_sets: [],
+                zenny: 100,
+              },
+              serial_no: 1,
+            },
+          ],
+          instance_id: 1,
+          is_insert: 0,
+          is_raid: 0,
+          mst_block_id: 4056617285,
+          repop_list: [
+             { amount: 1, serial_no: 1 }
+          ],
+        },
+        {
+          block_idx: 3,
+          block_instance_list: [
+            // { instance_id: 0, serial_no: 1 }
+          ],
+          drop_list: [
+            {
+              item_list: {
+                collections: [],
+                equipments: [],
+                growth_items: [],
+                limiteds: [],
+                matatabis: [],
+                materials: [],
+                monument: {
+                  augite: [],
+                  hr: 0,
+                  mlv: {
+                    atk: 0,
+                    def: 0,
+                    hp: 0,
+                    sp: 0,
+                  },
+                },
+                otomos: [],
+                partners: [],
+                payments: [],
+                pcoins: [],
+                points: [],
+                powers: [],
+                stamp_sets: [],
+                zenny: 100,
+              },
+              serial_no: 0,
+            },
+          ],
+          instance_id: 0,
+          is_insert: 0,
+          is_raid: 0,
+          mst_block_id: 1806235482,
+          repop_list: [
+            // { amount: 0, serial_no: 0 }
+          ],
         },
       ],
-      bomb_lot_no: [
+      bomb_lot_num: [],
+      bomb_lottery: [
         {
-          bomb_lottery: [{ bomb_id: 0, weight: 0 }],
+          bomb_id: 0,
+          weight: 0,
         },
       ],
       enable_limited_skill_id_list: [],
@@ -144,14 +266,14 @@ export const TutorialQuestStart = async (req: Request, res: Response) => {
       enable_talisman: 0,
       enable_talisman_partner: 0,
       enemy_point_list: [
-        {
-          mst_enemy_id: 1618895799,
-          point: 0,
-        },
+        // {
+        //   mst_enemy_id: 1618895799,
+        //   point: 0,
+        // }
       ],
       instance_id: 0,
       mission_message: "start",
-      mst_quest_id: req.body.mst_quest_id,
+      mst_quest_id: req.body.mst_quest_id ? req.body.mst_quest_id : 1778018296,
       multi_leave_check_time: 0,
       point_info: {
         armor_skill_value: 0,
@@ -160,16 +282,19 @@ export const TutorialQuestStart = async (req: Request, res: Response) => {
         guild_bingo_bonus: 0,
         guild_total_point: 0,
         m16_get_point: 0,
-        mst_event_info_id: 2740334662,
-        mst_event_point_id: 2992123464,
+        mst_event_info_id: 0,
+        mst_event_point_id: 0,
         now_point: 0,
         total_point: 0,
       },
       power_up: 0,
       select_fix_equipment_idx: 0,
-      subtargets: [{ instance_id: 0, mst_subtarget_id: 0 }],
+      subtargets: [
+        // { instance_id: 0, mst_subtarget_id: 0 }
+      ],
     },
   };
+  console.log("Quest Request:", data.instance_data.mst_quest_id);
 
   encryptAndSend(data, res, req);
 };
@@ -220,71 +345,192 @@ export const stepUP = async (req: Request, res: Response) => {
 };
 
 export const TutorialQuestEnd = async (req: Request, res: Response) => {
+
+  const filter = { current_session: req.body.session_id };
+  let doc = await User.findOne(filter);
+  let update = { tutorial_step: 5010 ,ocean_list:doc.ocean_list };
+  updatePartNoteState(doc.ocean_list,3525753088,3815380063,3758796689,2)
+  doc = await User.findOneAndUpdate(filter, update, {
+  new: true,
+  });
   const data = {
     otomo_result: [
-      // {
-      //   get_exp:0,
-      //   mst_otomo_subskill_id:0,
-      //   otomo_id:0
-      // }
+      {
+        get_exp: 20,
+        mst_otomo_id: 2092467563,
+        otomo_id: "OT_OTOMO_CHAR_ID_001",
+      },
     ],
     tutorial_rewards: {
       tutorial_normal_add: [
         {
-          idx: 0,
+          idx: 1,
+          value: 1,
           item_list: {
-            equipments: [
-              {
-                auto_potential_composite: 1,
-                awaked: 0,
-                created: 1,
-                elv: 1,
-                endAwakeCount: 5,
-                endAwakeRemain: 10,
-                end_remain: 15,
-                equipment_id: "AD_BODY006",
-                evolve_start_time: 1609459200,
-                favorite: 1,
-                is_awake: 0,
-                is_complete_auto_potential_composite: 1,
-                mst_equipment_id: 1801022340,
-                potential: 100,
-                slv: 1,
-                start_remain: 20,
-              },
+            collections: [],
+            equipments: [],
+            growth_items: [],
+            limiteds: [],
+            matatabis: [],
+            materials: [
+              { amount: 1, mst_material_id: 1726002341 },
             ],
+            monument: {
+              augite: [],
+              hr: 0,
+              mlv: {
+                atk: 0,
+                def: 0,
+                hp: 0,
+                sp: 0,
+              },
+            },
+            otomos: [],
+            partners: [],
+            payments: [],
+            pcoins: [],
+            points: [],
+            powers: [],
+            stamp_sets: [],
             zenny: 100,
           },
+          
+        },
+        {
+          idx: 2,
+          value: 1,
+          item_list: {
+            collections: [],
+            equipments: [],
+            growth_items: [],
+            limiteds: [],
+            matatabis: [],
+            materials: [
+              { amount: 1, mst_material_id: 1714092880 },
+            ],
+            monument: {
+              augite: [],
+              hr: 0,
+              mlv: {
+                atk: 0,
+                def: 0,
+                hp: 0,
+                sp: 0,
+              },
+            },
+            otomos: [],
+            partners: [],
+            payments: [],
+            pcoins: [],
+            points: [],
+            powers: [],
+            stamp_sets: [],
+            zenny: 100,
+          },
+          
+        },
+        {
+          idx: 3,
+          value: 1,
+          item_list: {
+            collections: [],
+            equipments: [],
+            growth_items: [],
+            limiteds: [],
+            matatabis: [],
+            materials: [
+              { amount: 1, mst_material_id: 1642667129 },
+            ],
+            monument: {
+              augite: [],
+              hr: 0,
+              mlv: {
+                atk: 0,
+                def: 0,
+                hp: 0,
+                sp: 0,
+              },
+            },
+            otomos: [],
+            partners: [],
+            payments: [],
+            pcoins: [],
+            points: [],
+            powers: [],
+            stamp_sets: [],
+            zenny: 100,
+          },
+          
+        },{
+          idx: 4,
+          value: 1,
+          item_list: {
+            collections: [],
+            equipments: [],
+            growth_items: [],
+            limiteds: [],
+            matatabis: [],
+            materials: [
+              { amount: 1, mst_material_id: 1714092880  },
+            ],
+            monument: {
+              augite: [],
+              hr: 0,
+              mlv: {
+                atk: 0,
+                def: 0,
+                hp: 0,
+                sp: 0,
+              },
+            },
+            otomos: [],
+            partners: [],
+            payments: [],
+            pcoins: [],
+            points: [],
+            powers: [],
+            stamp_sets: [],
+            zenny: 100,
+          },
+          
         },
       ],
       tutorial_normal_reward: {
         item_list: {
-          equipments: [
-            {
-              auto_potential_composite: 1,
-              awaked: 0,
-              created: 1,
-              elv: 1,
-              endAwakeCount: 5,
-              endAwakeRemain: 10,
-              end_remain: 15,
-              equipment_id: "AD_BODY006",
-              evolve_start_time: 1609459200,
-              favorite: 1,
-              is_awake: 0,
-              is_complete_auto_potential_composite: 1,
-              mst_equipment_id: 1801022340,
-              potential: 100,
-              slv: 1,
-              start_remain: 20,
-            },
+          collections: [],
+          equipments: [],
+          growth_items: [],
+          limiteds: [],
+          matatabis: [],
+          materials: [
+            { amount: 1, mst_material_id: 1714092880 },
+            { amount: 1, mst_material_id: 1642667129 },
+            { amount: 1, mst_material_id: 1726002341 },
+            { amount: 1, mst_material_id: 1714092880  },
           ],
+          monument: {
+            augite: [],
+            hr: 0,
+            mlv: {
+              atk: 0,
+              def: 0,
+              hp: 0,
+              sp: 0,
+            },
+          },
+          otomos: [],
+          partners: [],
+          payments: [],
+          pcoins: [],
+          points: [],
+          powers: [],
+          stamp_sets: [],
           zenny: 100,
         },
       },
       tutorial_zeny: 100,
-      tutorial_step: 4010,
     },
+    tutorial_step: doc.tutorial_step,
   };
 
   encryptAndSend(data, res, req);

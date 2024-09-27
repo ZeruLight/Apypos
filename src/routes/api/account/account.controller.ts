@@ -686,7 +686,7 @@ export const loginAccount = async (req: Request, res: Response) => {
       start: "2020/12/30 00:05:00",
       term: 0,
     },
-    // reserve_room_id: "test", //triggers /multi/reserver/join on start up if within the object...
+    reserve_room_id: "test", //triggers /multi/reserver/join on start up if within the object...
     return_login_bonus_info: {
       day: 0,
       end: "",
@@ -844,31 +844,31 @@ export const loginAccount = async (req: Request, res: Response) => {
     },
     time_info: {
       exchange_present: {
-        end: 0,
-        end_remain: 0,
-        start: 0,
-        start_remain: 0,
+        end: 36000,
+        end_remain: 36000,
+        start: 1,
+        start_remain: 36000,
       },
       free_auto_add: {
-        end: 0,
-        end_remain: 0,
-        start: 0,
-        start_remain: 0,
+        end: 36000,
+        end_remain: 36000,
+        start: 1,
+        start_remain: 36000,
       },
       free_auto_infinity: {
-        end: 0,
-        end_remain: 0,
-        start: 0,
-        start_remain: 0,
+        end: 36000,
+        end_remain: 36000,
+        start: 1,
+        start_remain: 36000,
       },
       increase_add: {
-        end: 0,
-        end_remain: 0,
-        start: 0,
-        start_remain: 0,
+        end: 36000,
+        end_remain: 36000,
+        start: 1,
+        start_remain: 36000,
       },
     },
-    tutorial_step: doc.tutorial_step, //HACK 310 (On start up this should be 110)
+    tutorial_step: doc.tutorial_step, 
     user_id: doc.user_id,
   };
 
