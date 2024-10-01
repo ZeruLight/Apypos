@@ -4,7 +4,7 @@ This repository contains the source code for a server emulator for the game Mons
 Discord: discord.gg/dnwcpxm488
 
 ## Why the Name?
-The server is called Apypos. To keep with the theme Erupe set. It was originally called Boromir, after the Guild Executive from MHXR and was randomly chosen name by the initial framework developer as they had not played the game when it was live. It was changed  because LOTR association just felt like it didnt fit MH. 
+The server is called Apypos. To keep with the theme Erupe set. It was originally called Boromir, after the Guild Executive from MHXR and was randomly chosen name by the initial framework developer as they had not played the game when it was live. It was changed because LOTR association just felt like it didnt fit MH which we also found it might have been a localization error.
 
 ## Prerequisites
 
