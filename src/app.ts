@@ -3,14 +3,10 @@ import routes from "./routes/routes";
 import expressWinston from "express-winston";
 import { logger } from "./middleware/logger";
 import winston from "winston";
-import http from "http";
-import {Server}  from "socket.io";
+
 
 import { decryptAndParse } from "./services/crypto/encryptionHelpers";
 const app = express();
-const server = http.createServer(app);
-const io = new Server(server); // Attach socket.io to the server
-
 
 
 
@@ -91,4 +87,4 @@ app.use(
   }),
 );
 
-export { app,io}
+export { app}

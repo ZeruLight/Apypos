@@ -39,7 +39,9 @@
     "dev": "ts-node server.ts",
     "start": "node --openssl-legacy-provider dist/server.js",
     "test-decrypt": "node --openssl-legacy-provider -r ts-node/register src/bin/testDecryption.ts",
-    "start:dev": "nodemon  --openssl-legacy-provider ./src/server.ts"
+    "start:dev": "nodemon  --openssl-legacy-provider ./src/server.ts",
+    "start-multi:dev": "nodemon  --openssl-legacy-provider ./src/multi-server.ts"
+
   },
   "engines": {
     "node": ">=20.0.0"

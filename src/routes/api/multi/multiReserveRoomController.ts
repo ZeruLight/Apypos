@@ -48,7 +48,7 @@ export const inviteList = (req: Request, res: Response) => {
         // reserve_members: ["test"],
         restart: 0,
         room_id: 1,
-        server_url:  `ws://192.168.1.203/`,
+        server_url:  ``,
         tag: 0,
         type: 0
       },
@@ -69,7 +69,7 @@ export const inviteList = (req: Request, res: Response) => {
         reserve_members: ["test"],
         restart: 0,
         room_id: 1,
-        server_url: "multiplayer/test",
+        server_url: ``,
         tag: 1,
         type: 1
       }

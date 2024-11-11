@@ -9,7 +9,7 @@ export const get = (req: Request, res: Response) => {
         eqp_set: 100,
         friend_max: 100,
       },
-      collection:[{mst_collection_id:270340758}],
+      collection:[{mst_collection_id:484329504}],
       equipments: [
         {
           auto_potential_composite: 1,
@@ -167,19 +167,17 @@ export const get = (req: Request, res: Response) => {
       monument: {
         augite: [
           {
-            amount: 4,
-            mst_augite_id: 218378192,
-            mst_monument_type_id: 1
+            amount: 20,
+            mst_augite_id: 2047024966,
+            mst_monument_type_id: 1,
           },
-          // ... (additional augite entries)
-        ],
-
-        hr: 0,
+        ], 
+        hr: 2,
         mlv: {
-          atk: 0,
-          def: 0,
-          hp: 0,
-          sp: 0
+          atk: 100,
+          def: 100,
+          hp: 100,
+          sp: 100,
         },
       },
       otomos: [
@@ -208,7 +206,7 @@ export const get = (req: Request, res: Response) => {
         // ... (additional partner entries)
       ],
       payments: [{
-        amount:1,
+        amount:100,
         mst_payment_id:1573159746
       }
         // {

@@ -183,27 +183,27 @@ export const end = async (req: Request, res: Response) => {
     data.pop_list.push( 
         {
         item_list:{
-          pop_id:1,
+          pop_id:2,
           monument: {
             augite: [
               {
                 amount: 20,
                 mst_augite_id: 2047024966,
-                mst_monument_type_id: 5,
+                mst_monument_type_id: 1,
               },
-            ],
+            ], 
             hr: 2,
             mlv: {
-              atk: 0,
-              def: 0,
+              atk: 100,
+              def: 100,
               hp: 100,
-              sp: 0,
+              sp: 100,
             },
           },
         }
       }
       )
-    data.mst_part_id = 3815380063;
+    // data.mst_part_id = 3815380063;
     const filter = { current_session: req.body.session_id };
     let doc = await User.findOne(filter);
        updatePartNoteState(

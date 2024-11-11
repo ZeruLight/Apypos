@@ -56,6 +56,7 @@ router.use("/api/present", presentRouter);
 router.use("/api/friend", friendRouter);
 router.use("/api/course", courseRouter);
 router.use("/api/purchase", purchaseRouter);
+router.use("/api/kpi", purchaseRouter);
 
 // For version json
 router.use("", versionRouter);

@@ -1,4 +1,4 @@
-import {app,io} from "./app";
+import {app} from "./app";
 import { makeDownloadList } from "./services/initResourceDownloadList";
 import mongoose from "mongoose";
 import {
@@ -42,25 +42,6 @@ mongoose
     app.listen(PORT, () => {
       console.log(`Apypos Server started on http://${IP}:${PORT}`);
     });
-
-    // Handle WebSocket connections
-    io.on('connection', (socket) => {
-      console.log('A user connected');
-
-      // Handle messages from the client
-      socket.on('message', (msg) => {
-        console.log('Message received:', msg);
-
-        // Broadcast the message to all clients
-        io.emit('message', msg);
-      });
-
-      // Handle disconnection
-      socket.on('disconnect', () => {
-        console.log('User disconnected');
-      });
-    });
-
 
 
   })

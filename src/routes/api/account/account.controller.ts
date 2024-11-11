@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-
 import { encryptAndSend } from "../../../services/crypto/encryptionHelpers";
 import User from "../../../model/user";
 export const migrationReady = async (req: Request, res: Response) => {
@@ -22,6 +21,7 @@ export const migrationAuth = async (req: Request, res: Response) => {
 export const registerAccount = async (req: Request, res: Response) => {
   const uu_id = req.body.uu_id;
   const secret_id = req.body.secret_id;
+
   //TODO: Generate random login,user and game ids
   const newUser = new User({
     uu_id: uu_id,
@@ -29,7 +29,7 @@ export const registerAccount = async (req: Request, res: Response) => {
     login_id: "login_id_on_reg",
     user_id: "user_id_on_reg",
     game_id: "83R552F3",
-    current_session: "session_id",
+    current_session: req.body.session_id,
     tutorial_step: 110,
   });
 
@@ -84,9 +84,15 @@ export const registerAccount = async (req: Request, res: Response) => {
 };
 
 export const loginAccount = async (req: Request, res: Response) => {
-  const filter = { current_session: req.body.session_id };
+  const filter = { uu_id: req.body.uu_id, secret_id: req.body.secret_id };
+  let update = { current_session: req.body.session_id };
 
-  const doc = await User.findOne(filter);
+  const doc = await User.findOneAndUpdate(filter, update, {
+    new: true,
+  });
+
+
+  
 
   //LOGIN IS MASSIVE REDO THIS NEEDS typing using the ::setup()
   const login = {
@@ -135,7 +141,9 @@ export const loginAccount = async (req: Request, res: Response) => {
       day: 0,
       today_item_list: {
         item_list: {
-          collections: [{ mst_collection_id: 0 }],
+          collections: [
+            // { mst_collection_id: 0 }
+          ],
           equipments: [
             {
               auto_potential_composite: 0,
@@ -207,18 +215,18 @@ export const loginAccount = async (req: Request, res: Response) => {
           ],
           monument: {
             augite: [
-              {
-                amount: 0,
-                mst_augite_id: 0,
-                mst_monument_type_id: 0,
-              },
+              // {
+              //   amount: 0,
+              //   mst_augite_id: 0,
+              //   mst_monument_type_id: 0,
+              // },
             ],
             hr: 0,
             mlv: {
-              atk: 1,
-              def: 1,
-              hp: 1,
-              sp: 1,
+              atk: 0,
+              def: 0,
+              hp: 0,
+              sp: 0,
             },
           },
           otomos: [
@@ -266,7 +274,9 @@ export const loginAccount = async (req: Request, res: Response) => {
       },
       tomorrow_item_list: {
         item_list: {
-          collections: [{ mst_collection_id: 0 }],
+          collections: [
+            //{ mst_collection_id: 0 }
+          ],
           equipments: [
             {
               auto_potential_composite: 0,
@@ -338,18 +348,18 @@ export const loginAccount = async (req: Request, res: Response) => {
           ],
           monument: {
             augite: [
-              {
-                amount: 0,
-                mst_augite_id: 0,
-                mst_monument_type_id: 0,
-              },
+              // {
+              //   amount: 0,
+              //   mst_augite_id: 0,
+              //   mst_monument_type_id: 0,
+              // },
             ],
             hr: 0,
             mlv: {
-              atk: 1,
-              def: 1,
-              hp: 1,
-              sp: 1,
+              atk: 0,
+              def: 0,
+              hp: 0,
+              sp: 0,
             },
           },
           otomos: [
@@ -474,18 +484,18 @@ export const loginAccount = async (req: Request, res: Response) => {
             ],
             monument: {
               augite: [
-                {
-                  amount: 0,
-                  mst_augite_id: 0,
-                  mst_monument_type_id: 0,
-                },
+                // {
+                //   amount: 0,
+                //   mst_augite_id: 0,
+                //   mst_monument_type_id: 0,
+                // },
               ],
               hr: 0,
               mlv: {
-                atk: 1,
-                def: 1,
-                hp: 1,
-                sp: 1,
+                atk: 0,
+                def: 0,
+                hp: 0,
+                sp: 0,
               },
             },
             otomos: [
@@ -552,7 +562,9 @@ export const loginAccount = async (req: Request, res: Response) => {
         {
           idx: 0,
           item_list: {
-            collections: [{ mst_collection_id: 0 }],
+            collections: [
+              //{ mst_collection_id: 0 }
+            ],
             equipments: [
               {
                 auto_potential_composite: 0,
@@ -624,18 +636,18 @@ export const loginAccount = async (req: Request, res: Response) => {
             ],
             monument: {
               augite: [
-                {
-                  amount: 0,
-                  mst_augite_id: 0,
-                  mst_monument_type_id: 0,
-                },
+                // {
+                //   amount: 0,
+                //   mst_augite_id: 0,
+                //   mst_monument_type_id: 0,
+                // },
               ],
               hr: 0,
               mlv: {
-                atk: 1,
-                def: 1,
-                hp: 1,
-                sp: 1,
+                atk: 0,
+                def: 0,
+                hp: 0,
+                sp: 0,
               },
             },
             otomos: [
@@ -694,7 +706,9 @@ export const loginAccount = async (req: Request, res: Response) => {
         {
           idx: 0,
           item_list: {
-            collections: [{ mst_collection_id: 0 }],
+            collections: [
+              //{ mst_collection_id: 0 }
+            ],
             equipments: [
               {
                 auto_potential_composite: 0,
@@ -766,18 +780,18 @@ export const loginAccount = async (req: Request, res: Response) => {
             ],
             monument: {
               augite: [
-                {
-                  amount: 0,
-                  mst_augite_id: 0,
-                  mst_monument_type_id: 0,
-                },
+                // {
+                //   amount: 0,
+                //   mst_augite_id: 0,
+                //   mst_monument_type_id: 0,
+                // },
               ],
               hr: 0,
               mlv: {
-                atk: 1,
-                def: 1,
-                hp: 1,
-                sp: 1,
+                atk: 0,
+                def: 0,
+                hp: 0,
+                sp: 0,
               },
             },
             otomos: [
