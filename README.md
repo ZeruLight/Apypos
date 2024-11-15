@@ -77,12 +77,12 @@ The game would download extra banners on start up for events. This is disabled b
 After setting up and Putting the resource files in you can run the project using:
 
   ```bash
-    yarn start
+  yarn start
   ```
 Alternatively you can run it in dev mode which enables nodemon for automatic file refresh
 
   ```bash
-    yarn run start:dev
+  yarn run start:dev
   ```
 
 Your server should start, and you should be able to access it on `http://localhost:80` or whatever port you've configured.
