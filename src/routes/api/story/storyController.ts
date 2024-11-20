@@ -57,6 +57,18 @@ const updateNodeState = (
   }
 };
 
+const updateMonument = (monument, augiteObj, hr, atk, def, hp, sp) => {
+  console.log("old monumnet", monument);
+
+  monument.augite.push(augiteObj);
+  console.log("augite added successfully to box.");
+  monument.hr = monument.hr + hr;
+  monument.mlv.atk = monument.mlv.atk + atk;
+  monument.mlv.def = monument.mlv.def + def;
+  monument.mlv.hp = monument.mlv.hp + hp;
+  monument.mlv.sp = monument.mlv.sp + sp;
+  console.log("new monumnet", monument);
+};
 
 export const updatePartNoteState = (
   oceanList,
@@ -74,8 +86,7 @@ export const updatePartNoteState = (
 
     if (part) {
       const note = part.exploration_note.note_contents.find(
-        (note) =>
-          note.mst_note_content_id === mst_note_content_id 
+        (note) => note.mst_note_content_id === mst_note_content_id
       );
 
       if (note) {
@@ -124,7 +135,7 @@ export const end = async (req: Request, res: Response) => {
     mst_story_id == 1603733826 &&
     mst_note_content_id == 0
   ) {
-    data.pop_list.push()
+    data.pop_list.push();
     data.open_list.open_node.push({ mst_node_id: 2278830943 });
     data.mst_part_id = 3815380063;
     const filter = { current_session: req.body.session_id };
@@ -170,8 +181,6 @@ export const end = async (req: Request, res: Response) => {
     await User.findByIdAndUpdate(doc.id, update);
   }
 
-
-
   if (
     mst_ocean_id == 3525753088 &&
     mst_part_id == 3815380063 &&
@@ -179,34 +188,40 @@ export const end = async (req: Request, res: Response) => {
     mst_story_id == 0 &&
     mst_note_content_id == 3758796689
   ) {
+    const hr = 0;
+    const atk = 0;
+    const def = 0;
+    const hp = 0;
+    const sp = 0;
 
-    data.pop_list.push( 
-        {
-        item_list:{
-          pop_id:2,
-          monument: {
-            augite: [
-              {
-                amount: 20,
-                mst_augite_id: 2047024966,
-                mst_monument_type_id: 1,
-              },
-            ], 
-            hr: 2,
-            mlv: {
-              atk: 100,
-              def: 100,
-              hp: 100,
-              sp: 100,
-            },
+    const augiteObj = {
+      amount: 20,
+      mst_augite_id: 2047024966,
+      mst_monument_type_id: 3,
+    };
+    data.pop_list.push({
+      item_list: {
+        pop_id: 1,
+        monument: {
+          augite: [augiteObj],
+          hr: hr,
+          mlv: {
+            atk: atk,
+            def: def,
+            hp: hp,
+            sp: sp,
           },
-        }
-      }
-      )
+        },
+      },
+    });
+
     // data.mst_part_id = 3815380063;
     const filter = { current_session: req.body.session_id };
     let doc = await User.findOne(filter);
-       updatePartNoteState(
+
+    updateMonument(doc.box.monument, augiteObj,hr, atk, def, hp, sp);
+
+    updatePartNoteState(
       doc.ocean_list,
       mst_ocean_id,
       mst_part_id,
@@ -214,7 +229,7 @@ export const end = async (req: Request, res: Response) => {
       3
     );
     console.log(doc.ocean_list);
-    const update = { ocean_list: doc.ocean_list };
+    const update = { ocean_list: doc.ocean_list, box: doc.box };
 
     await User.findByIdAndUpdate(doc.id, update);
   }

@@ -13,9 +13,12 @@ const app = express();
 // Middleware configurations
 app.use(express.json());
 
+
+
+
+
 // Middleware to capture raw data from 'application/octet-stream' content type
 app.use((req, res, next) => {
-  console.log(req.url)
   if (req.is("application/octet-stream")) {
     let data = [];
 
@@ -27,43 +30,39 @@ app.use((req, res, next) => {
       const rawBody = Buffer.concat(data);
       const decryptedBody = decryptAndParse(rawBody);
       req.body = decryptedBody;
-
-      // Log directly here for debugging
-      console.log("Decrypted Request Body:", JSON.stringify(req.body, null, '\t') );
+      console.log("--------------------------------------------------------------------")
+      console.log("Request Body:\n", JSON.stringify(req.body,null,"\t"));
 
       next();
     });
+
+    
 
     req.on("error", (err) => {
       console.error("Error processing raw request:", err);
       next(err);
     });
-  } else {
+  } 
+  else {
+    console.log("--------------------------------------------------------------------")
+    console.log("Request Body:\n", JSON.stringify(req.body,null,"\t"));
     next();
   }
 });
-
 app.use(
   expressWinston.logger({
     transports: [new winston.transports.Console()],
     format: winston.format.combine(
-      winston.format.colorize(),
-      winston.format.printf((info) => {
-        if (info.meta && info.meta.req && info.meta.res) {
-          const { req, res } = info.meta;
-          
-          let log = "---------------------------------\n";
-          log += `Request: ${JSON.stringify(req)} | Response: ${JSON.stringify(
-            res,
-          )}\n`;
-          return log;
-        }
-        return info.message;
+      winston.format.colorize({ all: true }),
+      winston.format.timestamp({
+        format: 'YYYY-MM-DD hh:mm:ss.SSS A',
       }),
+      winston.format.printf((info) => `[${info.timestamp}] ${info.level}: ${info.message} \n`),
     ),
     meta: true,
     expressFormat: true,
     colorize: true,
+
     dynamicMeta: (req, res) => {
       return {
         body: req.body,

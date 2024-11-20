@@ -1,6 +1,18 @@
 import { Request, Response } from "express";
 import { encryptAndSend } from "../../../services/crypto/encryptionHelpers";
 import User from "../../../model/user";
+
+function generateToken() {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  let token = '';
+  for (let i = 0; i < 8; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      token += characters[randomIndex];
+  }
+  return token;
+}
+
+
 export const migrationReady = async (req: Request, res: Response) => {
   const responseData ={
     migration_id:"transfer_id_to_do"
@@ -26,9 +38,9 @@ export const registerAccount = async (req: Request, res: Response) => {
   const newUser = new User({
     uu_id: uu_id,
     secret_id: secret_id,
-    login_id: "login_id_on_reg",
-    user_id: "user_id_on_reg",
-    game_id: "83R552F3",
+    login_id: generateToken(),
+    user_id: generateToken(),
+    game_id: generateToken(),
     current_session: req.body.session_id,
     tutorial_step: 110,
   });

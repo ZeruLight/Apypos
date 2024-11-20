@@ -30,10 +30,13 @@ export function encryptAndSend(data: object, res: Response,req: Request) {
     one_day_time:timeService.getOneDayTime(),
     now_time:timeService.getNowTime(),
     relogin_time:timeService.getRelogTime()}
-    console.log("Current Time Japan",timeService.getJapanTime())
+    // console.log("Current Time Japan",timeService.getJapanTime())
+  // console.log("Response: \n ############")
+  // console.log(responseData)
   const encryptedData = encryptionService.encrypt(JSON.stringify(responseData));
-  console.log("now_time:",responseData.now_time)
-  console.log("relogin_time:",responseData.relogin_time)
+  // console.log("now_time:",responseData.now_time)
+  // console.log("relogin_time:",responseData.relogin_time)
+  console.log("Response Body:\n", JSON.stringify(responseData,null,"\t"));
 
   res
     .status(200)

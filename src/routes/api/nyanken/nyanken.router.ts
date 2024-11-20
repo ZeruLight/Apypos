@@ -8,5 +8,6 @@ nyankanRouter.post("/progress", nyankanController.progress);
 nyankanRouter.post("/historyGet", nyankanController.historyGet);
 nyankanRouter.post("/questlist", nyankanController.QuestList);
 nyankanRouter.post("/start", notImplementedController.blankResponseEncrypted);
+nyankanRouter.post("/islandInfoGet", notImplementedController.blankResponseEncrypted);
 
 export default nyankanRouter;

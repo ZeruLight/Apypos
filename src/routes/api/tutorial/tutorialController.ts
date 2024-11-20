@@ -32,7 +32,7 @@ export const nyankenList = async (req: Request, res: Response) => {
   const data = {
     questDataList: [
       {
-        beginner_flag: 0,
+        beginner_flag: 1,
         close: 0,
         currency_ammount: 0,
         currency_type: 0,
@@ -51,8 +51,8 @@ export const nyankenList = async (req: Request, res: Response) => {
         play_result: 0,
         prob_effect_value: 0,
         reward_times: 0,
-        mst_banner_id: 6,
-        mst_nyanken_id: 0,
+        mst_banner_id: 9116,
+        mst_nyanken_id: 9116,
         name: "name",
         open: 1,
         play_limit: 1,
@@ -73,7 +73,7 @@ export const nyankenGo = async (req: Request, res: Response) => {
   const data = {
     currency_ammount: 1,
     discount_currency_ammount: 1,
-    mst_nyanken_id: 1,
+    mst_nyanken_id: 9116,
     rare_appear_time: 1,
     rare_flag: 1,
     return_time: 1,
@@ -83,14 +83,15 @@ export const nyankenGo = async (req: Request, res: Response) => {
 };
 
 export const nyankenResult = async (req: Request, res: Response) => {
+  //INCOMPLETE
   const data = {
     effect_id: 1,
-    is_island: 0,
+    is_island: 0, //triggers /api/nyanken/islandInfoGet
     island_result: {
       normal_result_list: [],
       special_result_list: [],
     },
-    tutorial_step: 6010, //3504
+    tutorial_step: 0xFFFF, //3504
   };
   encryptAndSend(data, res, req);
 };

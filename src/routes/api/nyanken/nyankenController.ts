@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { encryptAndSend } from "../../../services/crypto/encryptionHelpers";
 
 export const progress = (req: Request, res: Response) => {
+  //Initial Load
   const data = {
     balloon_color_id:0,
     currency_ammount:0,
@@ -9,7 +10,7 @@ export const progress = (req: Request, res: Response) => {
     island_reward_times:0,
     message_leaving:"message_leaving",
     message_waiting:"message_waiting",
-    mst_nyanken_id:0,
+    mst_nyanken_id:9116,
     nyanken_icon_id:0,
     prob_effect_value:0,
     rare_appear_time:0,
@@ -27,7 +28,7 @@ export const historyGet = (req: Request, res: Response) => {
     island_reward_times:0,
     message_leaving:"message_leaving",
     message_waiting:"message_waiting",
-    mst_nyanken_id:0,
+    mst_nyanken_id:9116,
     nyanken_icon_id:0,
     prob_effect_value:0,
     rare_appear_time:0,
@@ -61,8 +62,8 @@ export const QuestList = (req: Request, res: Response) => {
           play_result:0,
           prob_effect_value:0,
           reward_times:0,
-          mst_banner_id:6,
-          mst_nyanken_id:0,
+          mst_banner_id:9116,
+          mst_nyanken_id:9116,
           name:"name",
           open:1,
           play_limit:1,
