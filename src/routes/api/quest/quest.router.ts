@@ -31,7 +31,7 @@ questRouter.post("/forest/end", questForestController.questForestEnd);
 questRouter.post("/forest/info/get", questForestController.forestInfoGet);
 
 
-questRouter.post("/katamari/content/get", notImplemented.blankResponseEncrypted);
+// questRouter.post("/katamari/content/get", notImplemented.blankResponseEncrypted);
 
 
 

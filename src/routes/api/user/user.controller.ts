@@ -263,20 +263,21 @@ export const navigationNews = async(req: Request, res: Response) => {
  
   const data = {
     navigations:[
-      {
-        close_at:0,
-        end_at:0,
-        explain:"explain",
-        is_clear:0,
-        is_reward:0,
-        item_list:{},
-        limited_flag:0,
-        mst_navigation_id:1,
-        name:"Achivement Name",
-        progress:0,
-        progress_max:99,
-        start_at:1
-      }
+      //uncomment for achievement
+      // {
+      //   close_at:0,
+      //   end_at:0,
+      //   explain:"explain",
+      //   is_clear:0,
+      //   is_reward:0,
+      //   item_list:{},
+      //   limited_flag:0,
+      //   mst_navigation_id:1,
+      //   name:"Achivement Name",
+      //   progress:0,
+      //   progress_max:99,
+      //   start_at:1
+      // }
 
     ]
   };

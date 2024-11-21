@@ -32,33 +32,85 @@ export const nyankenList = async (req: Request, res: Response) => {
   const data = {
     questDataList: [
       {
-        beginner_flag: 1,
+        beginner_flag: 0,
         close: 0,
         currency_ammount: 0,
         currency_type: 0,
         discount_currency_ammount: 0,
+        end: 0,
         island_info: {
           area_info_list: [
             // {
-            //   clear_num:0,
-            //   last_reward_type:0,
-            //   reward_id:0,
-            //   reward_type:0,
-            // }
+            //   clear_num: 0,
+            //   last_reward_type: 0,
+            //   reward_id: 0,
+            //   reward_type: 0,
+            // },
           ],
-          area_reward_list: [],
+          area_reward_list: [
+            // {
+            //   normal_reward_list: [
+            //     {
+            //       is_reward: 1,
+            //       prob_type_id: 1,
+            //       reward_item: {
+            //         katamaris: [
+            //           {
+            //             mst_katamari_type_id: 1286668442,
+            //             equipment: [
+            //               {
+            //                 auto_potential_composite: 0,
+            //                 awaked: 0,
+            //                 created: 0,
+            //                 elv: 0,
+            //                 endAwakeCount: 0,
+            //                 endAwakeRemain: 0,
+            //                 end_remain: 0,
+            //                 equipment_id: "WD_AXE103",
+            //                 evolve_start_time: 0,
+            //                 favorite: 0,
+            //                 is_awake: 0,
+            //                 is_complete_auto_potential_composite: 0,
+            //                 mst_equipment_id: 3880313379,
+            //                 potential: 0,
+            //                 slv: 0,
+            //                 start_remain: 0,
+            //               },
+            //             ],
+            //           },
+            //         ],
+            //       },
+            //     },
+            //   ],
+            //   reward_id: 0,
+            //   special_reward_list: [
+            //     // {
+            //     //   is_reward: 0,
+            //     //   prob_type_id: 0,
+            //     //   reward_item: {
+            //     //     travel: [
+            //     //       {
+            //     //         amount: 0,
+            //     //         mst_travel_id: 0
+            //     //       },
+            //     //     ]
+            //     //   }
+            //     // },
+            //   ],
+            // },
+          ],
         },
-        play_result: 0,
+        play_result: 1,
         prob_effect_value: 0,
         reward_times: 0,
         mst_banner_id: 9116,
         mst_nyanken_id: 9116,
-        name: "name",
-        open: 1,
-        play_limit: 1,
+        name: "",
+        open: 0,
+        play_limit: 0,
         play_now: 0,
         quest_state: 0,
-        quest_time: 1,
+        quest_time: 0,
         sequence_no: 0,
         sort_key: 0,
         start: 0,
@@ -71,27 +123,118 @@ export const nyankenList = async (req: Request, res: Response) => {
 
 export const nyankenGo = async (req: Request, res: Response) => {
   const data = {
-    currency_ammount: 1,
-    discount_currency_ammount: 1,
+    currency_ammount: 0,
+    discount_currency_ammount: 0,
     mst_nyanken_id: 9116,
-    rare_appear_time: 1,
-    rare_flag: 1,
-    return_time: 1,
+    rare_appear_time: 0,
+    rare_flag: 0,
+    return_time: 0,
     tutorial_step: 6010, //3504
   };
   encryptAndSend(data, res, req);
 };
 
 export const nyankenResult = async (req: Request, res: Response) => {
-  //INCOMPLETE
   const data = {
     effect_id: 1,
     is_island: 0, //triggers /api/nyanken/islandInfoGet
     island_result: {
-      normal_result_list: [],
-      special_result_list: [],
+      normal_result_list: [
+        {
+          equipment: [
+            {
+              auto_potential_composite: 0,
+              awaked: 0,
+              created: 0,
+              elv: 0,
+              endAwakeCount: 0,
+              endAwakeRemain: 0,
+              end_remain: 0,
+              equipment_id: "WD_AXE103",
+              evolve_start_time: 0,
+              favorite: 0,
+              is_awake: 0,
+              is_complete_auto_potential_composite: 0,
+              mst_equipment_id: 3880313379,
+              potential: 0,
+              slv: 0,
+              start_remain: 0,
+            },
+          ],
+        },
+        // {
+        //   katamaris: [
+        //     {
+        //       mst_katamari_type_id: 1286668442,
+        //       equipment: [
+        //         {
+        //           auto_potential_composite: 0,
+        //           awaked: 0,
+        //           created: 0,
+        //           elv: 0,
+        //           endAwakeCount: 0,
+        //           endAwakeRemain: 0,
+        //           end_remain: 0,
+        //           equipment_id: "WD_AXE103",
+        //           evolve_start_time: 0,
+        //           favorite: 0,
+        //           is_awake: 0,
+        //           is_complete_auto_potential_composite: 0,
+        //           mst_equipment_id: 3880313379,
+        //           potential: 0,
+        //           slv: 0,
+        //           start_remain: 0,
+        //         },
+        //       ],
+        //     },
+        //   ],
+        //  }
+      ],
+      special_result_list: [
+        //{
+        //         "travel": [
+        //           {
+        //             "amount": "number",
+        //             "mst_travel_id": "number"
+        //           }
+        //         ]
+        //       }
+      ],
     },
-    tutorial_step: 0xFFFF, //3504
+    payments: [
+      //     {
+      //       "amount": "number",
+      //       "mst_payment_id": "number"
+      //     }
+    ],
+    result_list: {
+      katamaris: [
+        {
+          mst_katamari_type_id: 1286668442,
+          equipment: [
+            {
+              auto_potential_composite: 1,
+              awaked: 1,
+              created: 1,
+              elv: 1,
+              endAwakeCount: 1,
+              endAwakeRemain: 1,
+              end_remain: 1,
+              equipment_id: "WD_AXE103",
+              evolve_start_time: 1,
+              favorite: 1,
+              is_awake: 1,
+              is_complete_auto_potential_composite: 1,
+              mst_equipment_id: 3880313379,
+              potential: 1,
+              slv: 1,
+              start_remain: 1,
+            },
+          ],
+        },
+      ],
+    },
+    tutorial_step: 7010, //3504
   };
   encryptAndSend(data, res, req);
 };
@@ -117,7 +260,7 @@ export const TutorialFlagSet = async (req: Request, res: Response) => {
 
 export const TutorialQuestStart = async (req: Request, res: Response) => {
   const data = {
-    // For item drops to work 
+    // For item drops to work
     //block_list[1].block_instance_list needs a object with matching instance id to block_list[1].instance_id and serial_no to drop list and also pop_list
     //
     instance_data: {
@@ -168,13 +311,11 @@ export const TutorialQuestStart = async (req: Request, res: Response) => {
         },
         {
           block_idx: 2,
-          block_instance_list: [
-            { instance_id: 1, serial_no: 1 }
-          ],
+          block_instance_list: [{ instance_id: 1, serial_no: 1 }],
           drop_list: [
             {
               item_list: {
-                collections: [{mst_collection_id:484329504}],
+                collections: [{ mst_collection_id: 484329504 }],
                 equipments: [],
                 growth_items: [],
                 limiteds: [],
@@ -206,9 +347,7 @@ export const TutorialQuestStart = async (req: Request, res: Response) => {
           is_insert: 0,
           is_raid: 0,
           mst_block_id: 4056617285,
-          repop_list: [
-             { amount: 1, serial_no: 1 }
-          ],
+          repop_list: [{ amount: 1, serial_no: 1 }],
         },
         {
           block_idx: 3,
@@ -346,13 +485,12 @@ export const stepUP = async (req: Request, res: Response) => {
 };
 
 export const TutorialQuestEnd = async (req: Request, res: Response) => {
-
   const filter = { current_session: req.body.session_id };
   let doc = await User.findOne(filter);
-  let update = { tutorial_step: 5010 ,ocean_list:doc.ocean_list };
-  updatePartNoteState(doc.ocean_list,3525753088,3815380063,3758796689,2)
+  let update = { tutorial_step: 5010, ocean_list: doc.ocean_list };
+  updatePartNoteState(doc.ocean_list, 3525753088, 3815380063, 3758796689, 2);
   doc = await User.findOneAndUpdate(filter, update, {
-  new: true,
+    new: true,
   });
   const data = {
     otomo_result: [
@@ -373,9 +511,7 @@ export const TutorialQuestEnd = async (req: Request, res: Response) => {
             growth_items: [],
             limiteds: [],
             matatabis: [],
-            materials: [
-              { amount: 1, mst_material_id: 1726002341 },
-            ],
+            materials: [{ amount: 1, mst_material_id: 1726002341 }],
             monument: {
               augite: [],
               hr: 0,
@@ -395,7 +531,6 @@ export const TutorialQuestEnd = async (req: Request, res: Response) => {
             stamp_sets: [],
             zenny: 100,
           },
-          
         },
         {
           idx: 2,
@@ -406,9 +541,7 @@ export const TutorialQuestEnd = async (req: Request, res: Response) => {
             growth_items: [],
             limiteds: [],
             matatabis: [],
-            materials: [
-              { amount: 1, mst_material_id: 1714092880 },
-            ],
+            materials: [{ amount: 1, mst_material_id: 1714092880 }],
             monument: {
               augite: [],
               hr: 0,
@@ -428,7 +561,6 @@ export const TutorialQuestEnd = async (req: Request, res: Response) => {
             stamp_sets: [],
             zenny: 100,
           },
-          
         },
         {
           idx: 3,
@@ -439,9 +571,7 @@ export const TutorialQuestEnd = async (req: Request, res: Response) => {
             growth_items: [],
             limiteds: [],
             matatabis: [],
-            materials: [
-              { amount: 1, mst_material_id: 1642667129 },
-            ],
+            materials: [{ amount: 1, mst_material_id: 1642667129 }],
             monument: {
               augite: [],
               hr: 0,
@@ -461,8 +591,8 @@ export const TutorialQuestEnd = async (req: Request, res: Response) => {
             stamp_sets: [],
             zenny: 100,
           },
-          
-        },{
+        },
+        {
           idx: 4,
           value: 1,
           item_list: {
@@ -471,9 +601,7 @@ export const TutorialQuestEnd = async (req: Request, res: Response) => {
             growth_items: [],
             limiteds: [],
             matatabis: [],
-            materials: [
-              { amount: 1, mst_material_id: 1714092880  },
-            ],
+            materials: [{ amount: 1, mst_material_id: 1714092880 }],
             monument: {
               augite: [],
               hr: 0,
@@ -493,7 +621,6 @@ export const TutorialQuestEnd = async (req: Request, res: Response) => {
             stamp_sets: [],
             zenny: 100,
           },
-          
         },
       ],
       tutorial_normal_reward: {
@@ -507,7 +634,7 @@ export const TutorialQuestEnd = async (req: Request, res: Response) => {
             { amount: 1, mst_material_id: 1714092880 },
             { amount: 1, mst_material_id: 1642667129 },
             { amount: 1, mst_material_id: 1726002341 },
-            { amount: 1, mst_material_id: 1714092880  },
+            { amount: 1, mst_material_id: 1714092880 },
           ],
           monument: {
             augite: [],
