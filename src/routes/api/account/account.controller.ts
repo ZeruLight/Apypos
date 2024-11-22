@@ -113,7 +113,7 @@ export const loginAccount = async (req: Request, res: Response) => {
       banner_path: "coev_04480",
       day: 1,
       disp_name: "event_login_bonus_info",
-      end: "2025/12/30 00:05:00",
+      end: "2022/12/30 00:05:00",
       login_bonus_reward_list: [
         {
           idx: 1,

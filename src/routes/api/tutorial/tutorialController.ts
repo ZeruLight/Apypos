@@ -35,16 +35,17 @@ export const nyankenList = async (req: Request, res: Response) => {
         beginner_flag: 0,
         close: 0,
         currency_ammount: 0,
-        currency_type: 0,
+        currency_type: 1,
         discount_currency_ammount: 0,
         end: 0,
         island_info: {
           area_info_list: [
+            // if populated (List populates)
             // {
             //   clear_num: 0,
             //   last_reward_type: 0,
-            //   reward_id: 0,
-            //   reward_type: 0,
+            //   reward_id: 1,
+            //   reward_type: 2,
             // },
           ],
           area_reward_list: [
@@ -82,36 +83,36 @@ export const nyankenList = async (req: Request, res: Response) => {
             //       },
             //     },
             //   ],
-            //   reward_id: 0,
+            //   reward_id: 1,
             //   special_reward_list: [
-            //     // {
-            //     //   is_reward: 0,
-            //     //   prob_type_id: 0,
-            //     //   reward_item: {
-            //     //     travel: [
-            //     //       {
-            //     //         amount: 0,
-            //     //         mst_travel_id: 0
-            //     //       },
-            //     //     ]
-            //     //   }
-            //     // },
+            //     {
+            //       is_reward: 1,
+            //       prob_type_id: 0,
+            //       reward_item: {
+            //         travel: [
+            //           {
+            //             amount: 1,
+            //             mst_travel_id: 3913115050
+            //           },
+            //         ]
+            //       }
+            //     },
             //   ],
             // },
           ],
         },
-        play_result: 1,
+        play_result: 0,
         prob_effect_value: 0,
         reward_times: 0,
         mst_banner_id: 9116,
-        mst_nyanken_id: 9116,
-        name: "",
+        mst_nyanken_id: 2022298312,
+        name: "test",
         open: 0,
         play_limit: 0,
         play_now: 0,
         quest_state: 0,
         quest_time: 0,
-        sequence_no: 0,
+        sequence_no: 4, //setTaruNekoSeqId ???
         sort_key: 0,
         start: 0,
         time_display_flag: 0,
@@ -122,119 +123,79 @@ export const nyankenList = async (req: Request, res: Response) => {
 };
 
 export const nyankenGo = async (req: Request, res: Response) => {
+
+  const filter = { current_session: req.body.session_id };
+    let update = { tutorial_step: 6010 };
+
+  const doc = await User.findOneAndUpdate(filter, update, {
+    new: true,
+  });
   const data = {
     currency_ammount: 0,
     discount_currency_ammount: 0,
-    mst_nyanken_id: 9116,
+    mst_nyanken_id: 2022298312,
     rare_appear_time: 0,
     rare_flag: 0,
     return_time: 0,
-    tutorial_step: 6010, //3504
+    tutorial_step: doc.tutorial_step, 
   };
   encryptAndSend(data, res, req);
 };
 
 export const nyankenResult = async (req: Request, res: Response) => {
+  const filter = { current_session: req.body.session_id };
+    let update = { tutorial_step: 7010 };
+
+  const doc = await User.findOneAndUpdate(filter, update, {
+    new: true,
+  });
   const data = {
-    effect_id: 1,
+    effect_id: 42,
     is_island: 0, //triggers /api/nyanken/islandInfoGet
     island_result: {
       normal_result_list: [
-        {
-          equipment: [
-            {
-              auto_potential_composite: 0,
-              awaked: 0,
-              created: 0,
-              elv: 0,
-              endAwakeCount: 0,
-              endAwakeRemain: 0,
-              end_remain: 0,
-              equipment_id: "WD_AXE103",
-              evolve_start_time: 0,
-              favorite: 0,
-              is_awake: 0,
-              is_complete_auto_potential_composite: 0,
-              mst_equipment_id: 3880313379,
-              potential: 0,
-              slv: 0,
-              start_remain: 0,
-            },
-          ],
-        },
-        // {
-        //   katamaris: [
-        //     {
-        //       mst_katamari_type_id: 1286668442,
-        //       equipment: [
-        //         {
-        //           auto_potential_composite: 0,
-        //           awaked: 0,
-        //           created: 0,
-        //           elv: 0,
-        //           endAwakeCount: 0,
-        //           endAwakeRemain: 0,
-        //           end_remain: 0,
-        //           equipment_id: "WD_AXE103",
-        //           evolve_start_time: 0,
-        //           favorite: 0,
-        //           is_awake: 0,
-        //           is_complete_auto_potential_composite: 0,
-        //           mst_equipment_id: 3880313379,
-        //           potential: 0,
-        //           slv: 0,
-        //           start_remain: 0,
-        //         },
-        //       ],
-        //     },
-        //   ],
-        //  }
+        //Normal item list { equipment:[]}
       ],
       special_result_list: [
-        //{
-        //         "travel": [
-        //           {
-        //             "amount": "number",
-        //             "mst_travel_id": "number"
-        //           }
-        //         ]
-        //       }
+        {
+          travel: [
+            // {
+            //   amount: 0,
+            //   mst_travel_id: 0
+            // }
+          ],
+        },
       ],
     },
     payments: [
-      //     {
-      //       "amount": "number",
-      //       "mst_payment_id": "number"
-      //     }
+      // {
+      //   "amount": 1,
+      //   "mst_payment_id": 1573159746
+      // }
     ],
     result_list: {
-      katamaris: [
+      equipments: [
         {
-          mst_katamari_type_id: 1286668442,
-          equipment: [
-            {
-              auto_potential_composite: 1,
-              awaked: 1,
-              created: 1,
-              elv: 1,
-              endAwakeCount: 1,
-              endAwakeRemain: 1,
-              end_remain: 1,
-              equipment_id: "WD_AXE103",
-              evolve_start_time: 1,
-              favorite: 1,
-              is_awake: 1,
-              is_complete_auto_potential_composite: 1,
-              mst_equipment_id: 3880313379,
-              potential: 1,
-              slv: 1,
-              start_remain: 1,
-            },
-          ],
+          auto_potential_composite: 0,
+          awaked: 0,
+          created: 0,
+          elv: 0,
+          endAwakeCount: 0,
+          endAwakeRemain: 0,
+          end_remain: 0,
+          equipment_id: "WD_AXE103",
+          evolve_start_time: 0,
+          favorite: 0,
+          is_awake: 1,
+          is_complete_auto_potential_composite: 0,
+          mst_equipment_id: 3880313379,
+          potential: 0,
+          slv: 0,
+          start_remain: 0,
         },
       ],
     },
-    tutorial_step: 7010, //3504
+    tutorial_step: doc.tutorial_step,
   };
   encryptAndSend(data, res, req);
 };

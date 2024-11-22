@@ -10,7 +10,7 @@ export const progress = (req: Request, res: Response) => {
     island_reward_times: 5,
     message_leaving: "message_leaving",
     message_waiting: "message_waiting",
-    mst_nyanken_id: 9116, //banner id (nyan/neko)
+    mst_nyanken_id: 2022298312, //nyanken quests
     nyanken_icon_id: 0, //unk ids (looking at the files this might be 0 there are 5 icons but no ids other than 0000)
     prob_effect_value: 5,
     rare_appear_time: 5,
@@ -39,6 +39,8 @@ export const islandInfoGet = (req: Request, res: Response) => {
             is_reward: 1,
             prob_type_id: 0,
             reward_item: {
+
+              
               katamaris: [
                 {
                   mst_katamari_type_id: 1286668442,
