@@ -5,13 +5,9 @@ import { logger } from "./middleware/logger";
 import winston from "winston";
 
 
+
 import { decryptAndParse } from "./services/crypto/encryptionHelpers";
 const app = express();
-
-
-
-// Middleware configurations
-app.use(express.json());
 
 
 

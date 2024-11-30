@@ -2,10 +2,22 @@ import { Request, Response } from "express";
 import { encryptAndSend } from "../../../services/crypto/encryptionHelpers";
 
 export const get = (req: Request, res: Response) => {
+  // Incomplete
   const data = {
     banner_list:{
-      outer_banner_list:[],
-      resident_banner_list:[]
+      outer_banner_list:[
+        {
+          area_id:0,
+          outer_banner_id:"",
+          url:""
+        }
+      ],
+      resident_banner_list:[
+        {
+          resident_banner_id:6001,
+          url:""
+        }
+      ]
     },
     campaign_list:{
       event_campaign_list:[],

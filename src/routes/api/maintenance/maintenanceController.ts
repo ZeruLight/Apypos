@@ -6,7 +6,7 @@ export const checkMaintenance = (req: Request, res: Response) => {
   const data = {
     is_maintenance: 0,  //0 false 1 true
     title_banner: {
-      banner_id: "asev_00100",
+      banner_id: "6002",
       timeLeft: 300,
       type: 1,
       url: "gettitle",  
@@ -19,7 +19,7 @@ export const checkMaintenance = (req: Request, res: Response) => {
 export const getTitleImage = (req: Request, res: Response) => {
   const data = {
     title_banner: {
-      banner_id: "asev_00100",
+      banner_id: "6002",
       timeLeft: 300,
       type: 1,
       url: "gettitle",  

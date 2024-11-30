@@ -123,9 +123,8 @@ export const nyankenList = async (req: Request, res: Response) => {
 };
 
 export const nyankenGo = async (req: Request, res: Response) => {
-
   const filter = { current_session: req.body.session_id };
-    let update = { tutorial_step: 6010 };
+  let update = { tutorial_step: 6010 };
 
   const doc = await User.findOneAndUpdate(filter, update, {
     new: true,
@@ -137,14 +136,14 @@ export const nyankenGo = async (req: Request, res: Response) => {
     rare_appear_time: 0,
     rare_flag: 0,
     return_time: 0,
-    tutorial_step: doc.tutorial_step, 
+    tutorial_step: doc.tutorial_step,
   };
   encryptAndSend(data, res, req);
 };
 
 export const nyankenResult = async (req: Request, res: Response) => {
   const filter = { current_session: req.body.session_id };
-    let update = { tutorial_step: 7010 };
+  let update = { tutorial_step: 7010 };
 
   const doc = await User.findOneAndUpdate(filter, update, {
     new: true,
@@ -427,6 +426,12 @@ export const stepUP = async (req: Request, res: Response) => {
       update = { tutorial_step: 5010 };
       break;
     case 5010:
+      update = { tutorial_step: 6010 };
+      break;
+    case 6010:
+      update = { tutorial_step: 7010 };
+      break;
+    case 7010:
       update = { tutorial_step: 0xffff };
       break;
   }

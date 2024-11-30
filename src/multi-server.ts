@@ -3,6 +3,7 @@ const { createServer } = require("http");
 const { Server } = require("socket.io");
 
 const httpServer = createServer((req, res) => {
+  console.log(req,res)
   if (req.url !== "/") {
     res.writeHead(404);
     res.end("Not found");

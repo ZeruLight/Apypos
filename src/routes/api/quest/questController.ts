@@ -29,64 +29,188 @@ export const eventTicketFree = (req: Request, res: Response) => {
 };
 export const eventListAll = (req: Request, res: Response) => {
   const data = {
-    big_node_order_array: [{ big_node_id: 2374006206 }],
+    big_node_order_array: [
+      { big_node_id: 1587403803 },
+      { big_node_id: 541078208 },
+      { big_node_id: 4260004145 },
+      { big_node_id: 0 },
+      { big_node_id: 0 },
+      { big_node_id: 0 }
+    ],
     event_list: {
       assault: [
-        // {
-        //   appear_remain: 0,
-        //   big_node_banner_id: 7061,
-        //   disappear_remain: 0,
-        //   end_remain: 3600,
-        //   is_user_cleartime_ranking: 0,
-        //   middle_node_banner_id: 7061,
-        //   mst_event_node_id: 2374006206,
-        //   quest_list: [
-        //     {
-        //       clear_time: 0,
-        //       limited_amount: 0,
-        //       mst_limited_id: 1436577172,
-        //       mst_quest_id: 268132675,
-        //       quest_subtargets: [],
-        //       state: 0,
-        //     },
-        //   ],
-        //   recommended_flag: 1,
-        //   schedule_category: 1,
-        //   schedule_type: 1,
-        //   start_remain: 0,
-        //   state: 0,
-        // },
+        {
+          appear_remain: 0,  //Only start when this hits 0 
+          disappear_remain: 3600,
+          end_remain: 3600,
+          start_remain:0,  //Only show in UI when this hits 0
+          is_user_cleartime_ranking: 0,
+          big_node_banner_id: 7061,
+          middle_node_banner_id: 7061,
+          mst_event_node_id: 1587403803,
+          recommended_flag: 1,
+          schedule_category: "1",
+          schedule_type: 1,
+          state: 0,
+          quest_list: [
+            {
+              clear_time: 0,
+              limited_amount: 0,
+              mst_limited_id: 1436577172,
+              mst_quest_id: 2974642427,
+              quest_subtargets: [],
+              state: 1,
+            },
+            {
+              clear_time: 0,
+              limited_amount: 0,
+              mst_limited_id: 1436577172,
+              mst_quest_id: 675553601,
+              quest_subtargets: [],
+              state: 1,
+            },
+          ],
+        },
       ],
       m16: [
-          // {
-        //   appear_remain: 0,
-        //   big_node_banner_id: 7061,
-        //   disappear_remain: 0,
-        //   end_remain: 3600,
-        //   is_user_cleartime_ranking: 0,
-        //   middle_node_banner_id: 7061,
-        //   mst_event_node_id: 2374006206,
-        //   quest_list: [
-        //     {
-        //       clear_time: 0,
-        //       limited_amount: 0,
-        //       mst_limited_id: 1436577172,
-        //       mst_quest_id: 268132675,
-        //       quest_subtargets: [],
-        //       state: 0,
-        //     },
-        //   ],
-        //   recommended_flag: 1,
-        //   schedule_category: 1,
-        //   schedule_type: 1,
-        //   start_remain: 0,
-        //   state: 0,
-        // },
+        {
+          appear_remain: 0,  //Only start when this hits 0 
+          disappear_remain: 3600,
+          end_remain: 3600,
+          start_remain:0,  //Only show in UI when this hits 0
+          big_node_banner_id: 7061,
+          metamorphoze_type:1,
+          middle_node_banner_id: 7061,
+          mst_event_node_id: 541078208,
+          quest_list: [
+            {
+              clear_time: 0,
+              limited_amount: 0,
+              mst_limited_id: 1436577172,
+              mst_quest_id: 861842973,
+              quest_subtargets: [],
+              state: 1,
+            },
+            {
+              clear_time: 0,
+              limited_amount: 0,
+              mst_limited_id: 1436577172,
+              mst_quest_id: 1146723979,
+              quest_subtargets: [],
+              state: 1,
+            },
+          ],
+          recommended_flag: 1,
+          state: 0,
+        },
       ],
-      score: [],
-      standing: [],
-      ticket: [],
-      tour: [],
+      score: [
+        {
+          big_node_banner_id:7061,
+          end_remain:0,
+          middle_node_banner_id:7061,
+          mst_event_node_id:0,
+          quest_list: [
+            // {
+            //   clear_time: 0,
+            //   limited_amount: 0,
+            //   mst_limited_id: 1436577172,
+            //   mst_quest_id: 861842973,
+            //   quest_subtargets: [],
+            //   state: 0,
+            // },
+            // {
+            //   clear_time: 0,
+            //   limited_amount: 0,
+            //   mst_limited_id: 1436577172,
+            //   mst_quest_id: 1146723979,
+            //   quest_subtargets: [],
+            //   state: 0,
+            // },
+          ],
+          recommended_flag:0,
+          schedule_category:"",
+          start_remain:0,
+          state:0
+        }
+      ],
+      standing: [
+        {
+          big_node_banner_id:7061,
+          end_remain:0,
+          middle_node_banner_id:7061,
+          mst_event_node_id:0,
+          quest_list: [
+            // {
+            //   clear_time: 0,
+            //   limited_amount: 0,
+            //   mst_limited_id: 1436577172,
+            //   mst_quest_id: 861842973,
+            //   quest_subtargets: [],
+            //   state: 0,
+            // },
+            // {
+            //   clear_time: 0,
+            //   limited_amount: 0,
+            //   mst_limited_id: 1436577172,
+            //   mst_quest_id: 1146723979,
+            //   quest_subtargets: [],
+            //   state: 0,
+            // },
+          ],
+          recommended_flag:0,
+          schedule_category:"",
+          start_remain:0,
+          state:0
+        }
+      ],
+      ticket: [
+        {
+          banner_id:7061,
+          buy_end_remain:0,
+          buy_end_str:"",
+          buy_start_remain:0,
+          clear_time:0,
+          end_remain:0,
+          end_str:"",
+          is_push:0,
+          limited_amount: 0,
+          mst_limited_id: 0,
+          mst_quest_id: 0,
+          quest_subtargets: [],
+          start_remain: 0,
+          state: 0,
+        }
+      ],
+      tour: [
+        {
+          big_node_banner_id: 7061,
+          end_remain:36000,
+          middle_node_banner_id:7061,
+          mst_event_node_id:4260004145,
+          quest_list: [
+            // {
+            //   clear_time: 0,
+            //   limited_amount: 0,
+            //   mst_limited_id: 1436577172,
+            //   mst_quest_id: 861842973,
+            //   quest_subtargets: [],
+            //   state: 0,
+            // },
+            // {
+            //   clear_time: 0,
+            //   limited_amount: 0,
+            //   mst_limited_id: 1436577172,
+            //   mst_quest_id: 1146723979,
+            //   quest_subtargets: [],
+            //   state: 0,
+            // },
+          ],
+          schedule_category:"test",
+          start_remain:36000,
+          state:1
+        }
+      ],
     },
     next_day_start: 0,
     next_latest_node_infos: {
