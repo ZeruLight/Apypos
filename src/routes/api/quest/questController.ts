@@ -27,6 +27,114 @@ export const eventTicketFree = (req: Request, res: Response) => {
   };
   encryptAndSend(data, res, req);
 };
+export const eventNormalStart = (req: Request, res: Response) => {
+  /*
+  Request Body:
+ {
+        "session_id": "4466edfe-4191-4a72-968d-7cc3a06ff3cb",
+        "block_seq": 46,
+        "app_ver": "09.03.06",
+        "res_ver": 282,
+        "atk": 105,
+        "def": 85,
+        "increase": 0,
+        "is_auto": 0,
+        "kyokuti_field_id_1": -1,
+        "kyokuti_field_id_2": -1,
+        "kyokuti_field_value_1": -1,
+        "kyokuti_field_value_2": -1,
+        "mst_event_node_id": 1587403803,
+        "mst_quest_id": 2974642427,
+        "multi_room_id": 0,
+        "otomo": [],
+        "partner_id": "",
+        "power_up": 0,
+        "select_fix_equipment_idx": -1
+}
+  */
+  const data = {
+    instance_data: {
+      block_list: [
+        {
+          block_idx: 1,
+          block_instance_list: [
+            { instance_id: 0, serial_no: 1 }
+          ],
+          drop_list: [
+            //   {
+            //    item_list: {
+            //   },
+            //   serial_no: 0
+            // }
+          ],
+          instance_id: 0,
+          is_insert: 0,
+          is_raid: 0,
+          mst_block_id: 3821716939 ,
+          repop_list: [
+            { amount: 0, serial_no: 0 }
+          ]
+        },{
+          block_idx: 2,
+          block_instance_list: [
+            { instance_id: 0, serial_no: 1 }
+          ],
+          drop_list: [
+            //   {
+            //    item_list: {
+            //   },
+            //   serial_no: 0
+            // }
+          ],
+          instance_id: 0,
+          is_insert: 0,
+          is_raid: 0,
+          mst_block_id: 2059637873 ,
+          repop_list: [
+            { amount: 0, serial_no: 0 }
+          ]
+        },
+       
+      ],
+      bomb_lot_no: [{
+        bomb_lottery: [
+          { bomb_id: 0, weight: 0 }
+        ]
+      }],
+      enable_limited_skill_id_list: [],
+      enable_partner_limited_skill_id_list: [],
+      enable_talisman: 0,
+      enable_talisman_partner: 0,
+      enemy_point_list: [
+        {
+          mst_enemy_id: 1618895799,
+          point: 0,
+        }
+      ],
+      instance_id: 0,
+      mission_message: "start",
+      mst_quest_id: req.body.mst_quest_id,
+      multi_leave_check_time: 0,
+      point_info: {
+        armor_skill_value: 0,
+        campaign_value: 0,
+        get_point: 0,
+        guild_bingo_bonus: 0,
+        guild_total_point: 0,
+        m16_get_point: 0,
+        mst_event_info_id: 2740334662,
+        mst_event_point_id: 2992123464,
+        now_point: 0,
+        total_point: 0,
+      },
+      power_up: 0,
+      select_fix_equipment_idx: 0,
+      subtargets: [{ instance_id: 0, mst_subtarget_id: 0 }]
+    }
+  };
+  encryptAndSend(data, res, req);
+
+};
 export const eventListAll = (req: Request, res: Response) => {
   const data = {
     big_node_order_array: [

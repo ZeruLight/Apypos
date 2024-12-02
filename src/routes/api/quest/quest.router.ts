@@ -13,6 +13,7 @@ questRouter.post("/result/end", questController.questResultEnd);
 //Other
 questRouter.post("/island/map/all", questController.islandMapAll);
 questRouter.post("/eternal/all", questController.eternalAll);
+questRouter.post("/event/normal/start", questController.eventNormalStart);
 questRouter.post("/event/list/all", questController.eventListAll);
 questRouter.post("/event/ticket/free", questController.eventTicketFree);
 questRouter.post("/island/start", questController.islandStart);
@@ -31,7 +32,7 @@ questRouter.post("/forest/end", questForestController.questForestEnd);
 questRouter.post("/forest/info/get", questForestController.forestInfoGet);
 
 
-// questRouter.post("/katamari/content/get", notImplemented.blankResponseEncrypted);
+questRouter.post("/katamari/content/get", notImplemented.blankResponseEncrypted);
 
 
 
